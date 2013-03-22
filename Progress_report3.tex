@@ -1,0 +1,48 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\newtheorem{mydef}{Definition}
+\usepackage{url, hyperref}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\usepackage{fullpage}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\bibliographystyle{plain}
+
+\title{Progress report 3: Efficient segmentation algorithms for shark fin identification}
+\author{L. Cilli\'{e}, 16010450}
+\date{March 22, 2013}
+
+\begin{document}
+\maketitle
+\section{Introduction}
+Our focus this week is on an original basic implementation of GrowCut in Python.  It is based on the pseudo code given in Progress Report 2.  We aim to optimise this implementation by investigating different 'attacking' strategies, i.e. ways to update cell strength and cell label as well as reducing running time. We also look at \cite{RF}, where we become familiar with the Random Forest algorithm as a classification method.  
+
+
+\section{Discussion}
+First consider reducing the running time.  One way is to look at which cell features, i.e. difference in intensity combined with cell strength and cell strength alone, play a more important role in updating the cell label, i.e. foreground or background.   This will then help in finding redundant conditions in the code.  By eliminating those conditions the running time can be reduced.  It is concluded that neither of the before mentioned features can be omitted, although cell strength alone has a more significant role in finding the new cell label.  No new 'attacking' strategies have yet been implemented. \\
+
+\noindent The use of a rank filter is also being investigated.  A rank filter looks for the cell with maximum intensity in a certain region, specified by the user, and assigns that intensity to the cell it is being compared to.  This will better the way in finding the cells in a certain region with intensities that is much different from the intensity of the cell being considered. \\  
+
+\noindent From \cite{RF} we conclude the following.  The semantic segmentation algorithm is based on pixel wise object segmentation.  This is done by assigning category labels to a set of super pixels obtained by clustering the joint colour space and coordinate space using the mean shift algorithm.
+The method of interactive semantic segmentation as in \cite{RF} can be described as follows.  Each image is presented as a set of super pixels, where a super pixel is a set of pixels.  The first image in the data set must be segmented manually by labelling each super pixel.  An appearance model is now created.  The next image is now segmented automatically using the appearance model.  During the segmentation the user may correct mistakes by relabelling and thus updating the appearance model.  Every time the user approves the segmentation, the system learns from the new labelling information. As image segmentation continues, user time spent on correcting labels reduces and thus the rate of image labelling increases.  \\
+
+\noindent This method can be helpful in the sense that it works with a database of images of the same kind.  Since the shark fin images are all of the same type, it would be very beneficial to manually segment the first image only and then automatic segmentation will follow.  By updating the appearance model, one can also be certain that better segmentation results will follow.  \\  
+
+
+\section{Plan for the folowing weeks}
+In the coming weeks the plan is to further study the colour feature of the Python implementation of the GrowCut algorithm.  This has not yet been fixed.  The Random Forest algorithm must still be implemented to analyse the efficiency on the shark fin images. Regarding the optimisation of our own Python implementation of GrowCut, the 'Boundary smoothness', i.e. implementing strict conditions to determine the reaction of cells near edges, still needs to be investigated.  Different 'attacking' will also be investigated in the optimisation process.  Lastly, attention will be paid to Cython, a C-extension for Python.  This is to minimise the running time of GrowCut
+
+\newpage
+\bibliography{pr3}
+
+\end{document}
