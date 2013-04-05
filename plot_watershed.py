@@ -39,12 +39,9 @@ from skimage import filter
 image = img_as_ubyte(color.rgb2gray(io.imread('haai1.jpg')))
 image = transform.resize(image, (460, 680))
 
-markers = np.zeros_like(image, dtype=int)
-markers[0, 0] = 1
-markers[250, 350] = 2
+markers = morphology.label(peak_local_max(image, indices=False))
 
 edges = filter.sobel(image)
-
 labels = watershed(edges, markers, mask=image)
 
 fig, axes = plt.subplots(ncols=3, figsize=(8, 2.7))
