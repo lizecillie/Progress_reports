@@ -29,35 +29,26 @@ import numpy as np
 from skimage import transform
 from skimage import io
 import matplotlib.pyplot as plt
-from skimage.morphology import watershed, is_local_maximum
+from skimage.morphology import watershed
+from skimage.feature import peak_local_max
 from skimage import morphology
+from skimage import color
+from skimage import img_as_ubyte
+from skimage import filter
 
- # Generate an initial image with two overlapping circles
-#x, y = np.indices((80, 80))
-#x1, y1, x2, y2 = 28, 28, 44, 52
-#r1, r2 = 16, 20
-#mask_circle1 = (x - x1)**2 + (y - y1)**2 < r1**2
-#mask_circle2 = (x - x2)**2 + (y - y2)**2 < r2**2
+image = img_as_ubyte(color.rgb2gray(io.imread('haai1.jpg')))
+image = transform.resize(image, (460, 680))
 
-#image = np.logical_or(mask_circle1, mask_circle2)
-image = io.imread('haai1.jpg')
-image = skimage.img_as_ubyte(image)
-image = transform.resize(image, (460,680))
+markers = morphology.label(peak_local_max(image, indices=False))
 
-# Now we want to separate the two objects in image
-# Generate the markers as local maxima of the distance to the background
-from scipy import ndimage
-distance = ndimage.distance_transform_edt(image)
-#local_maxi = is_local_maximum(distance, image, np.ones((3, 3)))
-local_maxi = morphology.is_local_maximum(np.zeros((460,680,3)), np.zeros((460,680,3)), np.ones((3,3)))
-markers = ndimage.label(local_maxi)[0]
-labels = watershed(-distance, markers, mask=image)
+edges = filter.sobel(image)
+labels = watershed(edges, markers, mask=image)
 
 fig, axes = plt.subplots(ncols=3, figsize=(8, 2.7))
 ax0, ax1, ax2 = axes
 
-ax0.imshow(image, cmap=plt.cm.gray, interpolation='nearest')
-ax1.imshow(-distance, cmap=plt.cm.jet, interpolation='nearest')
+ax0.imshow(edges, cmap=plt.cm.gray, interpolation='nearest')
+ax1.imshow(markers, cmap=plt.cm.jet, interpolation='nearest')
 ax2.imshow(labels, cmap=plt.cm.spectral, interpolation='nearest')
 
 for ax in axes:
