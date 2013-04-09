@@ -6,3 +6,6 @@ p1:
 p2:
 	$(MAKE) -f Makefile.include TARGET=Progress_report2
 
+p3:
+	$(MAKE) -f Makefile.include TARGET=Progress_report3
+
