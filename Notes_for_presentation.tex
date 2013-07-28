@@ -30,15 +30,17 @@ Just as humans are identified by their fingerprints, sharks have an unique
 dorsal fin structure.  Because of environmental issues, estimating the
 population of a specific shark specie, for example, has become a hot topic under
 marine scientists.  The idea behind the project originated when PhD
-student in Marine Biology, Ms. Sara Andreotti, came(nader?) to Stefan for help
-regarding a problem she encountered in her thesis???. \\ 
+student in Marine Biology, Ms. Sara Andreotti, approached Dr. van der Walt for
+help
+regarding a problem she encountered in her research?. \\ 
 
 The problem presented was
 as follows.  The work Ms. Andreotti does involve going out into the ocean and
 taking photographs of shark fins to later study their ecological and behavioural
-patterns, for example.  Now all these photos get put into a databasis. But to
+patterns, for example.  Now all these photos get put into a databases. But to
 make any reliable conclusions, like have we seen this shark before?  How many
-times? Where? When?, there has to be some form of (??) in the databasis. 
+times? Where? When?, there has to be some form of identification in the
+databases. 
 Naturally one would put all the images of a certain shark in one category.  We
 already know that it is possible to categorize each image, because of the
 uniqueness of the dorsal fin.  One would just have to find a way to match new
@@ -54,7 +56,7 @@ matching process.  By doing so, the burden on marine scientists can be readily
 reduced.
 
 
-\section{Image segmentation -- Background}
+\section{Background -- Image segmentation}
 Image segmentation is well known in the field of image processing.  The basic
 principle of image segmentation is partitioning an image into multiple segments
 for some or other reason, for example to locate an object or boundaries in the
@@ -64,7 +66,7 @@ the same label share a certain property and forms a segment.  \\
 Well known
 examples where image processing is applied is in medical imaging to locate
 tumours, face and fingerprint recognition as well as in video surveillance.  To
-name only a few.  These days there are a lot of different techniques to do image
+name only a few.  Today there are a number of different techniques to do image
 segmentation of which a few will be discussed later.
 
 
@@ -74,41 +76,36 @@ quality, only including the fin, the foreground and background properties can
 vary significantly as you can see here.
 
 
-\section{Algorithms from scikit-image}
-Watershed and Random Walker.
+\section{Algorithms from the scikit-image Python library}
+The first algorithms we investigated, were the Watershed and Random Walker
+algorithms included in the scikit-image library.  We did not have much success
+with them and decided to turn our attention to a much simpler, yet more powerful
+algorithm.
 
 
-\section{GrowCut algorithm}
+\section{The region growing GrowCut segmentation algorithm}
 The GrowCut algorithm is an interactive, multi-label segmentation
 algorithm for N-dimensional images.  The algorithm is based on cellular
-automata, ie.,  the user labels a few pixels and the rest of the image is then
-segmented automatically by a cellular automaton. 
+automata, i.e.,  the user labels a few pixels and the rest of the image is then
+segmented automatically by a cellular automaton. \\
 
-Played around with the damping function and the attacking strategie.
-Future work include playing around with the damping function and investigating other attacking strategies/evolution rule.
+Anyone familiar with cellular automata will know that the most important part
+is the evolution rule, by which the state of the cell, in our case foreground or
+background, is updated.  \\
 
+In other words, after specifying a neighbourhood around the cells, in our case pixels, each iteration consists of
+the neighbouring cells 'attacking' the cell under consideration.  The state of this cell is then updated
+according to the evolution rule. This procedure then iterates throughout the image until each pixel has a label, either foreground or background.
 
-\section{DARWIN}
-DARWIN is an open source software program, developed by students of Eckerd
-College in the United States. It allows marine scientists to maintain
-information for the study of various behavioural and ecological patterns of
-bottle nose dolphins.  Recently there appeared an article in Die Burger claiming
-that this software could also be used for the identification and matching of
-shark fin images to estimate the Great White shark population in the Gansbaai
-area.  Well, this claim was tested by Ms. Andreotti and she found that in only
-54\% of the cases the correct matching took place.  Making this software highly
-unreliable. This then motivated us further to produce a reliable algorithm for
-this purpose.  But the question remained: which algorithm are we going to use?
+So this approach really was very successful.\\
 
-
-\section{Work in progress}
-We found that the Grow Cut algorithm performed the best on our data and focused
-our attention on that.  We are currently putting together a pipeline for Sara,
-in collaboration with Tessa Marais, a MsC student in Applied Mathematics,
-Stellenbosch University. The pipeline must be such that the input data is the
-shark fin image and the output is a specific classification of that image. We divided the
-latter into smaller pieces, where I am currently working on a robust
-segmentation of the foreground, i.e. the fin.  As mentioned before, the
+What we are currently busy with, in collaboration with one of the Masters
+student, is we are building a pipeline for Ms. Andreotti
+such that the input data is the shark fin image and the output is a specific
+classification of that image,
+also then telling us, for example, whether that shark has been seen before, where and when
+it has been seen.
+As mentioned before, the
 algorithm requires the specification of a few foreground and background pixels. 
 But since the orientation of the images are not all the same, we are immediately
 faced with a problem. How to choose the coordinates universally?  Well, one
@@ -116,14 +113,24 @@ solution is to make sure the orientation of all the images are the same.
 Other ideas are still in progress.
 
 
+\section{DARWIN -- Alternative software}
+Recently there appeared an article in Die Burger claiming
+that this software could also be used for the identification and matching of
+shark fin images to estimate the Great White shark population in the Gansbaai
+area.  Well, this claim was tested by Ms. Andreotti and she found that in only
+54\% of the cases the correct matching took place.  Making this software highly
+unreliable. This then motivated us further to produce a reliable piece of
+software for this purpose.
+
+
 \section{Conclusions}
+Future work include playing with the damping function in the GrowCut algorithm and considering other
+attacking strategies.
 One of the most satisfying aspects of this project for me is the practical
 application of the topic in the real world.  Not only that, but also the
 privilege we have to actually present our software to Ms. Andreotti, in aid of
 her PhD.   \\
 
-Thank you very much for listening and if anyone is interested to see a demo of
-the Grow Cut algorithm, feel free to come and ask me!
-
+Thank you very much for listening.
 
 \end{document}
