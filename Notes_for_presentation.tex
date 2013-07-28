@@ -1,0 +1,57 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\newtheorem{mydef}{Definition}
+\usepackage{url, hyperref}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\usepackage{fullpage}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\bibliographystyle{plain}
+
+\title{Project Proposal Presentation: Efficient segmentation algorithms for shark fin identification}
+\author{L. Cilli\'{e}, 16010450}
+\date{1 August 2013}
+
+\begin{document}
+\maketitle
+\section{Motivation and problem statement}
+
+
+\section{Image segmentation -- Background}
+Image segmentation is well known in the field of image processing.  The basic principle of image segmentation is partitioning an image into multiple segments for some or other reason, for example to locate an object or boundaries in the image.  In other words each pixel is assigned a label and all the pixels with the same label share a certain property and forms a segment.  Well known examples where image processing is applied is in medical imaging to locate tumors, face and fingerprint recognition as well as in video surveillance.  To name only a few.  These days there are a lot of different techniques to do image segmentation of which a few will be discussed later.
+
+
+\section{Algorithms from scikit-image}
+Watershed: Method?\\
+
+Random Walker: Method?
+
+
+\section{GrowCut algorithm}
+
+
+
+\section{DARWIN}
+DARWIN is an open source software program, developed by students of Eckerd College in the United States. It allows marine scientists to maintain information for the study of various behavioral and ecological patterns of bottlenose dolphins.  Recently there appeared an article in Die Burger claiming that this software could also be used for the identification and matching of shark fin images to estimate the Great White shark population in the Gansbaai area.  Well, this claim was tested by Ms. Andreotti and she found that in only 54\% of the cases the correct matching took place.  Making this software highly unreliable. This then motivated us further to produce a reliable algorithm for this purpose.  But the question remained: which algorithm are we going to use?
+
+\section{Work in progress}
+We found that the Grow Cut algorithm performed the best on our data and focused our attention on that.  We are currently putting together a pipeline for Sara, in collaboration with Tessa Marais, a MsC student in Applied Mathematics, Stellenbosch University. The pipeline must be such that the input data is the shark fin image and the output is a specific classification. We divided the latter into smaller pieces, where I am currently working on a robust segmentation of the foreground, i.e. the fin.  As mentioned before, the algorithm requires the specification of a few foreground and background pixels.  But since the orientation of the images are not all the same, we are immediately faced with a problem. How to choose the coordinates universally?  Well, one solution is to make sure the orientation of all the images are the same.
+Other ideas are still in progress.
+
+\section{Conclusions}
+One of the most satisfying aspects of this project for me is the practical apllication of the topic in the real world.  Not only that, but also the privilege we have to actually present our software to Ms. Andreotti, in aid of her PhD.   \\
+
+Thank you very much for listening and if anyone is interested to see a demo of the Grow Cut algorithm, feel free to come and ask me!
+
+
+\end{document}
