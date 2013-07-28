@@ -11,11 +11,12 @@
 \setbeamertemplate{caption}[numbered]
 \setbeamertemplate{footline}[frame number]
 \usepackage{subfigure}
-
+\newcommand{\myitem}{\item[$-$]}
 
 \title{Efficient segmentation algorithms for shark fin identification}
 \subtitle{Honours project proposal}
-\author{Lize Cilli\'{e}, Project advisors: Dr. S.J. van der Walt and Prof. B.M. Herbst}
+\author{Lize Cilli\'{e}, Project advisors: Dr. S.J. van der Walt and Prof. B.M.
+Herbst}
 \date{1 August 2013}
 \institute{Department of Applied Mathematics, Stellenbosch University}
 
@@ -30,18 +31,18 @@
 \item The value of analysing shark fins.
 \item Motivation behind the project.
 \begin{itemize}
- \item 
- \item
+ \myitem PhD student in Marine Biology at Stellenbosch University, Ms. Sara
+Andreotti.
+ \myitem Databasis of shark fin images that needed to be catogorized for studying
+behavioural and ecological patterns of sharks.
 \end{itemize}
 \item Methodology.
 \begin{itemize}
- \item 
- \item
+ \myitem We will investigate different methods for classifying the foreground and
+background.
+ \myitem Segmenting the foreground successfully for matching. 
 \end{itemize}
-\item Advantage for biological researchers.
-\begin{itemize}
- \item
-\end{itemize}
+\item Advantage for marine scientists.
 \item Examples of shark fins.
 \end{itemize}
 \end{frame}
@@ -67,18 +68,19 @@
 \begin{itemize}
 \item Basic principle of segmentation algorithms.
 \begin{itemize}
-\item Partitioning a digital image into multiple segments to locate an object or boundaries in the image.
+\myitem Partitioning a digital image into multiple segments to locate an object or
+boundaries in the image.
 \end{itemize}
 \item Applications.
 \begin{itemize}
-\item Medical imaging to locate tumours.
+\myitem Medical imaging to locate tumours.
 \begin{figure}
  \centering
- \includegraphics[width=2in]{braintumor.jpg}
- \caption{}
+ \includegraphics[width=1.7in, height=0.8in]{braintumor.jpg}
+ \caption{Braintumours detected by means of image segmentation}
  \end{figure}
-\item Face and fingerprint recognition.
-\item Video surveillance.
+\myitem Face and fingerprint recognition.
+\myitem Video surveillance.
 \end{itemize}
 \item Many different techniques.
 \end{itemize}
@@ -89,41 +91,40 @@
 \begin{itemize}
 \item The Watershed\cite{scikit-image} algorithm.
 \begin{itemize}
-\item Method?
-\item Challenge?
+\myitem Method?
+\myitem Challenge?
 \end{itemize}
 \begin{figure}
  \centering
  \includegraphics[width=2in]{watershed.png}
- \caption{}
+ \caption{The Watershed algorithm}
  \end{figure}
 
 \item The Random Walker\cite{scikit-image} algorithm.
 \begin{itemize}
-\item Method?
-\item Challenge?
+\myitem Method?
+\myitem Challenge?
 \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{The region growing Grow Cut segmentation algorithm}
+\frametitle{The region growing GrowCut segmentation algorithm}
 \begin{itemize}
-\item How does it work?
+\item Dr. Nathan Faggian\cite{growcut}, Senior Technical Officer at Bureau
+of Meteorology, Australia.
+\item How does it work? 
 \begin{itemize}
-\item Cellular Automata\cite{cellularoutomata}.
-\item
-\item
-\item Attacking strategies/evolution rule.
+\myitem Cellular Automata\cite{cellularoutomata}.
+\myitem
+\myitem Attacking strategies/evolution rule.
 \end{itemize}
 \begin{figure}
 \centering
-\includegraphics[width=1.5in]{haaim.png}
-\caption{}
+\includegraphics[width=1.7in, height=0.8in]{haaim.png}
+\caption{The GrowCut algorithm}
 \end{figure}
-\item Dr. Nathan Faggian\cite{NathanFaggian}.
-\item Python implementation and Cython.
-\item 
+\item
 \end{itemize}
 \end{frame}
 
@@ -131,20 +132,27 @@
 \begin{frame}
 \frametitle{DARWIN -- Alternative software}
 \begin{itemize}
-\item DARWIN\cite{Darwin} is open source software, allowing marine scientists to maintain information for the study of various behavioural and ecological patterns of bottlenose dolphins.
-\item The software also makes use of images of the dorsal fin of the dolphin, on which segmentation then takes place.
+\item DARWIN\cite{Darwin} is open source software, allowing marine scientists to
+maintain information for the study of various behavioural and ecological
+patterns of bottlenose dolphins.
+\item The software also makes use of images of the dorsal fin of the dolphin, on
+which segmentation then takes place.
 \end{itemize}
 \begin{figure}
  \centering
- \includegraphics[width=1.5in]{Darwin.jpg}
+ \includegraphics[width=1.5in, height=0.9in]{Darwin.jpg}
  \caption{User interface}
 \end{figure}
 \end{frame}
 
 \begin{frame}
 \begin{itemize}
-\item An article\cite{DieBurger} appeared in Die Burger claiming that this software could also be used to estimate the size of the Great White shark population in the Gansbaai area by means of shark fin identification and matching.
-\item The validity of this claim was tested by Ms. Andreotti, which found it to be unreliable in 54\% of the cases.
+\item An article\cite{Darwin} appeared in Die Burger claiming that this
+software could also be used to estimate the size of the Great White shark
+population in the Gansbaai area by means of shark fin identification and
+matching.
+\item The validity of this claim was tested by Ms. Andreotti, which found it to
+be unreliable in 54\% of the cases.
 \item Motivation.
 \end{itemize}
 \end{frame}
@@ -153,15 +161,18 @@
 \begin{frame}
 \frametitle{Work in progress} 
 \begin{itemize}
-\item We found that the Grow Cut algorithm performed the best on our data and focused our attention on that.
-\item Putting together a pipeline for Ms. Andreotti, in collaboration with Tessa Marais, a MsC student in Applied Mathematics, Stellenbosch University.
-\item Current challenges and solutions.
+\item We found that the GrowCut algorithm performed the best on our data and
+focused our attention on that.  Also because of its simplicity and easy
+implementation in a language such as Python.
+\item Putting together a pipeline for Ms. Andreotti, in collaboration with Tessa
+Marais, a MsC student in Applied Mathematics, Stellenbosch University.
+\item Current challenges and possible solutions.
 \begin{itemize}
-\item Specification of the coordinates and setting the orientation.
+\myitem Specification of the coordinates and setting the orientation.
 \end{itemize}
 \item Future work.
 \begin{itemize}
-\item
+\myitem Damping function and attacking strategies.
 \end{itemize}
 \end{itemize}
 \end{frame}
@@ -170,8 +181,8 @@
 \begin{frame}
 \frametitle{Conclusions}
 \begin{itemize}
-\item Satisfaction of a project of this degree.
-\item Demo of the Grow Cut algorithm.
+\item Joy and satisfaction of a project of this degree.
+\item Demo of the GrowCut algorithm.
 \end{itemize}
 \end{frame}
 
