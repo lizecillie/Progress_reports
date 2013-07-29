@@ -18,7 +18,7 @@
 \author{Project advisors: Dr. S.J. van der Walt and Prof. B.M.
 Herbst}
 \date{1 August 2013}
-\institute{Department of Applied Mathematics, Stellenbosch University}
+\institute{Division of Applied Mathematics, Stellenbosch University}
 
 \begin{document}
 \maketitle
@@ -33,16 +33,16 @@ Herbst}
 \myitem Sharks have an unique dorsal fin structure.
 \myitem The value of analysing shark fins.
 \myitem PhD student in Marine Biology at Stellenbosch University, Ms. Sara
-Andreotti.
-\myitem Databases of shark fin images that needed to be categorized for studying
-behavioural and ecological patterns of sharks.
+Andreotti and her work.
+\myitem Databases of shark fin images.
+\myitem Goal: group photos of a certain individual together.
+\myitem Focus on distribution and movements of sharks rather than developing new software.
 \myitem Advantage for marine scientists.
 \end{itemize}
 \item Methodology.
 \begin{itemize}
  \myitem We will investigate different methods for classifying the foreground and
-background.
- \myitem Segmenting the foreground successfully for matching. 
+background and segmenting the foreground successfully for matching. 
 \end{itemize}
 
 \item Examples of shark fins.
@@ -51,7 +51,7 @@ background.
 
 
 \begin{frame}
-\frametitle{Examples of shark fin images showing the unique dorsal part}
+\frametitle{Examples of shark fin images showing the unique part of the dorsal fin}
 \begin{figure}
 \centering
 \mbox{\subfigure[Shark fin 1]{\includegraphics[width=1in]{haai1.jpg}} \quad
@@ -92,27 +92,32 @@ boundaries in the image.
 \frametitle{Algorithms from the scikit-image Python library}
 \begin{itemize}
 \item The Watershed\cite{scikit-image} algorithm.
+\begin{figure}
+ \centering
+ \includegraphics[width=1.7in, height=0.8in]{watershed.png}
+ \caption{The Watershed algorithm}
+ \end{figure}
 \item The Random Walker\cite{scikit-image} algorithm.
+\item The GrowCut algorithm performed exceptionally well.
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{The region growing GrowCut segmentation algorithm}
 \begin{itemize}
-\item The GrowCut\cite{alg} algorithm is an interactive, multi-label segmentation algorithm for N-dimensional images.
+\item The GrowCut algorithm is an interactive, multi-label segmentation algorithm for N-dimensional images\cite{alg}.
 \item How does it work? 
 \begin{itemize}
-\myitem Cellular Automata\cite{cellularoutomata}.
-\myitem Attacking strategies/evolution rule.
+\myitem Based on Cellular Automata\cite{cellularoutomata}.
+\myitem Evolution rule/attacking strategy.
 \myitem Neighbouring cells 'attack' the cell under consideration.  The state of this cell is then updated
 according to the evolution rule.
 \end{itemize}
 \begin{figure}
 \centering
-\includegraphics[width=1.7in, height=0.8in]{haaim.png}
-\caption{The GrowCut algorithm(GUI by Dr. Nathan Faggian of the Bureau of Meteorology, Australia)}
+\includegraphics[width=2in, height=1in]{demo1.png}
+\caption{The GrowCut algorithm}
 \end{figure}
-\item Success!
 \end{itemize}
 \end{frame}
 
@@ -121,14 +126,9 @@ according to the evolution rule.
 \begin{itemize}
 \item Building a pipeline such that the input data is the shark fin image and the output is a specific
 classification of that image.
-\item Challenges.
-\begin{itemize}
-\myitem Specification of coordinates.
-\end{itemize}
-\item Possible solution.
-\begin{itemize}
-\myitem Orientation.
-\end{itemize}
+\item Would want the orientation of all images to be the same.
+\item Easier to specify foreground and background pixels.
+\item Extract unique part of fin.
 \end{itemize}
 \end{frame}
 
@@ -136,13 +136,13 @@ classification of that image.
 \begin{frame}
 \frametitle{DARWIN -- Alternative software}
 \begin{itemize}
- \item An article\cite{Darwin} appeared in Die Burger claiming that this
+ \item An article appeared in Die Burger claiming that this
  software could also be used to estimate the size of the Great White shark
  population in the Gansbaai area by means of shark fin identification and
- matching.
+ matching.\cite{Darwin}
  \item The validity of this claim was tested by Ms. Andreotti, which found it to
- be unreliable in 54\% of the cases.
- \item Motivation.
+ be reliable in 54\% of the cases.
+ \item Produce more robust and reliable software.
 \end{itemize}
 \begin{figure}
  \centering
@@ -157,9 +157,9 @@ classification of that image.
 \begin{itemize}
 \item Future work
 \begin{itemize}
- \myitem Attacking strategies.
+ \myitem Pipeline and evolution rule.
 \end{itemize}
-\item Joy and satisfaction of a project of this degree.
+\item Joy and satisfaction of a project of such applicability.
 \end{itemize}
 \end{frame}
 
