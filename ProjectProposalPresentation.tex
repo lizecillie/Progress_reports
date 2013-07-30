@@ -15,8 +15,8 @@
 
 \title{Efficient segmentation algorithms for shark fin identification}
 \subtitle{Honours project proposal by Lize Cilli\'{e}}
-\author{Project advisors: Dr. S.J. van der Walt and Prof. B.M.
-Herbst}
+\author{Project advisors: Prof. B.M.
+Herbst and Dr. S.J. van der Walt}
 \date{1 August 2013}
 \institute{Division of Applied Mathematics, Stellenbosch University}
 
@@ -39,12 +39,13 @@ Andreotti and her work.
 \myitem Focus on distribution and movements of sharks rather than developing new software.
 \myitem Advantage for marine scientists.
 \end{itemize}
+\pause
 \item Methodology.
 \begin{itemize}
  \myitem We will investigate different methods for classifying the foreground and
 background and segmenting the foreground successfully for matching. 
 \end{itemize}
-
+\pause
 \item Examples of shark fins.
 \end{itemize}
 \end{frame}
@@ -60,7 +61,7 @@ background and segmenting the foreground successfully for matching.
 \begin{figure}
 \centering
 \mbox{\subfigure[Shark fin 3]{\includegraphics[width=1in]{haai3.jpg}} \quad
-\subfigure[Shark fin 4]{\includegraphics[width=1in]{haaim.png}}}
+\subfigure[Shark fin 4]{\includegraphics[width=1in]{haai4.jpg}}}
 \end{figure}
 \end{frame}
 
@@ -73,6 +74,7 @@ background and segmenting the foreground successfully for matching.
 \myitem Partitioning a digital image into multiple segments to locate an object or
 boundaries in the image.
 \end{itemize}
+\pause
 \item Applications.
 \begin{itemize}
 \myitem Medical imaging to locate tumours.
@@ -84,6 +86,7 @@ boundaries in the image.
 \myitem Face and fingerprint recognition.
 \myitem Video surveillance.
 \end{itemize}
+\pause
 \item Many different techniques.
 \end{itemize}
 \end{frame}
@@ -98,6 +101,7 @@ boundaries in the image.
  \caption{The Watershed algorithm}
  \end{figure}
 \item The Random Walker\cite{scikit-image} algorithm.
+\pause
 \item The GrowCut algorithm performed exceptionally well.
 \end{itemize}
 \end{frame}
@@ -106,6 +110,7 @@ boundaries in the image.
 \frametitle{The region growing GrowCut segmentation algorithm}
 \begin{itemize}
 \item The GrowCut algorithm is an interactive, multi-label segmentation algorithm for N-dimensional images\cite{alg}.
+\pause
 \item How does it work? 
 \begin{itemize}
 \myitem Based on Cellular Automata\cite{cellularoutomata}.
@@ -113,6 +118,7 @@ boundaries in the image.
 \myitem Neighbouring cells 'attack' the cell under consideration.  The state of this cell is then updated
 according to the evolution rule.
 \end{itemize}
+\pause
 \begin{figure}
 \centering
 \includegraphics[width=2in, height=1in]{demo1.png}
@@ -140,10 +146,13 @@ classification of that image.
  software could also be used to estimate the size of the Great White shark
  population in the Gansbaai area by means of shark fin identification and
  matching.\cite{Darwin}
+ \pause
  \item The validity of this claim was tested by Ms. Andreotti, which found it to
  be reliable in 54\% of the cases.
+ \pause
  \item Produce more robust and reliable software.
 \end{itemize}
+\pause
 \begin{figure}
  \centering
  \includegraphics[width=1.5in, height=0.9in]{Darwin.jpg}
@@ -153,13 +162,15 @@ classification of that image.
 
 
 \begin{frame}
-\frametitle{Conclusions}
+\frametitle{Concluding remarks}
 \begin{itemize}
 \item Future work
 \begin{itemize}
  \myitem Pipeline and evolution rule.
 \end{itemize}
+\pause
 \item Joy and satisfaction of a project of such applicability.
+\item Thank project advisors for their guidance and support.
 \end{itemize}
 \end{frame}
 
