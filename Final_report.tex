@@ -73,7 +73,8 @@ software, we can make a substantial contribution by researching this topic.
 \begin{figure}[H]
 \centering
 \mbox{\subfigure[Shark fin 1]{\includegraphics[width=2in]{haai1.jpg}} \quad
-\subfigure[Shark fin 2]{\includegraphics[width=2in]{haai4.jpg}}}
+\subfigure[Shark fin 2]{\includegraphics[width=2in]{haai4.jpg}} \quad
+\subfigure[Shark fin 3]{\includegraphics[width=2in]{haai2.jpg}}}
 \caption{Examples of shark fin images}
 \end{figure}
 
@@ -94,8 +95,18 @@ fingerprint recognition and video surveillance.
 
 
 \section{Overview of pipeline}
+\subsection{Segmentation}
 
-\subsection{}
+\subsection{Fin detection}
+
+\subsection{Dynamic Time Warping}
+Dynamic time warping (DTW) is an algorithm used for measuring the similarity between two sequences which may vary in time or speed.
+It differs from normal comparison in the sense that it accomadates sequences of different lengths, warping the sequences for the best fit.
+Any data that can be represented linearly can be analyzed with DTW.  For this part of the pipeline, the output from fin detection is used as input.
+
+The path and distance is given as the output of this algorithm. The path defines the minimum cost path through the local cost matrix. 
+The distance is the cost of that path. 
+The lower the cost, the better the fit. For every fin compared to every other fin in the database, a cost will be calculated.
 
 \subsection{DARWIN -- Alternative software}
 The DARWIN software package is well known when it comes to aquiring important data about Great White sharks.  It was initially implemented by undergraduate 
@@ -111,6 +122,48 @@ unreliable.  Below is an image showing the DARWIN user interface.
 \end{figure}
 
 \section{Segmentation Algorithms}
+\subsection{Different categories and techniques}
+Segmentation algorithms can be arranged into different categories \cite{is}. 
+Some of the most well-known categories are
+\begin{itemize}
+ \item \textbf{Thresholding}  Possibly the most basic method in the
+field.  It relies on selecting the best threshold value to convert a gray-scale
+image into a binary image.  Segmentation is then done on the binary image. 
+ \item \textbf{Clustering} For these methods, the $K$-means algorithm
+is typically used to partition an image into $K$ clusters, whereafter
+segmentation will follow.
+ \item \textbf{Compression-based} This method conjectures that the
+optimal segmentation is the one that minimizes, when considering all possible
+segmentations, the coding length of the data.
+ \item \textbf{Histogram-based}  This is a very efficient method in the
+sense that it only passes through all the pixels once.  Then a histogram of all
+the pixels in the image is computed.  The peaks and valleys, colour intensity
+can be used as a measure, are then used to locate clusters in the image.
+ \item \textbf{Edge detection} Edge detection is a well-developed
+field in image processing.  Region boundaries and edges are closely related,
+since there are usually a sharp adjustment at region boundaries.  Edge detection
+techniques can therefore be used as a bases for different segmentation
+algorithms.  
+ \item \textbf{Region growing} This method takes as input not only
+the image, but also a set of seeds, which marks the objects to be segmented. 
+Thereafter neighbouring, unallocated pixels are compared to the specific seed
+point.  That is how the region grows iteratively.  The pixels are compared using
+the difference between intensity value and the region's mean.  Pixels are then
+allocated to a specific region if that difference is a minimum.  The process
+terminates if all pixels belong to a region.  
+ \item \textbf{Watershed transformation} See description in .    
+ \item \textbf{Graph partitioning} This method is based on modelling
+the image as a weighted, undirected graph, where the nodes represent the pixels
+and the weights represent the similarity between neighbouring pixels. Then the
+graph is partitioned into clusters according to a specific criterion.  Each
+partition is then considered an object segment in the image.       
+ \item \textbf{Trainable} Also known as Neural network segmentation,
+this process involves processing the small areas of an image by means of an
+artificial neural network or a set of neural networks.  Thereafter, using the
+categories recognised by the network, the decision-making mechanism marks the
+image accordingly and segmentation is done.
+\end{itemize}
+
 \subsection{Cellular automaton}
 A cellular automaton consists of a grid of cells, where each one of the cells
 can be in a finite number of states, say on and off.  This must be specified
@@ -239,9 +292,9 @@ image is shown below.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=4in,height=2in]{watershed.png} 
+\includegraphics[width=5in,height=2in]{watershed.png} 
 \label{fig1}
-\caption{Result using the watershed algorithm}
+\caption{The watershed algorithm}
 \end{figure}
 
 \noindent The first image shows the gradient image of the original shark fin
@@ -257,8 +310,9 @@ an effective segmentation can be done.
 
 \subsection{}
 
+
 \section{Conclusions}
-\subsection{}
+\subsection{Research}
 
 \subsection{}
 
