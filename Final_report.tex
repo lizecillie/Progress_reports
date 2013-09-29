@@ -23,7 +23,7 @@
 
 \title{Honors Project: Efficient segmentation algorithms for shark fin
 identification}
-\author{L. Cilli\'{e}, 16010450}
+\author{L. Cilli\'{e}, 16010450, Supervisors: Prof. B.M. Herbst and Dr. S.J van der Walt}
 \date{October 18, 2013}
 
 \begin{document}
@@ -33,7 +33,7 @@ identification}
 \tableofcontents
 
 \newpage
-\section{Introduction and background}
+\section{Problem statement and motivation}
 \subsection{}
 Just as humans are identified by their fingerprints, sharks have an unique
 dorsal fin structure.  Identifying shark sightings these days can be very
@@ -51,13 +51,13 @@ the burden on biological researchers can be reduced.
 
 \begin{figure}[H]
 \centering
-\mbox{\subfigure[Shark fin 1]{\includegraphics[width=1in]{haai1.jpg}} \quad
-\subfigure[Shark fin 2]{\includegraphics[width=1in]{haai2.jpg}}}
+\mbox{\subfigure[Shark fin 1]{\includegraphics[width=2in]{haai1.jpg}} \quad
+\subfigure[Shark fin 2]{\includegraphics[width=2in]{haai2.jpg}}}
 \caption{Examples of shark fin images}
 \end{figure}
 
 
-\subsection{}
+\subsection{Background}
 Image segmentation is well known in the field of image processing.  It consists
 of partitioning a digital image into multiple segments for some or other reason.
  Usually to make the image easier to analyse.  In other words each pixel is
@@ -68,7 +68,12 @@ in medical imaging to locate tumours for example, face and
 fingerprint recognition and video surveillance.
 
 
-\section{}
+\section{Overview of pipeline}
+
+\subsection{}
+
+\subsection{DARWIN -- Alternative software}
+The DARWIN software package is a well known.
 
 
 \section{Segmentation Algorithms}
@@ -172,23 +177,23 @@ of certain parts of the code.  A sobel filter was used in detecting the edges.  
 \noindent It can clearly be seen that the modified version gives better results around the edges, which is essential in the case of the shark fin images.  
 
 \subsection{Random Walker}
-The basic method, as
-described in \cite{rw} and \cite{rw1}, is as follows.  The user labels a few
+The method, as
+described in \cite{rw}, is as follows.  The user labels a few
 pixels as foreground or background for example.  This is then called the seeds. 
 A random walker is then released from each of the unlabelled pixels. 
 Thereafter, the probability that a certain pixel's random walker first arrives
-at a seed with a label, is computed.  In other words, if the user labels $n$
-pixels, each with a different label, then the probability that the random walker
-leaving the pixel will first arrive at a certain labelled pixel, must be
+at a specific seed, is computed.  In other words, if the user labels $n$
+pixels, each with a different label, then the probability that a random walker
+leaving the pixel will first arrive at a certain seed, must be
 computed.  The latter is done by modelling the image as a weighted graph, where
 the weight of an edge reflects the similarity(intensity values) between pixels,
-and solving a system of linear equations.  The pixel is then assigned the label
+and then solving a system of linear equations.  The pixel is then assigned the label
 of the seed for which it is most likely to reach.  The process is repeated until
 each pixel is assigned a specific label. 
 
 
 \subsection{Watershed}
-One of the first algorithms tested was the classic watershed algorithm, as
+Another segmentation algorithm is the classic watershed algorithm, as
 implemented in \cite{scikit}.  The algorithm starts with user-defined markers,
 called seed points, which can be viewed as little holes in the image, whereafter
 pixel values are treated as a topography/landscape.  The algorithm then floods
@@ -216,6 +221,7 @@ an effective segmentation can be done.
 
 \subsection{}
 
+\subsection{}
 
 \section{Conclusions}
 \subsection{}
