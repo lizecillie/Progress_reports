@@ -47,14 +47,39 @@ non-trivial problem.  This project aims to investigate efficient segmentation
 algorithms for shark fin identification.  The approach will consist of
 evaluating (by means of a computer) different methods for classifying foreground
 and background, as well as segmenting the foreground successfully.  By doing so,
-the burden on biological researchers can be reduced. 
+the burden on biological researchers can be reduced.  \\
+
+The idea behind the project originated when PhD
+student in Marine Biology, Ms. Sara Andreotti, approached Dr. van der Walt for
+help regarding a problem she encountered in her research.
+The problem presented was
+as follows.  The work Ms. Andreotti does involve going out into the ocean,
+taking photographs of shark fins and identifying those sharks to later study their ecological and behavioural
+patterns, for example.
+All these photos are put into a databases. But to
+make any reliable conclusions, such as: Have we seen this shark before?  How
+many
+times? Where? When?, there has to be some form of identification in the
+databases. 
+The goal is to group photos of a certain individal together.  We
+already know that it is possible to categorize each image, because of the
+uniqueness of the dorsal fin.  One would just have to find a way to match new
+input data with existing images in the databases.  One can only imagine the
+diffuculty in doing this manually. 
+Since Ms. Andreotti's
+focus is on the distribution and movements of sharks and not on developing new
+software, we can make a substantial contribution by researching this topic. 
 
 \begin{figure}[H]
 \centering
 \mbox{\subfigure[Shark fin 1]{\includegraphics[width=2in]{haai1.jpg}} \quad
-\subfigure[Shark fin 2]{\includegraphics[width=2in]{haai2.jpg}}}
+\subfigure[Shark fin 2]{\includegraphics[width=2in]{haai4.jpg}}}
 \caption{Examples of shark fin images}
 \end{figure}
+
+Note the unique dorsal part of the fin.  Although theses photos are of a good
+quality, only including the fin, the foreground and background properties can
+vary significantly.
 
 
 \subsection{Background}
@@ -73,11 +98,20 @@ fingerprint recognition and video surveillance.
 \subsection{}
 
 \subsection{DARWIN -- Alternative software}
-The DARWIN software package is a well known.
+The DARWIN software package is well known when it comes to aquiring important data about Great White sharks.  It was initially implemented by undergraduate 
+student Mark Allen of Eckerd College under the supervision of John Stewman.  Lately it was used to estimate the Great White
+shark population in the Gansbaai area by means of shark fin identification and matching.  This claim was tested by Ms. Andreotti and she found that in only
+54\% of the cases the correct matching took place, making this software highly
+unreliable.  Below is an image showing the DARWIN user interface. 
 
+\begin{figure}
+ \centering
+ \includegraphics[width=3in]{Darwin.jpg}
+ \caption{User interface}
+\end{figure}
 
 \section{Segmentation Algorithms}
-\subsection{What is a cellular automaton?}
+\subsection{Cellular automaton}
 A cellular automaton consists of a grid of cells, where each one of the cells
 can be in a finite number of states, say on and off.  This must be specified
 beforehand.  Around each cell, a set of cells, called the cell's neighbourhood,
