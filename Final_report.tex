@@ -20,14 +20,37 @@
 \usepackage{algpseudocode}
 \bibliographystyle{plain}
 
-
-\title{Honors Project: Efficient segmentation algorithms for shark fin
-identification}
-\author{L. Cilli\'{e}, 16010450, Supervisors: Prof. B.M. Herbst and Dr. S.J van der Walt}
-\date{October 18, 2013}
-
 \begin{document}
-\maketitle
+\begin{titlepage}
+\begin{center}
+\textsc{\LARGE Stellenbosch University}\\[1.5cm]
+
+\textsc{\Large Applied Mathematics Honours Project}\\[0.5cm]
+
+{ \huge \bfseries Efficient segmentation algorithms for shark fin
+identification \\[0.4cm] }
+
+\begin{minipage}{0.4\textwidth}
+\begin{center} \large
+\emph{Author:}\\
+Lize Cilli\'{e}
+\end{center}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{center} \large
+\emph{Project Advisors:} \\
+Prof. B.M. Herbst and Dr. S.J van der Walt
+\end{center}
+\end{minipage}
+
+\vfill
+
+\vspace{20mm}
+
+18 October 2013
+\end{center}
+
+\end{titlepage}
 
 \newpage
 \tableofcontents
@@ -131,7 +154,7 @@ The distance is the cost of that path.
 The lower the cost, the better the fit. For every fin compared to every other fin in the database, a cost will be calculated.
 
 \subsection{DARWIN -- Alternative software}
-The DARWIN software package is well known when it comes to aquiring important data about Great White sharks.  It was initially implemented by undergraduate 
+The DARWIN\cite{Darwin} software package is well known when it comes to aquiring important data about Great White dolphins.  It was initially implemented by undergraduate 
 student Mark Allen of Eckerd College under the supervision of John Stewman.  Lately it was used to estimate the Great White
 shark population in the Gansbaai area by means of shark fin identification and matching.  This claim was tested by Ms. Andreotti and she found that in only
 54\% of the cases the correct matching took place, making this software highly
@@ -324,6 +347,8 @@ image.  The second image shows the pixels that are identified as a local maxima.
  The third image shows how the basins flooded until watershed lines are reached.
  Putting the correct segments together, which will require a lot of hard work,
 an effective segmentation can be done.
+
+\subsection{Graphcuts}
 
 \section{Results}
 \subsection{}
