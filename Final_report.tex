@@ -147,7 +147,13 @@ fingerprint recognition and video surveillance.  See \ref{examples}.
 \end{figure}
 
 \section{Overview of pipeline}
+
+
 \subsection{Orientation}
+To ease further processes, we determine the orientation of the sharkfin in the image.  The method of Principal Components Analysis (PCA) is used here.
+
+Below we show a sampled sharkfin image where the orientation is detected using PCA.
+
 \begin{figure}[H]
  \centering
  \includegraphics[width=3in]{orientation.jpg}
@@ -193,7 +199,7 @@ At each point in the image, the gradient approximations can be combined to give 
 .\]
 
 The sobel operator applied to one of the sharkfin images is shown in \ref{sobel}.  Note that this operator only works on a grayscale image.
-We can see the edge of the $G$ image on the right clearly.
+We can see the edge of the fin in the $G$ image on the right clearly.
 
 \begin{figure}[H]
  \centering
@@ -201,6 +207,8 @@ We can see the edge of the $G$ image on the right clearly.
  \caption{The Sobel operator}
  \label{sobel}
 \end{figure}
+
+We have now managed to extract the edges from the image.
 
 We .
 
@@ -432,18 +440,24 @@ an effective segmentation can be done.
 \section{Results}
 \subsection{}
 
-\subsection{}
 
 \subsection{}
+
+
+\subsection{}
+
 
 
 \section{Conclusions}
 \subsection{Research}
 
+
 \subsection{}
+
 
 \subsection{Future work}
 User interface.
+
 
 \newpage
 \bibliography{final}
