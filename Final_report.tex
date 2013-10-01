@@ -143,6 +143,18 @@ fingerprint recognition and video surveillance.
 \subsection{Segmentation}
 
 \subsection{Fin detection}
+The objective is to identify the serrated part of dorsal sharkfin. In order to do this we need to extract the latter part of the fin such that it can be
+compared with other fins.  We use the Sobel operator to identify the edge and ease further analysis.  The sobel operator applied to one of the 
+sharkfin images is shown in \ref{sobel}.  Note that this operator only works on a grayscale image.
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=3in]{sobel.jpg}
+ \caption{The Sobel operator}
+ \label{sobel}
+\end{figure}
+
+
 
 \subsection{Dynamic Time Warping}
 Dynamic time warping (DTW) is an algorithm used for measuring the similarity between two sequences which may vary in time or speed.
