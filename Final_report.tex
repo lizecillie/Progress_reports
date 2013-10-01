@@ -155,6 +155,7 @@ fingerprint recognition and video surveillance.  See \ref{examples}.
  \label{orientation}
 \end{figure}
 
+
 \subsection{Segmentation}
 
 
@@ -162,7 +163,37 @@ fingerprint recognition and video surveillance.  See \ref{examples}.
 The objective is to identify the serrated part of dorsal sharkfin. In order to do this we need to extract the latter part of the fin such that it can be
 compared with other fins.  We use the Sobel operator, well-known in edge detection, to identify the edge and ease further analysis.  
 The sobel operator is a discrete differential operator that approximates the gradient of the image intensity function.
+It uses two different $3 \times 3$ masks which are convolved with the original image to approximate the derivatives, both in the horizontal $x$-
+and the vertical $y$-direction.  
+
+\begin{mydef}
+Convolution is defined as .
+\end{mydef}
+
+Define $A$ as the input image and $G_x$ and $G_y$ as the gradient images in the $x$-and $y$-direction respectively,
+after convolving with $A$.  $M_x$ and $M_y$ is given by
+
+\[
+ M_x = \begin{pmatrix*}
+        1 & 0 & -1 \\
+        2 & 0 & -2 \\
+        1 & 0 & -1
+       \end{pmatrix*}
+\mbox{ , }
+ M_y = \begin{pmatrix*}
+        1 & 2 & 1 \\
+        0 & 0 & 0 \\
+        -1 & -2 & -1
+       \end{pmatrix*}
+.\]
+
+At each point in the image, the gradient approximations can be combined to give the gradient magnitude image, calculated  as
+\[
+ G = \sqrt{G_x^2+G_y^2}
+.\]
+
 The sobel operator applied to one of the sharkfin images is shown in \ref{sobel}.  Note that this operator only works on a grayscale image.
+We can see the edge of the $G$ image on the right clearly.
 
 \begin{figure}[H]
  \centering
@@ -272,8 +303,8 @@ Game of Life.  See \cite{gol} for further details.
 
 \begin{figure}[H]
 \centering
-\mbox{\subfigure{\includegraphics[width=1in]{VonNeumann.png}} \quad
-\subfigure{\includegraphics[width=1in]{Moore.png}}} \caption{Von Neumann and
+\mbox{\subfigure{\includegraphics[width=2in]{VonNeumann.png}} \quad
+\subfigure{\includegraphics[width=2in]{Moore.png}}} \caption{Von Neumann and
 Moore neighbourhood systems \cite{n}}
 \end{figure}
 
@@ -412,7 +443,7 @@ an effective segmentation can be done.
 \subsection{}
 
 \subsection{Future work}
-
+User interface.
 
 \newpage
 \bibliography{final}
