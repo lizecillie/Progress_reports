@@ -153,7 +153,7 @@ fingerprint recognition and video surveillance.  See \ref{examples}.
 
 
 \subsection{Orientation}
-To ease further processes, we determine the orientation of the sharkfin in the image.  The method of Principal Components Analysis (PCA) is used here.
+To ease further processes, we determine the orientation of the sharkfin in the image.  The method of Principal Components Analysis (PCA) is used here. \\
 
 Below we show a dummy sharkfin image where the orientation is detected using PCA.
 
@@ -165,8 +165,19 @@ Below we show a dummy sharkfin image where the orientation is detected using PCA
 \end{figure}
 
 
+
+This algorithm gives us the orientation of the sharkfin in terms of the direction in which the shark is swimming, as from the front, 
+i.e. if the shark is swimming to the left, the algorithm returns right and vice versa. This will then help to identify a few foreground-and background
+pixels needed in the segmentation process.
+
 \subsection{Segmentation}
 
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=3in]{segmenation.jpg}
+ \caption{Growcut segmentation.}
+ \label{segmentation}
+\end{figure}
 
 \subsection{Fin detection}
 The objective is to identify the serrated part of dorsal sharkfin. In order to do this we need to extract the latter part of the fin such that it can be
