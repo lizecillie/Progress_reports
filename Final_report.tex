@@ -135,16 +135,34 @@ of partitioning a digital image into multiple segments for some or other reason.
 assigned a label and all the pixels with the same label share a certain
 property.  Image segmentation is typically used to locate an object or
 boundaries in an image.  Well known examples where image processing are used is
-in medical imaging to locate tumours for example, face and
-fingerprint recognition and video surveillance.
+in medical imaging to locate tumours, for example, face and
+fingerprint recognition and video surveillance.  See \ref{examples}.
 
+\begin{figure}[H]
+\centering
+\mbox{\subfigure[]{\includegraphics[width=2in]{braintumor.jpg}} \quad
+\subfigure[]{\includegraphics[width=2in]{face.jpg}}}
+\caption{Image segmentation.}
+\label{examples}
+\end{figure}
 
 \section{Overview of pipeline}
+\subsection{Orientation}
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=3in]{orientation.jpg}
+ \caption{Orientation detected by means of PCA.}
+ \label{orientation}
+\end{figure}
+
 \subsection{Segmentation}
+
 
 \subsection{Fin detection}
 The objective is to identify the serrated part of dorsal sharkfin. In order to do this we need to extract the latter part of the fin such that it can be
-compared with other fins.  We use the Sobel operator to identify the edge and ease further analysis.  The sobel operator applied to one of the 
+compared with other fins.  We use the Sobel operator, well-known in edge detection, to identify the edge and ease further analysis.  
+The sobel operator is a discrete differential operator.
+The sobel operator applied to one of the 
 sharkfin images is shown in \ref{sobel}.  Note that this operator only works on a grayscale image.
 
 \begin{figure}[H]
@@ -152,6 +170,15 @@ sharkfin images is shown in \ref{sobel}.  Note that this operator only works on 
  \includegraphics[width=3in]{sobel.jpg}
  \caption{The Sobel operator}
  \label{sobel}
+\end{figure}
+
+We .
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=4in]{finpath.jpg}
+ \caption{Fin path detected}
+ \label{fin}
 \end{figure}
 
 
@@ -164,6 +191,14 @@ Any data that can be represented linearly can be analyzed with DTW.  For this pa
 The path and distance is given as the output of this algorithm. The path defines the minimum cost path through the local cost matrix. 
 The distance is the cost of that path. 
 The lower the cost, the better the fit. For every fin compared to every other fin in the database, a cost will be calculated.
+
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=3in]{dtw.jpg}
+ \caption{Fins compared as arrays.}
+ \label{dtw}
+\end{figure}
 
 \subsection{DARWIN -- Alternative software}
 The DARWIN\cite{Darwin} software package is well known when it comes to aquiring important data about Great White dolphins.  It was initially implemented by undergraduate 
