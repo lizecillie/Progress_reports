@@ -153,18 +153,22 @@ fingerprint recognition and video surveillance.  See \ref{examples}.
 
 
 \subsection{Orientation}
-To ease further processesand analysis, we determine the orientation of the shark fin in the image.  
+To ease further processes and analysis, we determine the orientation of the shark fin in the image in terms of the direction in which the shark is swimming, as viewed from the front, 
+i.e. if the shark is swimming to the left, the algorithm returns right and vice versa. This will then help to identify a few foreground-and background
+pixels needed in the segmentation process.  
 The method of Principal Components Analysis (PCA) is used here.  When applying PCA, we are interested in finding the direction of maximum variation in 
-the data.  Suppose we have $K$ data points, $\mathbf{x}_k,$ for $k=1,2, \ldots ,K$. This is done by computing a covariance matrix, $C_{\mathbf{x}}$,
+the data.  Suppose we have $K$, $n$-dimensional, data points, $\mathbf{x}_k,$ for $k=1,2, \ldots ,K$. We compute a covariance matrix, $C$,
 \[
  C_{\mathbf{x}} = \frac{1}{K} \sum_{k=1}^{K} \mathbf{x}_{k}\mathbf{x}_{k}^{T} - \mathbf{m}_{\mathbf{x}}\mathbf{m}_{\mathbf{x}}^{T} 
 ,\]
 where
 \[
  \mathbf{m}_{\mathbf{x}} = \frac{1}{K} \sum_{k=1}^{K}\mathbf{x}_{k}
-.\]
-\\
+\]
+is the mean of the data.  \\
 
+From $C$ we determine the eigenvalues and eigenvectors, which will indicate the variance and principal directions respectively.
+The direction of the eigenvector corresponding to the largest eigenvalue will then indicate the orientation of the shark fin. \\
  
 Below is a dummy shark fin image where the orientation is detected using PCA.  Note the principal axis in blue which gives the orientation of the shark fin.
 
@@ -175,18 +179,12 @@ Below is a dummy shark fin image where the orientation is detected using PCA.  N
  \label{orientation}
 \end{figure}
 
-
-
-This algorithm gives us the orientation of the shark fin in terms of the direction in which the shark is swimming, as from the front, 
-i.e. if the shark is swimming to the left, the algorithm returns right and vice versa. This will then help to identify a few foreground-and background
-pixels needed in the segmentation process.
-
 \subsection{Segmentation}
 
 \begin{figure}[H]
  \centering
  \includegraphics[width=3in]{segmentation.jpg}
- \caption{Growcut segmentation.}
+ \caption{Growcut segmentation on a shark fin image.}
  \label{segmentation}
 \end{figure}
 
