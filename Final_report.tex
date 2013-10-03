@@ -84,11 +84,11 @@ make any reliable conclusions, such as: Have we seen this shark before?  How
 many
 times? Where? When?, there has to be some form of identification in the
 databases. 
-The goal is to group photos of a certain individal together.  We
+The goal is to group photos of a certain individual together.  We
 already know that it is possible to categorize each image, because of the
 uniqueness of the dorsal fin.  One would just have to find a way to match new
 input data with existing images in the databases.  One can only imagine the
-diffuculty in doing this manually. 
+difficulty in doing this manually. 
 Since Ms. Andreotti's
 focus is on the distribution and movements of sharks and not on developing new
 software, we can make a substantial contribution by researching this topic. 
@@ -153,9 +153,10 @@ fingerprint recognition and video surveillance.  See \ref{examples}.
 
 
 \subsection{Orientation}
-To ease further processes, we determine the orientation of the sharkfin in the image.  The method of Principal Components Analysis (PCA) is used here. \\
+To ease further processesand analysis, we determine the orientation of the shark fin in the image.  
+The method of Principal Components Analysis (PCA) is used here.  \\
 
-Below we show a dummy sharkfin image where the orientation is detected using PCA.
+Below is a dummy shark fin image where the orientation is detected using PCA.  Note the principal axis in blue which gives the orientation of the shark fin.
 
 \begin{figure}[H]
  \centering
@@ -166,7 +167,7 @@ Below we show a dummy sharkfin image where the orientation is detected using PCA
 
 
 
-This algorithm gives us the orientation of the sharkfin in terms of the direction in which the shark is swimming, as from the front, 
+This algorithm gives us the orientation of the shark fin in terms of the direction in which the shark is swimming, as from the front, 
 i.e. if the shark is swimming to the left, the algorithm returns right and vice versa. This will then help to identify a few foreground-and background
 pixels needed in the segmentation process.
 
@@ -174,13 +175,13 @@ pixels needed in the segmentation process.
 
 \begin{figure}[H]
  \centering
- \includegraphics[width=3in]{segmenation.jpg}
+ \includegraphics[width=3in]{segmentation.jpg}
  \caption{Growcut segmentation.}
  \label{segmentation}
 \end{figure}
 
 \subsection{Fin detection}
-The objective is to identify the serrated part of dorsal sharkfin. In order to do this we need to extract the latter part of the fin such that it can be
+The objective is to identify the serrated part of dorsal shark fin. In order to do this we need to extract the latter part of the fin such that it can be
 compared with other fins.  We use the Sobel operator, well-known in edge detection, to identify the edge and ease further analysis.  
 The sobel operator is a discrete differential operator that approximates the gradient of the image intensity function.
 It uses two different $3 \times 3$ masks which are convolved with the original image to approximate the derivatives, both in the horizontal $x$-
@@ -214,7 +215,7 @@ At each point in the image, the gradient approximations can be combined to give 
  G = \sqrt{G_x^2+G_y^2}
 .\]
 
-The sobel operator applied to one of the sharkfin images is shown in \ref{sobel}.  Note that this operator only works on a grayscale image.
+The sobel operator applied to one of the shark fin images is shown in \ref{sobel}.  Note that this operator only works on a grayscale image.
 We can see the edge of the fin in the $G$ image on the right clearly.
 
 \begin{figure}[H]
@@ -239,8 +240,8 @@ We .
 
 \subsection{Dynamic Time Warping}
 Dynamic time warping (DTW) is an algorithm used for measuring the similarity between two sequences which may vary in time or speed.
-It differs from normal comparison in the sense that it accomadates sequences of different lengths, warping the sequences for the best fit.
-Any data that can be represented linearly can be analyzed with DTW.  For this part of the pipeline, the output from fin detection is used as input.
+It differs from normal comparison in the sense that it accommodates sequences of different lengths, warping the sequences for the best fit.
+Any data that can be represented linearly can be analysed with DTW.  For this part of the pipeline, the output from fin detection is used as input.
 
 The path and distance is given as the output of this algorithm. The path defines the minimum cost path through the local cost matrix. 
 The distance is the cost of that path. 
@@ -410,7 +411,32 @@ of certain parts of the code.  A sobel filter was used in detecting the edges.  
  \label{fin}
 \end{figure}
 
-\noindent It can clearly be seen that the modified version gives better results around the edges, which is essential in the case of the shark fin images.  
+\noindent It can clearly be seen that the modified version gives better results around the edges, which is essential in the case of the shark fin images. \\ 
+
+Hoe kan ek hierdie deel inwerk??????
+
+First consider reducing the running time.  One way is to look at which cell features, i.e. difference in intensity combined with cell strength 
+and cell strength alone, play a more important role in updating the cell label, i.e. foreground or background.   This will then help in finding 
+redundant conditions in the code.  By eliminating those conditions the running time can be reduced.  It is concluded that neither of the before
+mentioned features can be omitted, although cell strength alone has a more significant role in finding the new cell label.  No new 'attacking' 
+strategies have yet been implemented. \\
+
+The use of a rank filter is also being investigated.  A rank filter looks for the cell with maximum intensity in a certain region, specified by the user, 
+and assigns that intensity to the cell it is being compared to.  This will better the way in finding the cells in a certain region with intensities that 
+is much different from the intensity of the cell being considered. \\  
+
+\noindent From \cite{RF} we conclude the following.  The semantic segmentation algorithm is based on pixel wise object segmentation.  This is done by 
+assigning category labels to a set of super pixels obtained by clustering the joint colour space and coordinate space using the mean shift algorithm.
+The method of interactive semantic segmentation as in \cite{RF} can be described as follows.  Each image is presented as a set of super pixels, where 
+a super pixel is a set of pixels.  The first image in the data set must be segmented manually by labelling each super pixel.  An appearance model is 
+now created.  The next image is now segmented automatically using the appearance model.  During the segmentation the user may correct mistakes by 
+relabelling and thus updating the appearance model.  Every time the user approves the segmentation, the system learns from the new labelling information.
+As image segmentation continues, user time spent on correcting labels reduces and thus the rate of image labelling increases.  \\
+
+This method can be helpful in the sense that it works with a database of images of the same kind.  Since the shark fin images are all of the same type, 
+it would be very beneficial to manually segment the first image only and then automatic segmentation will follow.  By updating the appearance model, 
+one can also be certain that better segmentation results will follow.  \\  
+
 
 \subsection{Random Walker}
 The method, as
