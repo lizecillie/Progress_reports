@@ -179,7 +179,11 @@ Below is a dummy shark fin image where the orientation is detected using PCA.  N
  \label{orientation}
 \end{figure}
 
-
+When implementing the above method, we start by converting the shark fin image, which is a RGB image, to a grayscale image.  To ease the process,
+we apply a sobel filter to the image, justifying the reason for the colour conversion.  After identifying the prominent edges in the image, we apply a 
+threshold resulting in a image where every pixel value greater than the geometric mean of the edge image times four is set to zero.  We can now do PCA on
+the image to determine the principal direction.  If the gradient of the line defining the principal direction lies between 0 and $\frac{\pi}{2}$ 
+radians, the orientation of the shark fin is identified as "right", otherwise the orientation is identified as "left". 
 
 \subsection{Segmentation}
 
