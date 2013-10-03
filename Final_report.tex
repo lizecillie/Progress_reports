@@ -186,7 +186,8 @@ the image to determine the principal axes of the coordinates.  If the gradient o
 radians, the orientation of the shark fin is identified as "right", otherwise the orientation is identified as "left". 
 
 \subsection{Segmentation}
-The task is to .
+The task is to separate the foreground, the shark fin, from the background, the sea.  For this purpose, we use the region growing segmentation algorithm,
+Growcut (see Section ). 
 
 \begin{figure}[H]
  \centering
