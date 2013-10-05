@@ -130,10 +130,17 @@ vary significantly.
 \subsection{Background}
 Image segmentation is well known in the field of image processing.  It consists
 of partitioning a digital image into multiple segments for some or other reason.
- Usually to make the image easier to analyse.  In other words each pixel is
+ The image can then instead be interpreted using a small number of well-defined 
+ components as opposed to a large array of unrelated pixels.  Thus making the image easier to analyse.  
+ In other words each pixel is
 assigned a label and all the pixels with the same label share a certain
 property.  Image segmentation is typically used to locate an object or
-boundaries in an image. 
+boundaries in an image. \\
+
+Segmentation algorithms can be classified as either supervised, meaning that it requires user interaction, or supervised, meaning that it is totally
+automatic.  Segmentation is a hard problem.  Computers must segment an imgae knowing only limited information about colour and space, for example.
+Many images can be very ambigious.  On the other hand, unsupervised algorithms need predetermined information and assumptions to work automatically.
+It then follows natuarally that the unsupervised algorithms do not perform as well as the supervised algorithms.  However, . \\
 
 Well known examples where image processing are used is
 in medical imaging to locate tumours, for example, face and
