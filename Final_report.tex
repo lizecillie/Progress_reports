@@ -52,6 +52,11 @@ Prof. B.M. Herbst and Dr. S.J Van der Walt
 
 \end{titlepage}
 
+\begin{abstract}
+ 
+\end{abstract}
+
+
 \newpage
 \tableofcontents
 
@@ -93,6 +98,7 @@ Since Ms. Andreotti's
 focus is on the distribution and movements of sharks and not on developing new
 software, we can make a substantial contribution by researching this topic. 
 
+\newpage
 Below are a few examples of the data used in this research project.  Wil meer se oor die databasis???
 
 \begin{figure}[H]
@@ -114,13 +120,6 @@ Below are a few examples of the data used in this research project.  Wil meer se
 \mbox{\subfigure[]{\includegraphics[width=2in]{haai7.jpg}} \quad
 \subfigure[]{\includegraphics[width=2in]{haai8.jpg}} \quad
 \subfigure[]{\includegraphics[width=2in]{haai9.jpg}}}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\mbox{\subfigure[]{\includegraphics[width=2in]{haai10.jpg}} \quad
-\subfigure[]{\includegraphics[width=2in]{haai11.jpg}} \quad
-\subfigure[]{\includegraphics[width=2in]{haai12.jpg}}}
 \end{figure}
 
 Note the unique dorsal part of the fin.  Although theses photos are of a good
@@ -256,12 +255,17 @@ We .
 
 \subsection{Dynamic Time Warping}
 Dynamic time warping (DTW) is an algorithm used for measuring the similarity between two sequences which may vary in time or speed.
-It differs from normal comparison in the sense that it accommodates sequences of different lengths, warping the sequences for the best fit.
-Any data that can be represented linearly can be analysed with DTW.  For this part of the pipeline, the output from fin detection is used as input.
+It differs from normal comparison in the sense that it accommodate sequences of different lengths, warping the sequences for the best fit.
+Any data that can be represented linearly can be analysed with DTW.  \\
 
+For the comparison, the Euclidean metric can be used, but this metric assumes that the $j$th point in the first sequence will allign with 
+the $j$th point in the second sequence.  But although the . \\
+
+For this part of the pipeline, the output from fin detection is used as input.
 A path and a distance is given as the output of this algorithm. The path defines the minimum cost path through the local cost matrix. 
 The distance is the cost of that path. 
-The lower the cost, the better the fit. For every fin compared to every other fin in the database, a cost is calculated. \\
+The lower the cost, the better the fit. For every fin compared to every other fin in the database, a cost is calculated. The fin corresponding to the 
+lowest cost is then considered a match. \\
 
 
 Below is an example where two arrays are compared using DTW. Note the lines connecting points being compared.
