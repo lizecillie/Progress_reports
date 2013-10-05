@@ -139,8 +139,9 @@ boundaries in an image. \\
 
 Segmentation algorithms can be classified as either supervised, meaning that it requires user interaction, or supervised, meaning that it is totally
 automatic.  Segmentation is a hard problem.  Computers must segment an imgae knowing only limited information about colour and space, for example.
-Many images can be very ambigious.  On the other hand, unsupervised algorithms need predetermined information and assumptions to work automatically.
-It then follows natuarally that the unsupervised algorithms do not perform as well as the supervised algorithms.  However, . \\
+Many images can be very ambigious and supervised algorithms need user input to make decisions.  On the other hand, unsupervised algorithms need predetermined information and assumptions to work automatically.
+It then follows natuarally that the unsupervised algorithms do not perform as well as the supervised algorithms.  However, we strive to develope accurate,
+unsupervised algorithms. \\
 
 Well known examples where image processing are used is
 in medical imaging to locate tumours, for example, face and
@@ -153,6 +154,24 @@ fingerprint recognition and video surveillance.  See \ref{examples}.
 \caption{Image segmentation.}
 \label{examples}
 \end{figure}
+
+
+Another challenge with image segmentation is the evaluation of the resulting segmentations. Segmentation is subjective -it’s based on people's opinions. 
+To make progress in this field there has to be a way for comparing different segmentation methods so that we know if progress is being made. 
+The Berkeley Segmentation Dataset and Benchmark contains 12 000 hand-labeled segmentations of 1 000 Corel dataset images from 30 human subjects. 
+This can then successfully be used to compare what humans think a good segmentation should look like. \\
+
+Here is an example of a colour image in the Berkeley Segmentation Dataset.  Note that the image in the middle shows the machine segmentation and the
+image on the right the human segmentation.
+
+\begin{figure}[H]
+\centering
+\mbox{\subfigure[]{\includegraphics[width=2in]{data.jpg}} \quad
+\subfigure[]{\includegraphics[width=2in]{data1.jpg}} \quad
+\subfigure[]{\includegraphics[width=2in]{data2.jpg}}}
+\end{figure}
+
+For the purpose of this research project, such dataset will not be used for comparison of results.
 
 \newpage
 \section{Overview of pipeline}
