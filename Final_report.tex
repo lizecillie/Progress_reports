@@ -193,6 +193,7 @@ Nog iets????
 Enige idees vir inleiding vir pyplyn????
 
 \subsection{Orientation}
+\label{orient}
 To ease further processes and analysis, we determine the orientation of the shark fin in the image in terms of the direction in which the shark is swimming, as viewed from the front, 
 i.e. if the shark is swimming to the left, the algorithm returns right and vice versa. This will then help to identify a few foreground-and background
 pixels needed in the segmentation process.  
@@ -227,7 +228,13 @@ radians, the orientation of the shark fin is identified as "right", otherwise th
 
 \subsection{Segmentation}
 The task is to separate the foreground, the shark fin, from the background, the sea.  For this purpose, we use the region growing segmentation algorithm,
-Growcut (see Section ). 
+Growcut (see \ref{growcut}).  Growcut requires the user to specify a few foreground and background pixels from which the growing can be initiated.  
+Initially this was done by first determining the orientation of the fin (see \ref{orient}) and then specifying a few pixels according to that, see 
+\ref{segmentation}.  However, more success was achieved by rather reflecting the fin in the horisontal direction to ensure that all the shark fins have the
+same orientation.  The specification of
+the foreground and background pixels is then done using the function \texttt{grid\_points\_inside\_poly()} from the \texttt{morphology} module in scikit-image.
+This function selects all points inside a given polygon.  These points are then set as the foreground and background pixels respectively.  
+Since the images in the databases, or in general, are not all the same size, we specify the corners of the polygon according to the size of the image.
 
 \begin{figure}[H]
  \centering
@@ -314,6 +321,7 @@ Below is an example where two arrays are compared using DTW. Note the lines conn
  \label{dtw}
 \end{figure}
 
+\newpage
 \subsection{DARWIN -- Alternative software}
 The DARWIN\cite{Darwin} software package is well known when it comes to aquiring important data about Great White dolphins.  It was initially implemented by undergraduate 
 student Mark Allen of Eckerd College under the supervision of John Stewman.  Lately it was used to estimate the Great White
@@ -400,6 +408,7 @@ Moore neighbourhood systems \cite{n}}
 \end{figure}
 
 \subsection{Growcut}
+\label{growcut}
 The Grow Cut algorithm is an interactive, multi-label segmentation algorithm for N-dimensional images.  The algorithm is based on cellular automata, i.e.,  the user labels a few pixels
 and the rest of the image is then segmented automatically by a cellular automaton.  A cellular automaton consists of a grid of cells, where each one of the cells can be in 
 a finite number of states, say on and off.   Around each cell, a set of cells, called the cell's neighbourhood is defined.  An initial state, at time $t = 0$, is also assigned to each cell.
