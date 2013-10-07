@@ -8,7 +8,7 @@
 \usepackage{amssymb}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}{Lemma}
-\usepackage{fullpage}
+%\usepackage{fullpage}
 \usepackage{tikz}
 \usepackage{float}
 \usepackage{listings}
@@ -255,9 +255,10 @@ Also making this algorithm more robust.  \\
 \end{figure}
 
 Now that we have specified a few foreground and background pixels, we also need to specify the size of the neighbourhood around cells when the algorithm is
-'growing' as well as the number of 
-iterations the algorithm should follow.  These parameters.  \\
+'growing' as well as the number of iterations the algorithm should follow.  These parameters inevatably influence the success of the segmentation.
+\\
 
+Below is an example of the final output of the segmentation process. \\
 
 \begin{figure}[H]
  \centering
