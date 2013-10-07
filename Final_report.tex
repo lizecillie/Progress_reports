@@ -230,18 +230,43 @@ radians, the orientation of the shark fin is identified as "right", otherwise th
 The task is to separate the foreground, the shark fin, from the background, the sea.  For this purpose, we use the region growing segmentation algorithm,
 Growcut (see \ref{growcut}).  Growcut requires the user to specify a few foreground and background pixels from which the growing can be initiated.  
 Initially this was done by first determining the orientation of the fin (see \ref{orient}) and then specifying a few pixels according to that, see 
-\ref{segmentation}.  However, more success was achieved by rather reflecting the fin in the horisontal direction to ensure that all the shark fins have the
-same orientation.  The specification of
-the foreground and background pixels is then done using the function \texttt{grid\_points\_inside\_poly()} from the \texttt{morphology} module in scikit-image.
-This function selects all points inside a given polygon.  These points are then set as the foreground and background pixels respectively.  
-Since the images in the databases, or in general, are not all the same size, we specify the corners of the polygon according to the size of the image.
+\ref{segmentation}.  \\
 
 \begin{figure}[H]
  \centering
  \includegraphics[width=5in]{segmentation.jpg}
- \caption{Growcut segmentation on a shark fin image.}
+ \caption{Growcut segmentation on a shark fin image by selecting a few foreground and background pixels, shown in blue and red respectively.}
  \label{segmentation}
 \end{figure}
+
+However, more success was achieved by rather reflecting the fin in the horisontal direction to ensure that all the shark fins have the
+same orientation.  The specification of
+the foreground and background pixels is then done using the function \texttt{grid\_points\_inside\_poly()} from the \texttt{morphology} module in scikit-image.
+This function selects all points inside a given polygon.  These points are then set as the foreground and background pixels respectively.  See \ref{segmentation1}.
+Since the images in the databases, or in general, are not all the same size, we specify the corners of the polygon according to the size of the image. 
+Also making this algorithm more robust.  \\
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=5in]{segmentation.jpg}
+ \caption{Growcut segmentation on a shark fin image by selecting all points in a given polygon as foreground and background pixels, shown as blue and red
+ polygons respectively.}
+ \label{segmentation1}
+\end{figure}
+
+Now that we have specified a few foreground and background pixels, we also need to specify the size of the neighbourhood around cells when the algorithm is
+'growing' as well as the number of 
+iterations the algorithm should follow.  These parameters.  \\
+
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=5in]{segmentation.jpg}
+ \caption{Growcut segmentation on a shark fin image by selecting all points in a given polygon as foreground and background pixels, shown as blue and red
+ polygons respectively.}
+ \label{segmentation1}
+\end{figure}
+
 
 \subsection{Fin detection}
 The objective is to identify the serrated part of dorsal shark fin. In order to do this we need to extract the latter part of the fin such that it can be
