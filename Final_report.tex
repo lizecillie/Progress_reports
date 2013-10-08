@@ -312,9 +312,11 @@ We have now managed to successfully identify the edges in the image. \\
 
 The next step is to extract only the unique part of the fin needed for identification.  This is done by first inverting the edges and then squaring 
 them to increase their weight.  We make use of a function 
-\texttt{route\_through\_array()} form the module \texttt{graph} in scikit-image.  We This function enables us to find a lowest cost path through the image,
-given .
+\texttt{route\_through\_array()} from the module \texttt{graph} in scikit-image.  This function enables us to find a lowest cost path through the image.
+Since we are working on the segmented image, we allow any start and end point for the path.  The path is computed by ??????.  All pixel coordinates running 
+on the edges of the image is then removed from the path. Hoe kan ons seker wees dat hy wel die fin gaan vind????  \\
 
+Here we show an example of the path, in blue, that was detected on the shark fin.
 \begin{figure}[H]
  \centering
  \includegraphics[width=5in]{finpath.jpg}
