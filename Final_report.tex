@@ -328,26 +328,33 @@ Here we show an example of the path, in blue, that was detected on the shark fin
 
 \subsection{Dynamic Time Warping}
 Dynamic time warping (DTW) is an algorithm used for measuring the similarity between two sequences which may vary in time or speed.
-It differs from normal comparison in the sense that it accommodate sequences of different lengths, warping the sequences for the best fit.
-Any data that can be represented linearly can be analysed with DTW.  \\
+It differs from normal comparison in the sense that it accommodates sequences of different lengths, warping the sequences for the best fit.
+Any data that can be represented linearly can be analysed using DTW.  \\
 
-For the comparison, the Euclidean metric can be used, but this metric assumes that the $j$th point in the first sequence will allign with 
-the $j$th point in the second sequence.  But although the . \\
+When comparing two sequences, the distance between corresponding points is calculated.  The Euclidean metric can be used to calculate this distance,
+but it assumes that the $j$th point in the first sequence will allign with the $j$th point in the second sequence.  But ince the sequences need not be
+the same length, we will make use of a non-linear alignment. \\
 
-For this part of the pipeline, the output from fin detection is used as input.
-A path and a distance is given as the output of this algorithm. The path defines the minimum cost path through the local cost matrix. 
-The distance is the cost of that path. 
-The lower the cost, the better the fit. For every fin compared to every other fin in the database, a cost is calculated. The fin corresponding to the 
-lowest cost is then considered a match. \\
+A distance matrix is calculated, containng the distance between each pair of elements as entries.  We now view this matrix as a grid, where the aim is to 
+find a lowest cost path from the top left corner to the bottom right corner.  The minimum cost is then a meassure of the similarity between the sequences.
+In other words, the lower the cost, the greater the match.
+\\
+
+For this part of the pipeline, the output from the fin detection method, i.e. the coordinates of the path defining the shark fin, is used as input.
+The DTW method will follow the above procedure to compare every shark fin to every other shark fin in the databasis, each time returning a minimum cost.  
+Thus for a databasis containing $N$ shark fin images, a $N \times N$ cost matrix will be returned, where the entry in $(i, j)$ corresponds to the cost of the path
+when shark fin $i$ is compared to shark fin $j$. Hoe presies gaan ons se dit is wel n match???? \\
 
 
-Below is an example where two arrays are compared using DTW. Note the lines connecting points being compared.
+Below is an example where two arrays are compared using DTW. Note the lines connecting the points being compared.
 \begin{figure}[H]
  \centering
  \includegraphics[width=3in]{dtw.jpg}
  \caption{Fins compared as arrays.}
  \label{dtw}
 \end{figure}
+
+Nog iets hieroor?????
 
 \newpage
 \subsection{DARWIN -- Alternative software}
