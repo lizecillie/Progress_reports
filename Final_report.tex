@@ -259,7 +259,7 @@ code and documents and also quickly receive feedback.
 
 \newpage
 \section{Overview of pipeline}
-Enige idees vir inleiding vir pyplyn????\note{Sal jy my asb kan help met n
+\note{Sal jy my asb kan help met n
 diagram?}
 
 \note{Write a concise overview of the pipeline here, then proceed to discuss
@@ -269,9 +269,7 @@ section.}
 \subsection{Orientation}
 \label{orient}
 To ease further analysis, we determine the
-orientation of the shark fin in the image in terms of\note{not in terms of--we
-determine the absolute direction; otherwise the answer would always be--the
-orientation of the shark is in the direction it is swimming!}the direction in
+orientation of the shark fin in the image as the direction in
 which the shark is
 swimming, as viewed from the front, i.e. if the shark is swimming to the left,
 the algorithm returns right and vice versa. This will then help to identify a
@@ -359,7 +357,7 @@ respectively.\note{Sentence does not make sense}  See
 \ref{segmentation1}.
 Since the images in the databases, and images in general, are not
 all the same size, we specify the corners of the polygon according to the size
-of the image.\note{Show the triangles you define}
+of the image.\note{Show the triangles you define.  In the process of doing that.}
 This then makes the algorithm more robust.  \\
 
 \begin{figure}[H]
@@ -380,7 +378,7 @@ how growcut works}
 \\
 
 Below is an example of the final output of the segmentation process. \\
-\note{show at different stages, perhaps?}
+\note{show at different stages, perhaps? Agree!}
 
 \begin{figure}[H]
  \centering
@@ -496,7 +494,7 @@ In other words, the lower the cost, the greater the match.
 \\
 
 For this part of the pipeline, the output from the fin detection method,
-\note{diagram!}i.e.
+\note{diagram! Van wat???}i.e.
 the coordinates of the path defining the shark fin, is used as input.  The DTW
 method will follow the above procedure to compare every shark fin to every
 other shark fin in the databases, each time returning a minimum cost.  
@@ -589,11 +587,11 @@ image accordingly and segmentation is done.
 \note{Why this all of a sudden?  you have to tie things together
 logically...move to the growcut section}
 A cellular automaton consists of a grid of cells, where each one of the cells
-can be in a finite number of states,\note{In the case of segmenting an image,
+can be in a finite number of states.  In the case of segmenting an image,
     we typically use a two-state automaton, where the states indicate
-foreground and background.}say on and off.  This must be specified
+foreground and background.  This must be specified
 beforehand.  Around each cell, a set of cells, called the cell's neighbourhood,
-is defined\note{exists?}.  An initial state, at time $t = 0$, is also assigned
+exists.  An initial state, at time $t = 0$, is also assigned
 to each cell.  A
 new generation of cells is then created according to a fixed rule or
 mathematical function that determines the new state of the cell, by looking at
