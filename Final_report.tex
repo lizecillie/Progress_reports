@@ -138,9 +138,9 @@ haaie.
 
 \newpage
 Below are a few examples of the data used in this research project.  
-The databasis consists of various shark fin images, taken on different dates and
+The databases consists of various shark fin images, taken on different dates and
 from different locations.
-Also note that not every image corresponds to a unique shark, i.e. the databasis
+Also note that not every image corresponds to a unique shark, i.e. the databases
 might contain two or more images of the same shark.
 
 \begin{figure}[H]
@@ -182,13 +182,13 @@ automatic.  Segmentation is a hard
 problem\note{Citation or motivation required.  Why??}.  Computers must segment
 an
 image knowing only limited information about colour and space, for example.
-Many images can be very ambigious \note{Dont know how to say this.}  and
+Many images can be very ambiguous \note{Dont know how to say this.}  and
 supervised algorithms need user input to make decisions.  On the other hand,
 unsupervised algorithms need predetermined information and assumptions to work
 automatically.
 It then follows that the unsupervised algorithms
 do not perform as well as the supervised algorithms.  However, we strive to
-develope accurate,
+develop accurate,
 unsupervised algorithms. \\
 
 Well known examples where image processing is used is
@@ -211,7 +211,7 @@ segmentation.
 To make progress in this field it would be helpful to have a way for comparing
 different
 segmentation methods so that we know if progress is being made. 
-The Berkeley Segmentation Dataset and Benchmark contains 12 000 hand-labeled
+The Berkeley Segmentation Dataset and Benchmark contains 12 000 hand-labelled
 segmentations of 1 000 Corel dataset images from 30 human subjects. 
 This can then be used to compare what humans think a good segmentation
 should look like. \\
@@ -229,7 +229,7 @@ image on the right the human segmentation.
 
 For the purpose of this research project, such dataset will not be used for
 comparison of results.  \note{Want to know how we are going to determine whether
-the segmentation was successfull?}
+the segmentation was successful?}
 
 \subsection{Software -- Python}
 For the purposes of this research project, the Python Programming Language was
@@ -247,7 +247,7 @@ Scikit-image was used for the investigation of various image processing
 techniques. \\
 
 To ease collaboration, GitHub was used.  Github is a web-based hosting service
-for open source software developement projects.  This allowed us to easily
+for open source software development projects.  This allowed us to easily
 share 
 code and documents and also quickly receive feedback.
 
@@ -348,7 +348,7 @@ foreground and background pixels, shown in blue and red respectively.}
 \end{figure}
 
 However, more success was achieved by rather reflecting the fin in the
-horisontal direction to ensure that all the shark fins have the same
+horizontal direction to ensure that all the shark fins have the same
 orientation.\note{It's not a matter of more success--it would be wrong to do
 it any other way!}  The specification of
 the foreground and background pixels is then done using the function
@@ -480,7 +480,7 @@ When comparing two sequences, a typical approach is to calculate the distance
 between corresponding points.  The Euclidean metric can be used
 to calculate this distance, but
 it assumes that the $i$-th \note{wys dat dit 'n inskrywing $A_ij$ vorm} point in
-the first sequence will allign with the $j$th point in the second sequence.
+the first sequence will align with the $j$th point in the second sequence.
 But
 since the sequences need not be
 the same length, we will make use of a non-linear alignment\note{explain}.
@@ -490,7 +490,7 @@ each pair of elements as entries.\note{vague}  We now view this matrix as a
 grid, where the
 aim is to find a lowest cost path from the top left corner to the bottom right
 corner.\note{why?}
-The minimum cost is then a meassure of the similarity between the
+The minimum cost is then a measure of the similarity between the
 sequences.\note{explain intuitively}
 In other words, the lower the cost, the greater the match.
 \\
@@ -499,8 +499,8 @@ For this part of the pipeline, the output from the fin detection method,
 \note{diagram!}i.e.
 the coordinates of the path defining the shark fin, is used as input.  The DTW
 method will follow the above procedure to compare every shark fin to every
-other shark fin in the databasis, each time returning a minimum cost.  
-Thus for a databasis containing $N$ shark fin images, a $N \times N$ cost
+other shark fin in the databases, each time returning a minimum cost.  
+Thus for a databases containing $N$ shark fin images, a $N \times N$ cost
 matrix will be returned, where the entry in $(i, j)$ corresponds to the cost
 of the path when shark fin $i$ is compared to shark fin $j$. Hoe presies gaan
 ons se dit is wel n match???? \note{Ons soek die minimum langs die
