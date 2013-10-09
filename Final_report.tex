@@ -242,10 +242,14 @@ To improve the running time of the algorithms, Cython was used.  It is a
 language that compiles to a Python extension module a super set of the
 Python language that allows calling C-functions and declaring C-types on
 variables and class attributes.  This
-results in generating very efficient C-code from Cython code.\note{broken
-sentence. Why??}  For the investigation of various image processing algorithms,
-scikit-image was used. \\
+results in generating very efficient C-code from Cython code.
+Scikit-image was used for the investigation of various image processing
+techniques. \\
 
+To ease collaboration, GitHub was used.  Github is a web-based hosting service
+for open source software developement projects.  This allowed us to easily
+share 
+code and documents and also quickly receive feedback.
 
 
 \begin{figure}[H]
@@ -264,7 +268,7 @@ section.}
 
 \subsection{Orientation}
 \label{orient}
-To ease further processes\note{processes?} and analysis, we determine the
+To ease further analysis, we determine the
 orientation of the shark fin in the image in terms of\note{not in terms of--we
 determine the absolute direction; otherwise the answer would always be--the
 orientation of the shark is in the direction it is swimming!}the direction in
@@ -316,14 +320,14 @@ apply a sobel filter to the image, justifying the reason for the colour
 conversion\note{I don't understand}.  After identifying the prominent edges in
 the image, we apply a threshold resulting in a image where every pixel value
 greater than the geometric mean of the edge image times four is set to
-zero.\note{Why is 4 times chosen?}
+zero.\note{Why is 4 times chosen?  I would also like to know???}
 We can now do PCA on
 the image to determine the principal axes of the coordinates.  If the gradient
 of the line defining the principal direction lies between 0 and
 $\frac{\pi}{2}$ radians, the orientation of the shark fin is
 identified as
-"right", otherwise \note{scratch up to end of "as"}the orientation is identified
-as "left". 
+"right", otherwise \note{scratch up to end of "as".  What do you mean by
+this?}the orientation is identified as "left". 
 
 \subsection{Segmentation}
 The task is to separate the foreground, the shark fin, from the background,
@@ -353,10 +357,10 @@ the foreground and background pixels is then done using the function
 polygon.  These points are then set as the foreground and background pixels
 respectively.\note{Sentence does not make sense}  See
 \ref{segmentation1}.
-Since the images in the databases, or in general,\note{or in general?} are not
+Since the images in the databases, and images in general, are not
 all the same size, we specify the corners of the polygon according to the size
 of the image.\note{Show the triangles you define}
-Also making this algorithm more robust.\note{not a full sentence}  \\
+This then makes the algorithm more robust.  \\
 
 \begin{figure}[H]
  \centering
@@ -370,7 +374,7 @@ given polygon as foreground and background pixels, shown as blue and red
 Now that we have specified a few foreground and background pixels, we also
 need to specify the size of the neighbourhood around cells when the algorithm
 is 'growing' as well as the number of iterations the algorithm should follow.
-These parameters inevatably\note{spelling} influence the success of the
+These parameters inevitably influence the success of the
 segmentation.\note{The reader cannot follow this explanation without knowing
 how growcut works}
 \\
@@ -391,12 +395,14 @@ given polygon as foreground and background pixels, shown as blue and red
 \subsection{Fin detection}
 The objective is to identify the serrated part of dorsal shark fin. In order to
 do this we need to extract the latter part of the fin such that it can be
-compared with other fins\note{broken sentence}.  We use the Sobel operator,
+compared with other fins\note{broken sentence.  What do you mean??}.  We use the
+Sobel operator,
 well-known in edge detection, to identify the edge and ease further analysis.
 \note{What does "ease further analysis" mean here?}
 The sobel operator is a discrete differential operator that approximates the
 gradient of the image intensity function.  It uses two different $3 \times 3$
-masks, $M$, which are convolved with the original image to approximate the
+masks, $M_x$ and $M_y$, which are convolved with the original image to
+approximate the
 derivatives, both in the horizontal $x$-
 and the vertical $y$-directions.  \\
 
@@ -470,17 +476,16 @@ sense that it accommodates sequences of different lengths, warping the
 sequences for the best fit\note{best fit--what does that mean?}.
 Any data that can be represented linearly can be analysed using DTW.  \\
 
-When comparing two sequences, \note{a typical approach is to...} the distance
-between corresponding points is calculated.  The Euclidean metric can be used
+When comparing two sequences, a typical approach is to calculate the distance
+between corresponding points.  The Euclidean metric can be used
 to calculate this distance, but
-it assumes that the $j$th\note{dalk soek j-th 'n koppelteken? -- dink ook jy
-moet i-th hier gebruik, en dan wys dat dit 'n inskrywing $A_ij$ vorm} point in
+it assumes that the $i$-th \note{wys dat dit 'n inskrywing $A_ij$ vorm} point in
 the first sequence will allign with the $j$th point in the second sequence.
 But
 since the sequences need not be
 the same length, we will make use of a non-linear alignment\note{explain}.
 
-A distance matrix is calculated, containg\note{containg!} the distance between
+A distance matrix is calculated, contain the distance between
 each pair of elements as entries.\note{vague}  We now view this matrix as a
 grid, where the
 aim is to find a lowest cost path from the top left corner to the bottom right
@@ -510,8 +515,6 @@ connecting the points being compared.  \begin{figure}[H]
  \label{dtw}
 \end{figure}
 
-Nog iets hieroor?????
-
 \newpage
 \subsection{DARWIN -- Alternative software}
 The DARWIN\cite{Darwin} software package is well known when it comes to
@@ -519,7 +522,8 @@ aquiring important data about Great White Sharks.  It was initially implemented
 by undergraduate student of
 Eckerd College.
 Lately it was used to estimate the Great White shark population in the
-Gansbaai area by means of shark fin identification and matching.  They claim to have found approximately
+Gansbaai area by means of shark fin identification and matching.  They claim to
+have found approximately
 1008 different shark species in this region.  This
 claim was tested by Ms. Andreotti and she found that in only
 54\% of the cases the correct matching took place, making this software
@@ -537,16 +541,14 @@ unreliable.
 Segmentation algorithms can be arranged into different categories \cite{is}. 
 Some of the most well-known categories are
 \begin{itemize}
- \item \textbf{Thresholding}  Possibly the most basic method in the
-     field\note{Don't be so harsh on thresholding!  This is a judgement call.
-     Just state the facts: it is an unsophisticated method}.  It relies on
+ \item \textbf{Thresholding}  Thresholding is an unsophisticated method. It
+relies on
      selecting the best\note{again "best"--what does best mean?} threshold
      value to convert a gray-scale image into a binary image.  Segmentation is
      then done on the binary image. 
  \item \textbf{Clustering} For these methods, the $K$-means algorithm
-is typically used to partition an image into $K$ clusters, whereafter
-segmentation will follow.\note{This is one approach--don't present it as the
-default.}
+can be used to partition an image into $K$ clusters, whereafter
+segmentation will follow.
  \item \textbf{Compression-based} This method conjectures that the
 optimal segmentation is the one that minimizes, when considering all possible
 segmentations, the coding length of the data.\note{explain}
@@ -555,9 +557,8 @@ sense that it only passes through all the pixels once.  Then a histogram of all
 the pixels in the image is computed.  The peaks and valleys, colour intensity
 can be used as a measure, are then used to locate clusters in the
 image.\note{explain--I don't understand the idea}
- \item \textbf{Edge detection} Edge detection is a well-developed\note{Edge
-     detection is well researched in image processing.}
-field in image processing.  Region boundaries and edges are closely related,
+ \item \textbf{Edge detection} Edge detection is well researched in image
+processing.  Region boundaries and edges are closely related,
 since there are usually a sharp adjustment at region boundaries.  Edge detection
 techniques can therefore be used as a bases for different segmentation
 algorithms.
@@ -569,13 +570,14 @@ the difference between intensity value and the region's mean.  Pixels are then
 allocated to a specific region if that difference is a minimum.  The process
 terminates if all pixels belong to a region.  \note{This is not accurate, I
 don't think.  Region merging is all about merging *regions*.}
- \item \textbf{Watershed transformation} See description in \note{??}.    
+ \item \textbf{Watershed transformation} See description in \ref{watershed}.    
  \item \textbf{Graph partitioning} This method is based on modelling
 the image as a weighted, undirected graph, where the nodes represent the pixels
 and the weights represent the similarity between neighbouring pixels. Then the
 graph is partitioned into clusters according to a specific criterion.  Each
 partition is then considered an object segment in the image.
-\note{References to all of these--above and below!  I do that at the top where I introduce the section.}
+\note{References to all of these--above and below!  I do that at the top where I
+introduce the section.}
  \item \textbf{Trainable} Also known as Neural network segmentation,
 this process involves processing the small areas of an image by means of an
 artificial neural network or a set of neural networks.  Thereafter, using the
@@ -743,8 +745,8 @@ algorithm on the same image.
  \label{fin}
 \end{figure}
 
-\noindent It can be seen that the modified version gives better results around the edges, which is
-essential in the case of the shark fin images. \\ 
+\noindent It can be seen that the modified version gives better results around
+the edges, which is essential in the case of the shark fin images. \\ 
 
 Hoe kan ek hierdie deel inwerk??????
 
@@ -793,7 +795,8 @@ pixels as foreground or background for example.  This is then called the seeds.
 A random walker is then released from each of the unlabelled pixels. 
 Thereafter, the probability that a certain pixel's random walker first arrives
 at a specific seed, is computed.\note{Look at the scikit-image gallery on
-random walker to see how they explained it.  Got this from the reference they gave there.}  In other words, if the user
+random walker to see how they explained it.  Got this from the reference they
+gave there.}  In other words, if the user
 labels $n$ pixels, each with a different label, then the probability that a
 random walker
 leaving the pixel will first arrive at a certain seed, must be
@@ -806,6 +809,7 @@ each pixel is assigned a specific label.
 
 
 \subsection{Watershed}
+\label{watershed}
 Another segmentation algorithm is the classic watershed algorithm, as
 implemented in \cite{scikit}.  The algorithm starts with user-defined markers,
 called seed points, which can be viewed as little holes in the image, whereafter
