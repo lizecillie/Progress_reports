@@ -31,6 +31,8 @@
 }%
 \item[]}{\end{list}}
 
+\usepackage[linecolor=green!70!white, backgroundcolor=blue!20!white,bordercolor=red]{todonotes}
+\newcommand{\note}{\todo}
 
 \begin{document}
 \begin{titlepage}
@@ -82,30 +84,33 @@ Prof. B.M. Herbst\\Dr. S.J Van der Walt
  
 \end{abstract}
 
-
 \newpage
 \tableofcontents
 
 \newpage
 \section{Problem statement and motivation}
 \subsection{}
-Just as humans are identified by their fingerprints, sharks have an unique
-dorsal fin structure.  Identifying shark sightings these days can be very
-valuable.  In order to do that and also to match shark sightings, photos of
+Just as humans are identified by their fingerprints, sharks have a unique
+dorsal fin structure.  Identifying shark sightings \note{Why these days?}these days can be very
+valuable.  In order to do that and also to \note{What does it mean to "match
+shark sightings?"}match shark sightings, photos of
 shark fins, as will be shown in the proposal, will be analysed by a computer. 
-This will consist of comparing the edges in the image and segmenting the
-foreground, the shark fin being most prominent,  from the background, the sea. 
-Although the photos provided are of a good quality and only include the fin, the
+\note{We prefer to write in present tense.}This will consist of comparing the edges in the image and segmenting the
+foreground\note{Comparing the edges to what?}, the shark fin being most prominent,  from the background, the sea. 
+Although the photos provided are of a good quality and \note{have been cropped
+to only include the fin...}only include the fin, the
 foreground and background properties can still vary significantly, making this a
 non-trivial problem.  This project aims to investigate efficient segmentation
-algorithms for shark fin identification.  The approach will consist of
+algorithms for shark fin identification.  The approach \note{present tense}will consist of
 evaluating (by means of a computer) different methods for classifying foreground
 and background, as well as segmenting the foreground successfully.  By doing so,
-the burden on biological researchers can be reduced.  \\
+the burden on biological researchers can be reduced.\note{what burden?}  \\
 
-The idea behind the project originated when PhD
+\note{Write a bit more formally: the project is motivated by...}The idea behind the project originated when PhD
 student in Marine Biology, Ms. Sara Andreotti, approached Dr. van der Walt for
-help regarding a problem she encountered in her research.
+help regarding a problem she encountered in her research.\note{Probably too
+    personal in general.  We don't need to tell the story of the people
+involved to motivate the scientific work.}
 The problem presented was
 as follows.  The work Ms. Andreotti does involve going out into the ocean,
 taking photographs of shark fins and identifying those sharks to later study their ecological and behavioural
@@ -114,7 +119,7 @@ All these photos are put into a databases. But to
 make any reliable conclusions, such as: Have we seen this shark before?  How
 many
 times? Where? When?, there has to be some form of identification in the
-databases. 
+databases.\note{Rewrite this section--tone too informal.} 
 The goal is to group photos of a certain individual together.  We
 already know that it is possible to categorize each image, because of the
 uniqueness of the dorsal fin.  One would just have to find a way to match new
@@ -127,7 +132,9 @@ software, we can make a substantial contribution by researching this topic.
 Wil ook meer se oor die impak van so projek en ook oor die bewaring van die haaie.
 
 \newpage
-Below are a few examples of the data used in this research project.  Wil meer se oor die databasis???
+Below are a few examples of the data used in this research project.  Wil meer
+se oor die databasis???\note{Verduidelik hoe die databasis opgestel word,
+dalk?}
 
 \begin{figure}[H]
 \centering
@@ -152,28 +159,39 @@ Below are a few examples of the data used in this research project.  Wil meer se
 
 Note the unique dorsal part of the fin.  Although theses photos are of a good
 quality, only including the fin, the foreground and background properties can
-vary significantly.
+vary significantly.\note{Already stated earlier.}
 
 
 \subsection{Background}
-Image segmentation is well known in the field of image processing.  It consists
+Image segmentation is well known in the field of image processing.\note{This
+    makes it sound like you're talking about a person.  Rather: image
+segmentation is commonly applied in image processing.}  It consists\note{It
+aims to...}
 of partitioning a digital image into multiple segments for some or other reason.
- The image can then instead be interpreted using a small number of well-defined 
- components as opposed to a large array of unrelated pixels.  Thus making the image easier to analyse.  
+ The image can then instead be interpreted using a small number of
+ well-defined\note{well defined?} 
+ components as opposed to a large array of unrelated pixels.  Thus making the
+ image easier to analyse.\note{How come?}
  In other words each pixel is
 assigned a label and all the pixels with the same label share a certain
 property.  Image segmentation is typically used to locate an object or
 boundaries in an image. \\
 
-Segmentation algorithms can be classified as either supervised, meaning that it requires user interaction, or supervised, meaning that it is totally
-automatic.  Segmentation is a hard problem.  Computers must segment an imgae knowing only limited information about colour and space, for example.
-Many images can be very ambigious and supervised algorithms need user input to make decisions.  On the other hand, unsupervised algorithms need predetermined information and assumptions to work automatically.
-It then follows natuarally that the unsupervised algorithms do not perform as well as the supervised algorithms.  However, we strive to develope accurate,
+Segmentation algorithms can be classified as either supervised, meaning that
+it requires user interaction, or supervised, meaning that it is totally
+automatic.\note{supervised or supervised?}  Segmentation is a hard
+problem\note{Citation or motivation required.}.  Computers must segment an
+imgae\note{spelling--use aspell or ispell}
+knowing only limited information about colour and space, for example.
+Many images can be very ambigious\note{in what sense?} and supervised algorithms need user input to make decisions.  On the other hand, unsupervised algorithms need predetermined information and assumptions to work automatically.
+It then follows natuarally\note{few things ever follow naturally...is this
+statement even true?  If so, why?  Motivate.} that the unsupervised algorithms do not perform as well as the supervised algorithms.  However, we strive to develope accurate,
 unsupervised algorithms. \\
 
-Well known examples where image processing are used is
+Well known examples where image processing are\note{are/is} used is
 in medical imaging to locate tumours, for example, face and
-fingerprint recognition and video surveillance.  See \ref{examples}.
+fingerprint recognition and video surveillance.  See \ref{examples}.\note{What
+is the purpose of this paragraph?}
 
 \begin{figure}[H]
 \centering
@@ -184,10 +202,18 @@ fingerprint recognition and video surveillance.  See \ref{examples}.
 \end{figure}
 
 
-Another challenge with image segmentation is the evaluation of the resulting segmentations. Segmentation is subjective -it’s based on people's opinions. 
-To make progress in this field there has to be a way for comparing different segmentation methods so that we know if progress is being made. 
+Another challenge with image segmentation is the evaluation of the resulting
+segmentations. Segmentation is subjective -it's based on people's
+opinions\note{remove the last part of this sentence; not sure I
+    agree--segmentation based on a well-defined criterium is not subjective,
+    it's just that often we don't have well-defined criteria.  So think
+carefully about what you want to say here.}.
+To make progress in this field there has to be\note{Remove "has to
+be"--perhaps would be "helpful to have"?} a way for comparing different
+segmentation methods so that we know if progress is being made. 
 The Berkeley Segmentation Dataset and Benchmark contains 12 000 hand-labeled segmentations of 1 000 Corel dataset images from 30 human subjects. 
-This can then successfully be used to compare what humans think a good segmentation should look like. \\
+This can then successfully \note{remove successfully--the success depends a
+lot on who does the job}be used to compare what humans think a good segmentation should look like. \\
 
 Here is an example of a colour image in the Berkeley Segmentation Dataset.  Note that the image in the middle shows the machine segmentation and the
 image on the right the human segmentation.
@@ -199,15 +225,28 @@ image on the right the human segmentation.
 \subfigure[]{\includegraphics[width=2in]{data2.jpg}}}
 \end{figure}
 
-For the purpose of this research project, such dataset will not be used for comparison of results.  How???
+For the purpose of this research project, such dataset will not be used for
+comparison of results.  How???\note{What are you asking/saying with this
+paragraph?}
 
 \subsection{Software -- Python}
-For the purposes of this research project, the Python Programming Language was used.  The reason for this is mainly because of its simplicity.
-Python is also free to use and runs on multiple platforms.  For the numerical and scientific computations, Numpy and SciPy was used respectively.
-To improve the running time of the algorithms, Cython was used.  It is a language that compiles to a Python extension
-module.  It is a super set of the Python language that allows calling C-functions and declaring C-types on variables and class attributes.  This
-results in generating very efficient C-code from Cython code.  For the investigation of various image processing algorithms, scikit-image was used. \\
-Nog iets????
+For the purposes of this research project, the Python Programming Language was
+used.  The reason for this is mainly because of its simplicity\note{it's not
+    onyl for the simplicity--it is because of the powerful set of tools
+    available, because it is easy to learn, and because the resultant code is
+easy to understand also to other students}.  Python is
+also free to use and runs on multiple platforms.  For the numerical and
+scientific computations, Numpy and SciPy was used respectively.\note{scratch
+"respectively"}
+To improve the running time of the algorithms, Cython was used.  It is a
+language that compiles to a Python extension module.\note{join sentences ->
+and a}  It is a super set of the
+Python language that allows calling C-functions and declaring C-types on
+variables and class attributes.  This
+results in generating very efficient C-code from Cython code.\note{broken
+sentence}  For the investigation of various image processing algorithms, scikit-image was used. \\
+Nog iets????\note{dink dit is dit, maar noem ook iets van die
+ontwikkelingsproses op GitHub}
 
 \begin{figure}[H]
  \centering
@@ -216,15 +255,27 @@ Nog iets????
 
 \newpage
 \section{Overview of pipeline}
-Enige idees vir inleiding vir pyplyn????
+Enige idees vir inleiding vir pyplyn????\note{'n diagram, vir een!}
+
+\note{Write a concise overview of the pipeline here, then proceed to discuss
+each component in detail.  Merge algorithm descriptions further down with this
+section.}
 
 \subsection{Orientation}
 \label{orient}
-To ease further processes and analysis, we determine the orientation of the shark fin in the image in terms of the direction in which the shark is swimming, as viewed from the front, 
-i.e. if the shark is swimming to the left, the algorithm returns right and vice versa. This will then help to identify a few foreground-and background
-pixels needed in the segmentation process.  
-The method of Principal Components Analysis (PCA) is used here.  When applying PCA, we are interested in finding the direction of maximum variation in 
-the data.  Suppose we have $K$, $n$-dimensional, data points, $\mathbf{x}_k,$ for $k=1,2, \ldots ,K$. We compute a covariance matrix, $C$,
+To ease further processes\note{processes?} and analysis, we determine the
+orientation of the shark fin in the image in terms of\note{not in terms of--we
+determine the absolute direction; otherwise the answer would always be--the
+orientation of the shark is in the direction it is swimming!}the direction in
+which the shark is
+swimming, as viewed from the front, i.e. if the shark is swimming to the left,
+the algorithm returns right and vice versa. This will then help to identify a
+few foreground- and background
+pixels needed in the segmentation process\note{expand and explain}
+The method of Principal Components Analysis (PCA) is used here.  When applying
+PCA, we are interested in finding the direction of maximum variation in the
+data.  Suppose we have $K$, $n$-dimensional, data points, $\mathbf{x}_k,$ for
+$k=1,2, \ldots ,K$. We compute a covariance matrix, $C$,
 \[
  C_{\mathbf{x}} = \frac{1}{K} \sum_{k=1}^{K} \mathbf{x}_{k}\mathbf{x}_{k}^{T} - \mathbf{m}_{\mathbf{x}}\mathbf{m}_{\mathbf{x}}^{T} 
 ,\]
@@ -234,11 +285,18 @@ where
 \]
 is the mean of the data.  \\
 
+\note{there is no indication what data we are talking about here--you have to
+make sure the reader understands your story!}
+
 From $C$ we determine the eigenvalues and eigenvectors, which will indicate the variance and principal directions respectively.
 The direction of the eigenvector corresponding to the largest eigenvalue will then indicate the orientation of the shark fin. \\
- 
-Below is a dummy shark fin image where the orientation is detected using PCA.  Note the principal axis, largest eigenvector, in blue, which gives the orientation of the shark fin.
 
+\note{e.g., it is impossible to know what C is in relation to our coordinates
+from the above description}
+
+Below is a dummy shark fin image where the orientation is detected using PCA.
+Note the principal axis, largest eigenvector, in blue, which gives the
+orientation of the shark fin.
 \begin{figure}[H]
  \centering
  \includegraphics[width=3in]{orientation.jpg}
@@ -246,15 +304,28 @@ Below is a dummy shark fin image where the orientation is detected using PCA.  N
  \label{orientation}
 \end{figure}
 
-When implementing the above method, we start by converting the shark fin image, which is an RGB image, to a grayscale image.  To ease the process,
-we apply a sobel filter to the image, justifying the reason for the colour conversion.  After identifying the prominent edges in the image, we apply a 
-threshold resulting in a image where every pixel value greater than the geometric mean of the edge image times four is set to zero.  We can now do PCA on
-the image to determine the principal axes of the coordinates.  If the gradient of the line defining the principal direction lies between 0 and $\frac{\pi}{2}$ 
-radians, the orientation of the shark fin is identified as "right", otherwise the orientation is identified as "left". 
+When implementing the above method,\note{As compared to?  I always assume the
+author implemented his/her method.}we start by converting the shark fin
+image, which is an RGB image, to a grayscale image.  To ease the
+process\note{To ease what process?}, we
+apply a sobel filter to the image, justifying the reason for the colour
+conversion\note{I don't understand}.  After identifying the prominent edges in
+the image, we apply a threshold resulting in a image where every pixel value
+greater than the geometric mean of the edge image times four is set to
+zero.\note{Why is 4 times chosen?}
+We can now do PCA on
+the image to determine the principal axes of the coordinates.  If the gradient
+of the line defining the principal direction lies between 0 and
+$\frac{\pi}{2}$ radians, the orientation of the shark fin is
+identified as
+"right", otherwise \note{scratch up to end of "as"}the orientation is identified as "left". 
 
 \subsection{Segmentation}
-The task is to separate the foreground, the shark fin, from the background, the sea.  For this purpose, we use the region growing segmentation algorithm,
-Growcut (see \ref{growcut}).  Growcut requires the user to specify a few foreground and background pixels from which the growing can be initiated.  
+The task is to separate the foreground, the shark fin, from the background,
+the sea.  For this purpose, we use the region growing segmentation algorithm,
+Growcut (see \ref{growcut}).  Growcut requires the user to specify a few
+foreground and background pixels from which the growing can be
+initiated.\note{No description of growcut as an automaton?}
 Initially this was done by first determining the orientation of the fin (see \ref{orient}) and then specifying a few pixels according to that, see 
 \ref{segmentation}.  \\
 
@@ -265,12 +336,20 @@ Initially this was done by first determining the orientation of the fin (see \re
  \label{segmentation}
 \end{figure}
 
-However, more success was achieved by rather reflecting the fin in the horisontal direction to ensure that all the shark fins have the
-same orientation.  The specification of
-the foreground and background pixels is then done using the function \texttt{grid\_points\_inside\_poly()} from the \texttt{morphology} module in scikit-image.
-This function selects all points inside a given polygon.  These points are then set as the foreground and background pixels respectively.  See \ref{segmentation1}.
-Since the images in the databases, or in general, are not all the same size, we specify the corners of the polygon according to the size of the image. 
-Also making this algorithm more robust.  \\
+However, more success was achieved by rather reflecting the fin in the
+horisontal direction to ensure that all the shark fins have the same
+orientation.\note{It's not a matter of more success--it would be wrong to do
+it any other way!}  The specification of
+the foreground and background pixels is then done using the function
+\texttt{grid\_points\_inside\_poly()} from the \texttt{morphology} module in
+\texttt{scikit-image}.  This function selects all points inside a given
+polygon.  These points are then set as the foreground and background pixels
+respectively.\note{Sentence does not make sense}  See
+\ref{segmentation1}.
+Since the images in the databases, or in general,\note{or in general?} are not
+all the same size, we specify the corners of the polygon according to the size
+of the image.\note{Show the triangles you define}
+Also making this algorithm more robust.\note{not a full sentence}  \\
 
 \begin{figure}[H]
  \centering
@@ -280,11 +359,16 @@ Also making this algorithm more robust.  \\
  \label{segmentation1}
 \end{figure}
 
-Now that we have specified a few foreground and background pixels, we also need to specify the size of the neighbourhood around cells when the algorithm is
-'growing' as well as the number of iterations the algorithm should follow.  These parameters inevatably influence the success of the segmentation.
+Now that we have specified a few foreground and background pixels, we also
+need to specify the size of the neighbourhood around cells when the algorithm
+is 'growing' as well as the number of iterations the algorithm should follow.
+These parameters inevatably\note{spelling} influence the success of the
+segmentation.\note{The reader cannot follow this explanation without knowing
+how growcut works}
 \\
 
 Below is an example of the final output of the segmentation process. \\
+\note{show at different stages, perhaps?}
 
 \begin{figure}[H]
  \centering
@@ -297,10 +381,14 @@ Below is an example of the final output of the segmentation process. \\
 
 \subsection{Fin detection}
 The objective is to identify the serrated part of dorsal shark fin. In order to do this we need to extract the latter part of the fin such that it can be
-compared with other fins.  We use the Sobel operator, well-known in edge detection, to identify the edge and ease further analysis.  
-The sobel operator is a discrete differential operator that approximates the gradient of the image intensity function.
-It uses two different $3 \times 3$ masks, $M$, which are convolved with the original image to approximate the derivatives, both in the horizontal $x$-
-and the vertical $y$-direction.  \\
+compared with other fins\note{broken sentence}.  We use the Sobel operator,
+well-known in edge detection, to identify the edge and ease further analysis.
+\note{What does "ease further analysis" mean here?}
+The sobel operator is a discrete differential operator that approximates the
+gradient of the image intensity function.  It uses two different $3 \times 3$
+masks, $M$, which are convolved with the original image to approximate the
+derivatives, both in the horizontal $x$-
+and the vertical $y$-directions.  \\
 
 Define $A$ as the input image and $G_x$ and $G_y$ as the gradient images in the $x$-and $y$-direction respectively,
 after convolving with $A$.  $M_x$ and $M_y$ is given by
@@ -334,13 +422,21 @@ We can see the edge of the fin in the $G$ image on the right clearly identified.
  \label{sobel}
 \end{figure}
 
-We have now managed to successfully identify the edges in the image. \\
+We have now managed to successfully identify the edges in the
+image.\note{Scratch sentence} \\
 
-The next step is to extract only the unique part of the fin needed for identification.  This is done by first inverting the edges and then squaring 
-them to increase their weight.  We make use of a function 
+The next step is to extract only the unique part of the fin needed for
+identification.  This is done by first inverting the edges and then squaring
+them to increase their weight.\note{why?}  We make use of a function 
 \texttt{route\_through\_array()} from the module \texttt{graph} in scikit-image.  This function enables us to find a lowest cost path through the image.
-Since we are working on the segmented image, we allow any start and end point for the path.  The path is computed by ??????.  All pixel coordinates running 
-on the edges of the image is then removed from the path. Hoe kan ons seker wees dat hy wel die fin gaan vind????  \\
+Since we are working on the segmented image, we allow any start and end point
+for the path.\note{How do we do that?}  The path is computed by ??????.  All
+pixel coordinates running on the edges of the image is then removed from the
+path. Hoe kan ons seker wees dat hy wel die fin gaan vind????\note{'n Mens kan
+    seker nooit seker wees nie, maar as dit die mees prominente rant is sal hy
+    dit vind.  Onthou om die eksperiment te doen waar jy die edge beeld
+    inverteer en kyk of dit nogsteeds werk, sodat ons kan sien of hy klein
+waardes of kontoere track.}\\
 
 Here we show an example of the path, in blue, that was detected on the shark fin.
 \begin{figure}[H]
@@ -353,27 +449,49 @@ Here we show an example of the path, in blue, that was detected on the shark fin
 
 
 \subsection{Dynamic Time Warping}
-Dynamic time warping (DTW) is an algorithm used for measuring the similarity between two sequences which may vary in time or speed.
-It differs from normal comparison in the sense that it accommodates sequences of different lengths, warping the sequences for the best fit.
+\note{For the pipeline overview, call the sections by their purpose: e.g.,
+    here I would call the section "Fin matching", and then discuss how we use
+DTW to achieve that.}Dynamic time warping (DTW) is an algorithm used for
+measuring the similarity between two sequences which may vary in time or
+speed.  It differs from normal comparison in the
+sense that it accommodates sequences of different lengths, warping the
+sequences for the best fit\note{best fit--what does that mean?}.
 Any data that can be represented linearly can be analysed using DTW.  \\
 
-When comparing two sequences, the distance between corresponding points is calculated.  The Euclidean metric can be used to calculate this distance,
-but it assumes that the $j$th point in the first sequence will allign with the $j$th point in the second sequence.  But ince the sequences need not be
-the same length, we will make use of a non-linear alignment. \\
+When comparing two sequences, \note{a typical approach is to...} the distance
+between corresponding points is calculated.  The Euclidean metric can be used
+to calculate this distance, but
+it assumes that the $j$th\note{dalk soek j-th 'n koppelteken? -- dink ook jy
+moet i-th hier gebruik, en dan wys dat dit 'n inskrywing $A_ij$ vorm} point in
+the first sequence will allign with the $j$th point in the second sequence.
+But
+since the sequences need not be
+the same length, we will make use of a non-linear alignment\note{explain}.
 
-A distance matrix is calculated, containng the distance between each pair of elements as entries.  We now view this matrix as a grid, where the aim is to 
-find a lowest cost path from the top left corner to the bottom right corner.  The minimum cost is then a meassure of the similarity between the sequences.
+A distance matrix is calculated, containg\note{containg!} the distance between
+each pair of elements as entries.\note{vague}  We now view this matrix as a
+grid, where the
+aim is to find a lowest cost path from the top left corner to the bottom right
+corner.\note{why?}
+The minimum cost is then a meassure of the similarity between the
+sequences.\note{explain intuitively}
 In other words, the lower the cost, the greater the match.
 \\
 
-For this part of the pipeline, the output from the fin detection method, i.e. the coordinates of the path defining the shark fin, is used as input.
-The DTW method will follow the above procedure to compare every shark fin to every other shark fin in the databasis, each time returning a minimum cost.  
-Thus for a databasis containing $N$ shark fin images, a $N \times N$ cost matrix will be returned, where the entry in $(i, j)$ corresponds to the cost of the path
-when shark fin $i$ is compared to shark fin $j$. Hoe presies gaan ons se dit is wel n match???? \\
+For this part of the pipeline, the output from the fin detection method,
+\note{diagram!}i.e.
+the coordinates of the path defining the shark fin, is used as input.  The DTW
+method will follow the above procedure to compare every shark fin to every
+other shark fin in the databasis, each time returning a minimum cost.  
+Thus for a databasis containing $N$ shark fin images, a $N \times N$ cost
+matrix will be returned, where the entry in $(i, j)$ corresponds to the cost
+of the path when shark fin $i$ is compared to shark fin $j$. Hoe presies gaan
+ons se dit is wel n match???? \note{Ons soek die minimum langs die
+kolom van die koste-matriks}\\
 
 
-Below is an example where two arrays are compared using DTW. Note the lines connecting the points being compared.
-\begin{figure}[H]
+Below is an example where two arrays are compared using DTW. Note the lines
+connecting the points being compared.  \begin{figure}[H]
  \centering
  \includegraphics[width=3in]{dtw.jpg}
  \caption{Fins compared as arrays.}
@@ -384,11 +502,20 @@ Nog iets hieroor?????
 
 \newpage
 \subsection{DARWIN -- Alternative software}
-The DARWIN\cite{Darwin} software package is well known when it comes to aquiring important data about Great White dolphins.  It was initially implemented by undergraduate 
-student Mark Allen of Eckerd College under the supervision of John Stewman.  Lately it was used to estimate the Great White
-shark population in the Gansbaai area by means of shark fin identification and matching.  This claim was tested by Ms. Andreotti and she found that in only
+The DARWIN\cite{Darwin} software package is well known when it comes to
+aquiring important data about Great White dolphins\note{must be an interesting
+species}.  It was initially implemented by undergraduate student\note{we live
+    in a meritocracy now--no need to mention his position way down the food
+chain!}Mark Allen of
+Eckerd College under the
+supervision of John Stewman.
+Lately it was used to estimate the Great White shark population in the
+Gansbaai area by means of shark fin identification and matching.  This
+claim\note{what claim?}
+was tested by Ms. Andreotti and she found that in only
 54\% of the cases the correct matching took place, making this software highly
-unreliable.  Below is an image showing the DARWIN user interface. 
+unreliable\note{highly unreliable is a judgement, unreliable is a statement}.
+Below is an image showing the DARWIN user interface.\note{no need} 
 
 \begin{figure}[H]
  \centering
@@ -407,36 +534,44 @@ Segmentation algorithms can be arranged into different categories \cite{is}.
 Some of the most well-known categories are
 \begin{itemize}
  \item \textbf{Thresholding}  Possibly the most basic method in the
-field.  It relies on selecting the best threshold value to convert a gray-scale
-image into a binary image.  Segmentation is then done on the binary image. 
+     field\note{Don't be so harsh on thresholding!  This is a judgement call.
+     Just state the facts: it is an unsophisticated method}.  It relies on
+     selecting the best\note{again "best"--what does best mean?} threshold
+     value to convert a gray-scale image into a binary image.  Segmentation is
+     then done on the binary image. 
  \item \textbf{Clustering} For these methods, the $K$-means algorithm
 is typically used to partition an image into $K$ clusters, whereafter
-segmentation will follow.
+segmentation will follow.\note{This is one approach--don't present it as the
+default.}
  \item \textbf{Compression-based} This method conjectures that the
 optimal segmentation is the one that minimizes, when considering all possible
-segmentations, the coding length of the data.
+segmentations, the coding length of the data.\note{explain}
  \item \textbf{Histogram-based}  This is a very efficient method in the
 sense that it only passes through all the pixels once.  Then a histogram of all
 the pixels in the image is computed.  The peaks and valleys, colour intensity
-can be used as a measure, are then used to locate clusters in the image.
- \item \textbf{Edge detection} Edge detection is a well-developed
+can be used as a measure, are then used to locate clusters in the
+image.\note{explain--I don't understand the idea}
+ \item \textbf{Edge detection} Edge detection is a well-developed\note{Edge
+     detection is well researched in image processing.}
 field in image processing.  Region boundaries and edges are closely related,
 since there are usually a sharp adjustment at region boundaries.  Edge detection
 techniques can therefore be used as a bases for different segmentation
-algorithms.  
+algorithms.
  \item \textbf{Region growing} This method takes as input not only
 the image, but also a set of seeds, which marks the objects to be segmented. 
 Thereafter neighbouring, unallocated pixels are compared to the specific seed
 point.  That is how the region grows iteratively.  The pixels are compared using
 the difference between intensity value and the region's mean.  Pixels are then
 allocated to a specific region if that difference is a minimum.  The process
-terminates if all pixels belong to a region.  
- \item \textbf{Watershed transformation} See description in .    
+terminates if all pixels belong to a region.  \note{This is not accurate, I
+don't think.  Region merging is all about merging *regions*.}
+ \item \textbf{Watershed transformation} See description in \note{??}.    
  \item \textbf{Graph partitioning} This method is based on modelling
 the image as a weighted, undirected graph, where the nodes represent the pixels
 and the weights represent the similarity between neighbouring pixels. Then the
 graph is partitioned into clusters according to a specific criterion.  Each
-partition is then considered an object segment in the image.       
+partition is then considered an object segment in the image.
+\note{References to all of these--above and below!}
  \item \textbf{Trainable} Also known as Neural network segmentation,
 this process involves processing the small areas of an image by means of an
 artificial neural network or a set of neural networks.  Thereafter, using the
@@ -445,21 +580,29 @@ image accordingly and segmentation is done.
 \end{itemize}
 
 \subsection{Cellular automaton}
+\note{Why this all of a sudden?  you have to tie things together
+logically...move to the growcut section}
 A cellular automaton consists of a grid of cells, where each one of the cells
-can be in a finite number of states, say on and off.  This must be specified
+can be in a finite number of states,\note{In the case of segmenting an image,
+    we typically use a two-state automaton, where the states indicate
+foreground and background.}say on and off.  This must be specified
 beforehand.  Around each cell, a set of cells, called the cell's neighbourhood,
-is defined.  An initial state, at time t = 0, is also assigned to each cell.  A
+is defined\note{exists?}.  An initial state, at time $t = 0$, is also assigned
+to each cell.  A
 new generation of cells is then created according to a fixed rule or
 mathematical function that determines the new state of the cell, by looking at
-the current state of the cell as well as that of its neighbourhood.  This rule
+the current state of the cell as well as that of its
+neighbourhood.\note{vague}  This rule
 is then applied to all of the cells simultaneously.  In this way, the cell's
 state gets updated.  Note that the rules for each cell are the same and do not
-change over time.  
+change over time.\note{Can you implement an automaton from this description?
+If not, update the description until you can answer "Yes"}
 
 Two of the most common neighbourhood systems used are the Von
 Neumann neighbourhood and the Moore neighbourhood which are shown below. 
 Probably the most well-known example of a two dimensional automaton is Conway's
-Game of Life.  See \cite{gol} for further details.
+Game of Life.\note{Why not use game of life as an example to show how it
+works?}  See \cite{gol} for further details.
 
 \begin{figure}[H]
 \centering
@@ -470,26 +613,47 @@ Moore neighbourhood systems \cite{n}}
 
 \subsection{Growcut}
 \label{growcut}
-The Grow Cut algorithm is an interactive, multi-label segmentation algorithm for N-dimensional images.  The algorithm is based on cellular automata, i.e.,  the user labels a few pixels
-and the rest of the image is then segmented automatically by a cellular automaton.  A cellular automaton consists of a grid of cells, where each one of the cells can be in 
-a finite number of states, say on and off.   Around each cell, a set of cells, called the cell's neighbourhood is defined.  An initial state, at time $t = 0$, is also assigned to each cell.
+The Grow Cut algorithm is an interactive, multi-label segmentation algorithm
+for N-dimensional images.  The algorithm is based on cellular automata, i.e.,
+the user labels a few pixels and the rest of the image is then segmented
+automatically by a cellular automaton\note{Sounds like magic...indicate to the
+user that you are going to explain.  It's very uncomfortable to the reader
+when it looks like he/she is already supposed to understand when, in fact, the
+explanation is still on the way...}.  A cellular automaton consists of a
+grid of cells, where each one of the cells can be in a finite number of
+states, say on and off.   Around each cell, a set of cells, called the cell's
+neighbourhood is defined.  An initial state, at time $t = 0$, is also assigned
+to each cell.
 A new generation of cells is then created according to a fixed rule or mathematical function that determines the new state of the cell, by looking at the current state of the cell as well
-as that of its neighbourhood.  It is known that the same rules apply to each cell and do not change over time.
+as that of its neighbourhood.\note{Exactly what you said above--give more
+details on how these rules are formed for segmentation}  It is known that the same rules apply to each cell and do not change over time.
 
-The algorithm is interactive, since the user can observe the segmentation and guide the algorithm in places where the segmentation is difficult to compute.
-Some of the favourable properties of this algorithm is that it can do segmentation on complex images and that it works with images of any dimension. \\
+The algorithm is interactive, since the user can observe the segmentation and
+guide the algorithm in places where the segmentation is difficult to compute.
+Some of the favourable properties of this algorithm is that it can do
+segmentation on complex images and that it works with images of any
+dimension.\note{Which segmentation algorithms don't?  And why wouldn't the
+others work with complex images?}
+\\
 
 
-\noindent The basic method on which the algorithm relies is the following.  A cellular automaton is an algorithm which is discrete in both space and time and operates on a 
-lattice of pixels $p \in P \subset Z^{n}$.  A cellular automaton can be considered as a triplet, $A = (S, N, \delta)$, where $S$ is a set containing different states, $N$ is the
+\noindent The basic method on which the algorithm relies is the following.  A
+cellular automaton is an algorithm which is discrete in both space and time
+and operates on a lattice of pixels $p \in P \subset Z^{n}$.  A cellular
+automaton can be considered as a triplet, $A = (S, N, \delta)$, where $S$ is a
+set containing different states, $N$ is the
 neighbourhood system of the cell and $\delta: S^{N} \rightarrow S $ is a transition rule.  This is the function which defines  the rule calculating the cell's state at time $t + 1$, given the states 
 of the cell's neighbourhood at time $t$.  Two well known neighbourhood systems are the von Neumann and Moore neighbourhood systems.  The cell state referred to is also
 considered a triplet $(l_{p}, \theta_{p}, \overrightarrow{C}_{p})$, where $l_{p}$ is the label of the cell($K$ labels in total), $\theta_{p}$ is the 'strength' of the cell and $\overrightarrow{C}_{p}$ is
 the cell feature vector.  Without loss of generality it can be assumed that $\theta_{p} \in [0,1]$. 
+\note{This sounds like it was cut and pasted in.  Describe in your own words.}
 
 The initial state of the pixels is set to $l_{p} = 0, \theta_{p} = 0, \overrightarrow{C}_{p} = RGB_{p}$, where $RGB_{p}$ is a three dimensional vector of the pixel's colour in 
-the RGB space.  The goal of the segmentation is to assign one of the possible $K$ labels to each one of the pixels.  The user starts the segmentation by marking specific pixels as
-foreground and others as background.  This sets the initial state of each pixel.  While the labels are being updated, the user can correct and guide the process if desired.  \\
+the RGB space.  The goal of the segmentation is to assign one of the possible
+$K$ labels to each one of the pixels.  The user starts the segmentation by
+marking specific pixels as foreground and others as background.  This sets the
+initial state of each pixel.  While the labels are being updated, the user can
+correct and guide the process if desired.  \\
 
 \newpage
 \noindent The pseudo code for the automata evolution rule is shown below. 
@@ -517,11 +681,22 @@ g(x) = 1 - \frac{x}{max\| \overrightarrow{C} \|_{2}}.
 \]
 
 
-\noindent The algorithm has been modified in the following way.  One of the main features that needed attention was the damping function $g$.  
-By changing the exponent of the term $\frac{x}{max\| \overrightarrow{C} \|_{2}}$ to $\frac{3}{2}$, thus $\left ({\frac{x}{max\| \overrightarrow{C} \|_{2}}}\right ) ^\frac{3}{2}$,
+\noindent The algorithm has been modified in the following way.  One of the
+main features that needed attention was the damping function $g$.  By changing
+the exponent of the term $\frac{x}{max\| \overrightarrow{C} \|_{2}}$ to
+$\frac{3}{2}$, thus $\left ({\frac{x}{max\| \overrightarrow{C} \|_{2}}}\right
+) ^\frac{3}{2}$,
 an immediate result was seen.  The algorithm acted much more accurately around the edges.  Next, the 'defend strength' of each pixel was modified also by playing with exponents
-of certain parts of the code.  A sobel filter was used in detecting the edges.  A sobel filter calculates the gradient of the intensity of each pixel, giving the direction of the largest possible increase from light to dark and also the rate of change in that specific direction.   This results in showing how abruptly or smoothly the images changes at that point and then how likely it is that that part represents an edge.  The figure below shows a sobel filter acting on a shark fin image.  The edges of the shark fin can clearly be seen.  The main purpose of these changes was to improve accuracy when detecting the edges.
-\\
+of certain parts of the code.\note{yes, but why? explain what's happening!}  A
+sobel filter was used in detecting the edges.  A sobel filter calculates the
+gradient of the intensity of each pixel, giving
+the direction of the largest possible increase from light to dark and also the
+rate of change in that specific direction.   This results in showing how
+abruptly or smoothly the images changes at that point and then how likely it
+is that that part represents an edge.  The figure below shows a sobel filter
+acting on a shark fin image.  The edges of the shark fin can clearly be seen.
+The main purpose of these changes was to improve accuracy when detecting the
+edges.  \\
 \begin{figure}[H]
  \centering
  \includegraphics[width=2.5in, height=2in]{haais}
@@ -545,18 +720,22 @@ of certain parts of the code.  A sobel filter was used in detecting the edges.  
  \label{fin}
 \end{figure}
 
-\noindent It can clearly be seen that the modified version gives better results around the edges, which is essential in the case of the shark fin images. \\ 
+\noindent It can clearly be seen\note{nothing in science can ever be clearly
+seen} that the modified version gives better results around the edges, which is essential in the case of the shark fin images. \\ 
 
 Hoe kan ek hierdie deel inwerk??????
 
-First consider reducing the running time.  One way is to look at which cell features, i.e. difference in intensity combined with cell strength 
-and cell strength alone, play a more important role in updating the cell label, i.e. foreground or background.   This will then help in finding 
+First consider reducing the running time.  One way is to look at which cell
+features, i.e. difference in intensity combined with cell strength and cell
+strength alone, play a more important role in updating the cell label, i.e.
+foreground or background.   This will then help in finding 
 redundant conditions in the code.  By eliminating those conditions the running time can be reduced.  It is concluded that neither of the before
 mentioned features can be omitted, although cell strength alone has a more significant role in finding the new cell label.  No new 'attacking' 
 strategies have yet been implemented. \\
 
 The use of a rank filter is also being investigated.  A rank filter looks for the cell with maximum intensity in a certain region, specified by the user, 
-and assigns that intensity to the cell it is being compared to.  This will better the way in finding the cells in a certain region with intensities that 
+and assigns that intensity to the cell it is being compared to.  This will
+better the way in finding the cells in a certain region with intensities that
 is much different from the intensity of the cell being considered. \\  
 
 \noindent From \cite{RF} we conclude the following.  The semantic segmentation algorithm is based on pixel wise object segmentation.  This is done by 
@@ -578,8 +757,10 @@ described in \cite{rw}, is as follows.  The user labels a few
 pixels as foreground or background for example.  This is then called the seeds. 
 A random walker is then released from each of the unlabelled pixels. 
 Thereafter, the probability that a certain pixel's random walker first arrives
-at a specific seed, is computed.  In other words, if the user labels $n$
-pixels, each with a different label, then the probability that a random walker
+at a specific seed, is computed.\note{Look at the scikit-image gallery on
+random walker to see how they explained it.}  In other words, if the user
+labels $n$ pixels, each with a different label, then the probability that a
+random walker
 leaving the pixel will first arrive at a certain seed, must be
 computed.  The latter is done by modelling the image as a weighted graph, where
 the weight of an edge reflects the similarity(intensity values) between pixels,
