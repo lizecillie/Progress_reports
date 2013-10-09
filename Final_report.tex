@@ -20,11 +20,25 @@
 \usepackage{algpseudocode}
 \bibliographystyle{plain}
 
+\newenvironment{changemargin}[2]{%
+\begin{list}{}{%
+\setlength{\topsep}{0pt}%
+\setlength{\leftmargin}{#1}%
+\setlength{\rightmargin}{#2}%
+\setlength{\listparindent}{\parindent}%
+\setlength{\itemindent}{\parindent}%
+\setlength{\parsep}{\parskip}%
+}%
+\item[]}{\end{list}}
+
+
 \begin{document}
 \begin{titlepage}
+
+\begin{changemargin}{-1cm}{-1cm}
 \begin{center}
 
-\begin{minipage}{\textwidth}
+\begin{minipage}{1.2\textwidth}
 \begin{center}
 \vspace{2cm}
     {\Huge \bf Efficient segmentation algorithms for shark fin
@@ -34,13 +48,13 @@ identification }
 
 \vspace{1.3cm}
 
-\begin{minipage}{0.4\textwidth}
+\begin{minipage}{0.49\textwidth}
 \begin{center} \LARGE
 \emph{Author:}\\
 L. Cilli\'{e}, 16010450
 \end{center}
 \end{minipage}
-\begin{minipage}{0.4\textwidth}
+\begin{minipage}{0.49\textwidth}
 \begin{center} \LARGE
 \emph{Project Advisors:} \\
 Prof. B.M. Herbst\\Dr. S.J Van der Walt
@@ -60,6 +74,7 @@ Prof. B.M. Herbst\\Dr. S.J Van der Walt
 
 \,\hfill{\LARGE Stellenbosch University}\hfill\,
 
+\end{changemargin}
 
 \end{titlepage}
 
