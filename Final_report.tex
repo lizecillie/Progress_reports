@@ -31,7 +31,8 @@
 }%
 \item[]}{\end{list}}
 
-\usepackage[linecolor=green!70!white, backgroundcolor=blue!20!white,bordercolor=red]{todonotes}
+\usepackage[linecolor=green!70!white,
+backgroundcolor=blue!20!white,bordercolor=red]{todonotes}
 \newcommand{\note}{\todo}
 
 \begin{document}
@@ -91,29 +92,32 @@ Prof. B.M. Herbst\\Dr. S.J Van der Walt
 \section{Problem statement and motivation}
 \subsection{}
 Just as humans are identified by their fingerprints, sharks have a unique
-dorsal fin structure.  Identifying shark sightings \note{Why these days?}these days can be very
-valuable.  In order to do that and also to \note{What does it mean to "match
-shark sightings?"}match shark sightings, photos of
-shark fins, as will be shown in the proposal, will be analysed by a computer. 
-\note{We prefer to write in present tense.}This will consist of comparing the edges in the image and segmenting the
-foreground\note{Comparing the edges to what?}, the shark fin being most prominent,  from the background, the sea. 
-Although the photos provided are of a good quality and \note{have been cropped
-to only include the fin...}only include the fin, the
+dorsal fin structure.  Identifying shark sightings is very
+valuable.  In order to do that and also to compare various shark sightings,
+photos of
+shark fins, as will be shown later, will be analysed by a computer. 
+This consists of identifying the edges in the image and segmenting the
+foreground, the shark fin being most prominent,  from the background, the sea. 
+Although the photos provided are of a good quality and have been cropped
+to only include the fin, the
 foreground and background properties can still vary significantly, making this a
 non-trivial problem.  This project aims to investigate efficient segmentation
-algorithms for shark fin identification.  The approach \note{present tense}will consist of
+algorithms for shark fin identification.  The approach consists of
 evaluating (by means of a computer) different methods for classifying foreground
 and background, as well as segmenting the foreground successfully.  By doing so,
-the burden on biological researchers can be reduced.\note{what burden?}  \\
+the burden on biological researchers of transforming the images so that useful
+information can be extracted from it, can be reduced.  \\
 
-\note{Write a bit more formally: the project is motivated by...}The idea behind the project originated when PhD
+\note{Write a bit more formally: the project is motivated by...}The idea behind
+the project originated when PhD
 student in Marine Biology, Ms. Sara Andreotti, approached Dr. van der Walt for
 help regarding a problem she encountered in her research.\note{Probably too
     personal in general.  We don't need to tell the story of the people
 involved to motivate the scientific work.}
 The problem presented was
 as follows.  The work Ms. Andreotti does involve going out into the ocean,
-taking photographs of shark fins and identifying those sharks to later study their ecological and behavioural
+taking photographs of shark fins and identifying those sharks to later study
+their ecological and behavioural
 patterns, for example.
 All these photos are put into a databases. But to
 make any reliable conclusions, such as: Have we seen this shark before?  How
@@ -129,12 +133,15 @@ Since Ms. Andreotti's
 focus is on the distribution and movements of sharks and not on developing new
 software, we can make a substantial contribution by researching this topic. 
 
-Wil ook meer se oor die impak van so projek en ook oor die bewaring van die haaie.
+Wil ook meer se oor die impak van so projek en ook oor die bewaring van die
+haaie.
 
 \newpage
-Below are a few examples of the data used in this research project.  Wil meer
-se oor die databasis???\note{Verduidelik hoe die databasis opgestel word,
-dalk?}
+Below are a few examples of the data used in this research project.  
+The databasis consists of various shark fin images, taken on different dates and
+from different locations.
+Also note that not every image corresponds to a unique shark, i.e. the databasis
+might contain two or more images of the same shark.
 
 \begin{figure}[H]
 \centering
@@ -157,41 +164,37 @@ dalk?}
 \subfigure[]{\includegraphics[width=2in]{haai9.jpg}}}
 \end{figure}
 
-Note the unique dorsal part of the fin.  Although theses photos are of a good
-quality, only including the fin, the foreground and background properties can
-vary significantly.\note{Already stated earlier.}
-
 
 \subsection{Background}
-Image segmentation is well known in the field of image processing.\note{This
-    makes it sound like you're talking about a person.  Rather: image
-segmentation is commonly applied in image processing.}  It consists\note{It
-aims to...}
-of partitioning a digital image into multiple segments for some or other reason.
- The image can then instead be interpreted using a small number of
- well-defined\note{well defined?} 
- components as opposed to a large array of unrelated pixels.  Thus making the
- image easier to analyse.\note{How come?}
- In other words each pixel is
-assigned a label and all the pixels with the same label share a certain
-property.  Image segmentation is typically used to locate an object or
-boundaries in an image. \\
+Image segmentation is commonly applied in image processing.  It
+aims to partition a digital image into multiple segments for some or other
+reason.
+The image can then instead be interpreted using a small number of
+well defined components as opposed to a large array of unrelated pixels.  
+In other words each pixel is assigned a label and all the pixels with the same
+label share a certain
+property.  Thus making the image easier to analyse. Image segmentation is
+typically used to locate an object or boundaries in an image. \\
 
 Segmentation algorithms can be classified as either supervised, meaning that
 it requires user interaction, or supervised, meaning that it is totally
-automatic.\note{supervised or supervised?}  Segmentation is a hard
-problem\note{Citation or motivation required.}.  Computers must segment an
-imgae\note{spelling--use aspell or ispell}
-knowing only limited information about colour and space, for example.
-Many images can be very ambigious\note{in what sense?} and supervised algorithms need user input to make decisions.  On the other hand, unsupervised algorithms need predetermined information and assumptions to work automatically.
-It then follows natuarally\note{few things ever follow naturally...is this
-statement even true?  If so, why?  Motivate.} that the unsupervised algorithms do not perform as well as the supervised algorithms.  However, we strive to develope accurate,
+automatic.  Segmentation is a hard
+problem\note{Citation or motivation required.  Why??}.  Computers must segment
+an
+image knowing only limited information about colour and space, for example.
+Many images can be very ambigious \note{Dont know how to say this.}  and
+supervised algorithms need user input to make decisions.  On the other hand,
+unsupervised algorithms need predetermined information and assumptions to work
+automatically.
+It then follows that the unsupervised algorithms
+do not perform as well as the supervised algorithms.  However, we strive to
+develope accurate,
 unsupervised algorithms. \\
 
-Well known examples where image processing are\note{are/is} used is
+Well known examples where image processing is used is
 in medical imaging to locate tumours, for example, face and
 fingerprint recognition and video surveillance.  See \ref{examples}.\note{What
-is the purpose of this paragraph?}
+is the purpose of this paragraph?  To give examples.}
 
 \begin{figure}[H]
 \centering
@@ -203,19 +206,18 @@ is the purpose of this paragraph?}
 
 
 Another challenge with image segmentation is the evaluation of the resulting
-segmentations. Segmentation is subjective -it's based on people's
-opinions\note{remove the last part of this sentence; not sure I
-    agree--segmentation based on a well-defined criterium is not subjective,
-    it's just that often we don't have well-defined criteria.  So think
-carefully about what you want to say here.}.
-To make progress in this field there has to be\note{Remove "has to
-be"--perhaps would be "helpful to have"?} a way for comparing different
+segmentations.  Often we don't have well defined criteria to evaluate the
+segmentation. 
+To make progress in this field it would be helpful to have a way for comparing
+different
 segmentation methods so that we know if progress is being made. 
-The Berkeley Segmentation Dataset and Benchmark contains 12 000 hand-labeled segmentations of 1 000 Corel dataset images from 30 human subjects. 
-This can then successfully \note{remove successfully--the success depends a
-lot on who does the job}be used to compare what humans think a good segmentation should look like. \\
+The Berkeley Segmentation Dataset and Benchmark contains 12 000 hand-labeled
+segmentations of 1 000 Corel dataset images from 30 human subjects. 
+This can then be used to compare what humans think a good segmentation
+should look like. \\
 
-Here is an example of a colour image in the Berkeley Segmentation Dataset.  Note that the image in the middle shows the machine segmentation and the
+Here is an example of a colour image in the Berkeley Segmentation Dataset.  Note
+that the image in the middle shows the machine segmentation and the
 image on the right the human segmentation.
 
 \begin{figure}[H]
@@ -226,27 +228,25 @@ image on the right the human segmentation.
 \end{figure}
 
 For the purpose of this research project, such dataset will not be used for
-comparison of results.  How???\note{What are you asking/saying with this
-paragraph?}
+comparison of results.  \note{Want to know how we are going to determine whether
+the segmentation was successfull?}
 
 \subsection{Software -- Python}
 For the purposes of this research project, the Python Programming Language was
-used.  The reason for this is mainly because of its simplicity\note{it's not
-    onyl for the simplicity--it is because of the powerful set of tools
-    available, because it is easy to learn, and because the resultant code is
-easy to understand also to other students}.  Python is
+used.  Reasons for this are because of its simplicity, the powerful set of tools
+available in Python, the fact that it is easy to learn and also easy for other 
+people to understand.  Python is
 also free to use and runs on multiple platforms.  For the numerical and
-scientific computations, Numpy and SciPy was used respectively.\note{scratch
-"respectively"}
+scientific computations, Numpy and SciPy was used.
 To improve the running time of the algorithms, Cython was used.  It is a
-language that compiles to a Python extension module.\note{join sentences ->
-and a}  It is a super set of the
+language that compiles to a Python extension module a super set of the
 Python language that allows calling C-functions and declaring C-types on
 variables and class attributes.  This
 results in generating very efficient C-code from Cython code.\note{broken
-sentence}  For the investigation of various image processing algorithms, scikit-image was used. \\
-Nog iets????\note{dink dit is dit, maar noem ook iets van die
-ontwikkelingsproses op GitHub}
+sentence. Why??}  For the investigation of various image processing algorithms,
+scikit-image was used. \\
+
+
 
 \begin{figure}[H]
  \centering
@@ -255,7 +255,8 @@ ontwikkelingsproses op GitHub}
 
 \newpage
 \section{Overview of pipeline}
-Enige idees vir inleiding vir pyplyn????\note{'n diagram, vir een!}
+Enige idees vir inleiding vir pyplyn????\note{Sal jy my asb kan help met n
+diagram?}
 
 \note{Write a concise overview of the pipeline here, then proceed to discuss
 each component in detail.  Merge algorithm descriptions further down with this
@@ -277,7 +278,8 @@ PCA, we are interested in finding the direction of maximum variation in the
 data.  Suppose we have $K$, $n$-dimensional, data points, $\mathbf{x}_k,$ for
 $k=1,2, \ldots ,K$. We compute a covariance matrix, $C$,
 \[
- C_{\mathbf{x}} = \frac{1}{K} \sum_{k=1}^{K} \mathbf{x}_{k}\mathbf{x}_{k}^{T} - \mathbf{m}_{\mathbf{x}}\mathbf{m}_{\mathbf{x}}^{T} 
+ C_{\mathbf{x}} = \frac{1}{K} \sum_{k=1}^{K} \mathbf{x}_{k}\mathbf{x}_{k}^{T} -
+\mathbf{m}_{\mathbf{x}}\mathbf{m}_{\mathbf{x}}^{T} 
 ,\]
 where
 \[
@@ -288,8 +290,10 @@ is the mean of the data.  \\
 \note{there is no indication what data we are talking about here--you have to
 make sure the reader understands your story!}
 
-From $C$ we determine the eigenvalues and eigenvectors, which will indicate the variance and principal directions respectively.
-The direction of the eigenvector corresponding to the largest eigenvalue will then indicate the orientation of the shark fin. \\
+From $C$ we determine the eigenvalues and eigenvectors, which will indicate the
+variance and principal directions respectively.
+The direction of the eigenvector corresponding to the largest eigenvalue will
+then indicate the orientation of the shark fin. \\
 
 \note{e.g., it is impossible to know what C is in relation to our coordinates
 from the above description}
@@ -318,7 +322,8 @@ the image to determine the principal axes of the coordinates.  If the gradient
 of the line defining the principal direction lies between 0 and
 $\frac{\pi}{2}$ radians, the orientation of the shark fin is
 identified as
-"right", otherwise \note{scratch up to end of "as"}the orientation is identified as "left". 
+"right", otherwise \note{scratch up to end of "as"}the orientation is identified
+as "left". 
 
 \subsection{Segmentation}
 The task is to separate the foreground, the shark fin, from the background,
@@ -326,13 +331,15 @@ the sea.  For this purpose, we use the region growing segmentation algorithm,
 Growcut (see \ref{growcut}).  Growcut requires the user to specify a few
 foreground and background pixels from which the growing can be
 initiated.\note{No description of growcut as an automaton?}
-Initially this was done by first determining the orientation of the fin (see \ref{orient}) and then specifying a few pixels according to that, see 
+Initially this was done by first determining the orientation of the fin (see
+\ref{orient}) and then specifying a few pixels according to that, see 
 \ref{segmentation}.  \\
 
 \begin{figure}[H]
  \centering
  \includegraphics[width=5in]{segmentation.jpg}
- \caption{Growcut segmentation on a shark fin image by selecting a few foreground and background pixels, shown in blue and red respectively.}
+ \caption{Growcut segmentation on a shark fin image by selecting a few
+foreground and background pixels, shown in blue and red respectively.}
  \label{segmentation}
 \end{figure}
 
@@ -354,7 +361,8 @@ Also making this algorithm more robust.\note{not a full sentence}  \\
 \begin{figure}[H]
  \centering
  \includegraphics[width=5in]{segmentation.jpg}
- \caption{Growcut segmentation on a shark fin image by selecting all points in a given polygon as foreground and background pixels, shown as blue and red
+ \caption{Growcut segmentation on a shark fin image by selecting all points in a
+given polygon as foreground and background pixels, shown as blue and red
  polygons respectively.}
  \label{segmentation1}
 \end{figure}
@@ -373,14 +381,16 @@ Below is an example of the final output of the segmentation process. \\
 \begin{figure}[H]
  \centering
  \includegraphics[width=5in]{segmentation.jpg}
- \caption{Growcut segmentation on a shark fin image by selecting all points in a given polygon as foreground and background pixels, shown as blue and red
+ \caption{Growcut segmentation on a shark fin image by selecting all points in a
+given polygon as foreground and background pixels, shown as blue and red
  polygons respectively.}
  \label{segmentation1}
 \end{figure}
 
 
 \subsection{Fin detection}
-The objective is to identify the serrated part of dorsal shark fin. In order to do this we need to extract the latter part of the fin such that it can be
+The objective is to identify the serrated part of dorsal shark fin. In order to
+do this we need to extract the latter part of the fin such that it can be
 compared with other fins\note{broken sentence}.  We use the Sobel operator,
 well-known in edge detection, to identify the edge and ease further analysis.
 \note{What does "ease further analysis" mean here?}
@@ -390,7 +400,8 @@ masks, $M$, which are convolved with the original image to approximate the
 derivatives, both in the horizontal $x$-
 and the vertical $y$-directions.  \\
 
-Define $A$ as the input image and $G_x$ and $G_y$ as the gradient images in the $x$-and $y$-direction respectively,
+Define $A$ as the input image and $G_x$ and $G_y$ as the gradient images in the
+$x$-and $y$-direction respectively,
 after convolving with $A$.  $M_x$ and $M_y$ is given by
 
 \[
@@ -407,12 +418,14 @@ after convolving with $A$.  $M_x$ and $M_y$ is given by
        \end{pmatrix*}
 .\]
 
-At each point in the image, the gradient approximations can be combined to give the gradient magnitude image, calculated  as
+At each point in the image, the gradient approximations can be combined to give
+the gradient magnitude image, calculated  as
 \[
  G = \sqrt{G_x^2+G_y^2}
 .\]
 
-The sobel operator applied to one of the shark fin images is shown in \ref{sobel}.  Note that this operator only works on a grayscale image.
+The sobel operator applied to one of the shark fin images is shown in
+\ref{sobel}.  Note that this operator only works on a grayscale image.
 We can see the edge of the fin in the $G$ image on the right clearly identified.
 
 \begin{figure}[H]
@@ -422,13 +435,11 @@ We can see the edge of the fin in the $G$ image on the right clearly identified.
  \label{sobel}
 \end{figure}
 
-We have now managed to successfully identify the edges in the
-image.\note{Scratch sentence} \\
-
 The next step is to extract only the unique part of the fin needed for
 identification.  This is done by first inverting the edges and then squaring
 them to increase their weight.\note{why?}  We make use of a function 
-\texttt{route\_through\_array()} from the module \texttt{graph} in scikit-image.  This function enables us to find a lowest cost path through the image.
+\texttt{route\_through\_array()} from the module \texttt{graph} in scikit-image.
+ This function enables us to find a lowest cost path through the image.
 Since we are working on the segmented image, we allow any start and end point
 for the path.\note{How do we do that?}  The path is computed by ??????.  All
 pixel coordinates running on the edges of the image is then removed from the
@@ -438,7 +449,8 @@ path. Hoe kan ons seker wees dat hy wel die fin gaan vind????\note{'n Mens kan
     inverteer en kyk of dit nogsteeds werk, sodat ons kan sien of hy klein
 waardes of kontoere track.}\\
 
-Here we show an example of the path, in blue, that was detected on the shark fin.
+Here we show an example of the path, in blue, that was detected on the shark
+fin.
 \begin{figure}[H]
  \centering
  \includegraphics[width=5in]{finpath.jpg}
@@ -503,29 +515,21 @@ Nog iets hieroor?????
 \newpage
 \subsection{DARWIN -- Alternative software}
 The DARWIN\cite{Darwin} software package is well known when it comes to
-aquiring important data about Great White dolphins\note{must be an interesting
-species}.  It was initially implemented by undergraduate student\note{we live
-    in a meritocracy now--no need to mention his position way down the food
-chain!}Mark Allen of
-Eckerd College under the
-supervision of John Stewman.
+aquiring important data about Great White Sharks.  It was initially implemented
+by undergraduate student of
+Eckerd College.
 Lately it was used to estimate the Great White shark population in the
-Gansbaai area by means of shark fin identification and matching.  This
-claim\note{what claim?}
-was tested by Ms. Andreotti and she found that in only
-54\% of the cases the correct matching took place, making this software highly
-unreliable\note{highly unreliable is a judgement, unreliable is a statement}.
-Below is an image showing the DARWIN user interface.\note{no need} 
+Gansbaai area by means of shark fin identification and matching.  They claim to have found approximately
+1008 different shark species in this region.  This
+claim was tested by Ms. Andreotti and she found that in only
+54\% of the cases the correct matching took place, making this software
+unreliable.
 
 \begin{figure}[H]
  \centering
  \includegraphics[width=3in]{Darwin.jpg}
- \caption{User interface}
+ \caption{DARWIN user interface}
 \end{figure}
-
-Wil meer hier se!!!!
-
-
 
 \newpage
 \section{Segmentation Algorithms}
@@ -571,7 +575,7 @@ the image as a weighted, undirected graph, where the nodes represent the pixels
 and the weights represent the similarity between neighbouring pixels. Then the
 graph is partitioned into clusters according to a specific criterion.  Each
 partition is then considered an object segment in the image.
-\note{References to all of these--above and below!}
+\note{References to all of these--above and below!  I do that at the top where I introduce the section.}
  \item \textbf{Trainable} Also known as Neural network segmentation,
 this process involves processing the small areas of an image by means of an
 artificial neural network or a set of neural networks.  Thereafter, using the
@@ -624,9 +628,12 @@ grid of cells, where each one of the cells can be in a finite number of
 states, say on and off.   Around each cell, a set of cells, called the cell's
 neighbourhood is defined.  An initial state, at time $t = 0$, is also assigned
 to each cell.
-A new generation of cells is then created according to a fixed rule or mathematical function that determines the new state of the cell, by looking at the current state of the cell as well
+A new generation of cells is then created according to a fixed rule or
+mathematical function that determines the new state of the cell, by looking at
+the current state of the cell as well
 as that of its neighbourhood.\note{Exactly what you said above--give more
-details on how these rules are formed for segmentation}  It is known that the same rules apply to each cell and do not change over time.
+details on how these rules are formed for segmentation}  It is known that the
+same rules apply to each cell and do not change over time.
 
 The algorithm is interactive, since the user can observe the segmentation and
 guide the algorithm in places where the segmentation is difficult to compute.
@@ -642,13 +649,22 @@ cellular automaton is an algorithm which is discrete in both space and time
 and operates on a lattice of pixels $p \in P \subset Z^{n}$.  A cellular
 automaton can be considered as a triplet, $A = (S, N, \delta)$, where $S$ is a
 set containing different states, $N$ is the
-neighbourhood system of the cell and $\delta: S^{N} \rightarrow S $ is a transition rule.  This is the function which defines  the rule calculating the cell's state at time $t + 1$, given the states 
-of the cell's neighbourhood at time $t$.  Two well known neighbourhood systems are the von Neumann and Moore neighbourhood systems.  The cell state referred to is also
-considered a triplet $(l_{p}, \theta_{p}, \overrightarrow{C}_{p})$, where $l_{p}$ is the label of the cell($K$ labels in total), $\theta_{p}$ is the 'strength' of the cell and $\overrightarrow{C}_{p}$ is
-the cell feature vector.  Without loss of generality it can be assumed that $\theta_{p} \in [0,1]$. 
+neighbourhood system of the cell and $\delta: S^{N} \rightarrow S $ is a
+transition rule.  This is the function which defines  the rule calculating the
+cell's state at time $t + 1$, given the states 
+of the cell's neighbourhood at time $t$.  Two well known neighbourhood systems
+are the von Neumann and Moore neighbourhood systems.  The cell state referred to
+is also
+considered a triplet $(l_{p}, \theta_{p}, \overrightarrow{C}_{p})$, where
+$l_{p}$ is the label of the cell($K$ labels in total), $\theta_{p}$ is the
+'strength' of the cell and $\overrightarrow{C}_{p}$ is
+the cell feature vector.  Without loss of generality it can be assumed that
+$\theta_{p} \in [0,1]$. 
 \note{This sounds like it was cut and pasted in.  Describe in your own words.}
 
-The initial state of the pixels is set to $l_{p} = 0, \theta_{p} = 0, \overrightarrow{C}_{p} = RGB_{p}$, where $RGB_{p}$ is a three dimensional vector of the pixel's colour in 
+The initial state of the pixels is set to $l_{p} = 0, \theta_{p} = 0,
+\overrightarrow{C}_{p} = RGB_{p}$, where $RGB_{p}$ is a three dimensional vector
+of the pixel's colour in 
 the RGB space.  The goal of the segmentation is to assign one of the possible
 $K$ labels to each one of the pixels.  The user starts the segmentation by
 marking specific pixels as foreground and others as background.  This sets the
@@ -666,16 +682,19 @@ correct and guide the process if desired.  \\
  \State $\theta_{p}^{t+1} = \theta_{p}^{t}$;
  \State // Neighbours try to attack the current cell
  \For{$\forall q \in N(p)$}
- \If{$g(\| \overrightarrow{C}_{p} - \overrightarrow{C}_{q} \|_{2}) \cdot \theta^{t}_{q} > \theta_{p}^{t}$}
+ \If{$g(\| \overrightarrow{C}_{p} - \overrightarrow{C}_{q} \|_{2}) \cdot
+\theta^{t}_{q} > \theta_{p}^{t}$}
  \State $l^{t+1}_{p} = l^{t}_{q}$
- \State $\theta^{t+1}_{p} = g(\| \overrightarrow{C}_{p} - \overrightarrow{C}_{q} \|_{2}) \cdot \theta^{t}_{q}$
+ \State $\theta^{t+1}_{p} = g(\| \overrightarrow{C}_{p} - \overrightarrow{C}_{q}
+\|_{2}) \cdot \theta^{t}_{q}$
  \EndIf
  \EndFor
  \EndFor
 \end{algorithmic}
 \end{algorithm}
 
-\noindent where $g$ is a monotonous decreasing function bounded to $[0, 1]$.  The function is given by
+\noindent where $g$ is a monotonous decreasing function bounded to $[0, 1]$. 
+The function is given by
 \[
 g(x) = 1 - \frac{x}{max\| \overrightarrow{C} \|_{2}}. 
 \]
@@ -686,7 +705,9 @@ main features that needed attention was the damping function $g$.  By changing
 the exponent of the term $\frac{x}{max\| \overrightarrow{C} \|_{2}}$ to
 $\frac{3}{2}$, thus $\left ({\frac{x}{max\| \overrightarrow{C} \|_{2}}}\right
 ) ^\frac{3}{2}$,
-an immediate result was seen.  The algorithm acted much more accurately around the edges.  Next, the 'defend strength' of each pixel was modified also by playing with exponents
+an immediate result was seen.  The algorithm acted much more accurately around
+the edges.  Next, the 'defend strength' of each pixel was modified also by
+playing with exponents
 of certain parts of the code.\note{yes, but why? explain what's happening!}  A
 sobel filter was used in detecting the edges.  A sobel filter calculates the
 gradient of the intensity of each pixel, giving
@@ -705,7 +726,9 @@ edges.  \\
 \end{figure}
 
 \newpage
-\noindent Here is a comparison between the effect of the original algorithm on one of the shark fin images and the effect of the modified version of the algorithm on the same image.
+\noindent Here is a comparison between the effect of the original algorithm on
+one of the shark fin images and the effect of the modified version of the
+algorithm on the same image.
 \begin{figure}[H]
  \centering
  \includegraphics[width=4in, height=1.8in]{haaio}
@@ -720,8 +743,8 @@ edges.  \\
  \label{fin}
 \end{figure}
 
-\noindent It can clearly be seen\note{nothing in science can ever be clearly
-seen} that the modified version gives better results around the edges, which is essential in the case of the shark fin images. \\ 
+\noindent It can be seen that the modified version gives better results around the edges, which is
+essential in the case of the shark fin images. \\ 
 
 Hoe kan ek hierdie deel inwerk??????
 
@@ -729,25 +752,37 @@ First consider reducing the running time.  One way is to look at which cell
 features, i.e. difference in intensity combined with cell strength and cell
 strength alone, play a more important role in updating the cell label, i.e.
 foreground or background.   This will then help in finding 
-redundant conditions in the code.  By eliminating those conditions the running time can be reduced.  It is concluded that neither of the before
-mentioned features can be omitted, although cell strength alone has a more significant role in finding the new cell label.  No new 'attacking' 
+redundant conditions in the code.  By eliminating those conditions the running
+time can be reduced.  It is concluded that neither of the before
+mentioned features can be omitted, although cell strength alone has a more
+significant role in finding the new cell label.  No new 'attacking' 
 strategies have yet been implemented. \\
 
-The use of a rank filter is also being investigated.  A rank filter looks for the cell with maximum intensity in a certain region, specified by the user, 
+The use of a rank filter is also being investigated.  A rank filter looks for
+the cell with maximum intensity in a certain region, specified by the user, 
 and assigns that intensity to the cell it is being compared to.  This will
 better the way in finding the cells in a certain region with intensities that
 is much different from the intensity of the cell being considered. \\  
 
-\noindent From \cite{RF} we conclude the following.  The semantic segmentation algorithm is based on pixel wise object segmentation.  This is done by 
-assigning category labels to a set of super pixels obtained by clustering the joint colour space and coordinate space using the mean shift algorithm.
-The method of interactive semantic segmentation as in \cite{RF} can be described as follows.  Each image is presented as a set of super pixels, where 
-a super pixel is a set of pixels.  The first image in the data set must be segmented manually by labelling each super pixel.  An appearance model is 
-now created.  The next image is now segmented automatically using the appearance model.  During the segmentation the user may correct mistakes by 
-relabelling and thus updating the appearance model.  Every time the user approves the segmentation, the system learns from the new labelling information.
-As image segmentation continues, user time spent on correcting labels reduces and thus the rate of image labelling increases.  \\
+\noindent From \cite{RF} we conclude the following.  The semantic segmentation
+algorithm is based on pixel wise object segmentation.  This is done by 
+assigning category labels to a set of super pixels obtained by clustering the
+joint colour space and coordinate space using the mean shift algorithm.
+The method of interactive semantic segmentation as in \cite{RF} can be described
+as follows.  Each image is presented as a set of super pixels, where 
+a super pixel is a set of pixels.  The first image in the data set must be
+segmented manually by labelling each super pixel.  An appearance model is 
+now created.  The next image is now segmented automatically using the appearance
+model.  During the segmentation the user may correct mistakes by 
+relabelling and thus updating the appearance model.  Every time the user
+approves the segmentation, the system learns from the new labelling information.
+As image segmentation continues, user time spent on correcting labels reduces
+and thus the rate of image labelling increases.  \\
 
-This method can be helpful in the sense that it works with a database of images of the same kind.  Since the shark fin images are all of the same type, 
-it would be very beneficial to manually segment the first image only and then automatic segmentation will follow.  By updating the appearance model, 
+This method can be helpful in the sense that it works with a database of images
+of the same kind.  Since the shark fin images are all of the same type, 
+it would be very beneficial to manually segment the first image only and then
+automatic segmentation will follow.  By updating the appearance model, 
 one can also be certain that better segmentation results will follow.  \\  
 
 
@@ -758,13 +793,14 @@ pixels as foreground or background for example.  This is then called the seeds.
 A random walker is then released from each of the unlabelled pixels. 
 Thereafter, the probability that a certain pixel's random walker first arrives
 at a specific seed, is computed.\note{Look at the scikit-image gallery on
-random walker to see how they explained it.}  In other words, if the user
+random walker to see how they explained it.  Got this from the reference they gave there.}  In other words, if the user
 labels $n$ pixels, each with a different label, then the probability that a
 random walker
 leaving the pixel will first arrive at a certain seed, must be
 computed.  The latter is done by modelling the image as a weighted graph, where
 the weight of an edge reflects the similarity(intensity values) between pixels,
-and then solving a system of linear equations.  The pixel is then assigned the label
+and then solving a system of linear equations.  The pixel is then assigned the
+label
 of the seed for which it is most likely to reach.  The process is repeated until
 each pixel is assigned a specific label. 
 
@@ -794,14 +830,20 @@ image.  The second image shows the pixels that are identified as a local maxima.
 an effective segmentation can be done.
 
 \subsection{Graphcuts}
-Graphcuts is a technique to select the best quality segmentation.  In doing so, we calculate a global optimum solution by minimizing a certain 
-cost function.  One of the reasons for the success of graphcuts is because of the way the cost is defined.  It is a combination of what each pixel
-"wants" and what is "best" for its neighbourhood.  We define an ergy function, $E$, to determine the cost of a specific segmentation.
+Graphcuts is a technique to select the best quality segmentation.  In doing so,
+we calculate a global optimum solution by minimizing a certain 
+cost function.  One of the reasons for the success of graphcuts is because of
+the way the cost is defined.  It is a combination of what each pixel
+"wants" and what is "best" for its neighbourhood.  We define an ergy function,
+$E$, to determine the cost of a specific segmentation.
 \[
  E = \sum_{p \in \Phi}E_d(p) + \lambda\sum_{p,g \in \Phi}E_n(p, q)
 \]
-where the term $E_d(p)$ is the cost of assigning pixel $p$ label $d$, the neighbourhood term $E_n(p, q)$ is the difference in cost of labels for pixels $p$ 
-and $q$, and finally $\lambda$ is a weighting parameter to specify the importance of either term.
+where the term $E_d(p)$ is the cost of assigning pixel $p$ label $d$, the
+neighbourhood term $E_n(p, q)$ is the difference in cost of labels for pixels
+$p$ 
+and $q$, and finally $\lambda$ is a weighting parameter to specify the
+importance of either term.
 
 \begin{figure}[H]
  \centering
