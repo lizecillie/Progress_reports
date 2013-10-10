@@ -316,6 +316,7 @@ author implemented his/her method.  Don't understand??}we start by converting th
 image, which is an RGB image, to a grayscale image.  We then apply a Sobel filter
 to identify prominent edges in the image.  After identifying the prominent edges
 , we apply a threshold, using Otsu's method, to convert the image into a binary image.
+Otsu's method .
 We can now do PCA on
 the image to determine the principal axes of the coordinates.  If the gradient
 of the line defining the principal direction lies between 0 and
@@ -350,7 +351,7 @@ the foreground and background pixels is then done using the function
 \texttt{grid\_points\_inside\_poly()} from the \texttt{morphology} module in
 \texttt{scikit-image}.  This function selects all points inside a given
 polygon.  These points are then set as the foreground and background pixels
-respectively.\note{Sentence does not make sense}  See
+respectively.\note{Sentence does not make sense.  Why??}  See
 \ref{segmentation1}.
 Since the images in the databases, and images in general, are not
 all the same size, we specify the corners of the polygon according to the size
