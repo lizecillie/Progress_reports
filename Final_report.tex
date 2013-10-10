@@ -557,7 +557,8 @@ required to encode that image, based on the given segmentation.
 sense that it only passes through all the pixels once.  A histogram of 
 the image is computed whereafter the peaks and valleys in the histogram
 are used to locate clusters in the image.  Here clusters refer to pixels
-sharing a certain property.  The colour or intensity of the pixels can be used to
+sharing a certain property.  The colour or intensity of the pixels can be used
+to
 locate clusters.
  \item \textbf{Edge detection} Edge detection is well researched in image
 processing.  Region boundaries and edges are closely related,
@@ -570,8 +571,10 @@ Thereafter neighbouring, unallocated pixels are compared to the specific seed
 point.  That is how the region grows iteratively.  The pixels are compared using
 the difference between intensity value and the region's mean.  Pixels are then
 allocated to a specific region if that difference is a minimum.  The process
-terminates if all pixels belong to a a specific region.  \note{This is not accurate, I
-don't think.  Region merging is all about merging *regions*.  Don't understand??}
+terminates if all pixels belong to a a specific region.  \note{This is not
+accurate, I
+don't think.  Region merging is all about merging *regions*.  Don't
+understand??}
  \item \textbf{Watershed transformation} See description in \ref{watershed}.    
  \item \textbf{Graph partitioning} This method is based on modelling
 the image as a weighted, undirected graph, where the nodes represent the pixels
@@ -600,24 +603,51 @@ to each cell.  A
 new generation of cells is then created according to a fixed rule or
 mathematical function that determines the new state of the cell, by looking at
 the current state of the cell as well as that of its
-neighbourhood.\note{vague.  What exactly??}  This rule
+neighbourhood.  Two of the most common neighbourhood systems used are the Von
+Neumann neighbourhood and the Moore neighbourhood which are shown below.
+\note{vague.  What exactly??}  This rule
 is then applied to all of the cells simultaneously.  In this way, the cell's
-state gets updated.  Note that the rules for updating the state of each cell are the same and do not
+state gets updated.  Note that the rules for updating the state of each cell are
+the same and do not
 change over time.\note{Can you implement an automaton from this description?
 If not, update the description until you can answer "Yes"} \\
-
-Two of the most common neighbourhood systems used are the Von
-Neumann neighbourhood and the Moore neighbourhood which are shown below. 
-Probably the most well-known example of a two dimensional automaton is Conway's
-Game of Life developed by British mathematician John Horton Conway in 1970. 
-This "game" is a zero-player game, i.e. it developes according to an initial state
-and require now further input.
 
 \begin{figure}[H]
 \centering
 \mbox{\subfigure{\includegraphics[width=2in]{VonNeumann.png}} \quad
 \subfigure{\includegraphics[width=2in]{Moore.png}}} \caption{Von Neumann and
 Moore neighbourhood systems \cite{n}}
+\end{figure}
+
+Probably the most well-known example of a two dimensional automaton is Conway's
+Game of Life, developed by British mathematician John Horton Conway in 1970. 
+This "game" is a zero-player game, i.e. it developes according to an initial
+state
+and require now further input.  The "player" interacts by creating an initial
+state whereafter evolution of cells take place.  \\
+
+The space in which the game takes place can be described as an infinite
+two-dimensional grid of square cells.  Each cell can be in either one of two
+states, dead or alive.  In Conway's Game of Life, each cell interacts with the
+cells in its eight-neighbourhood or Moore neighbourhood.  The following rules are 
+used to update the sate of each cell.  Note that these rules will differ for each automaton. 
+
+\begin{itemize}
+ \item  Any living cell with less than two living neighbours, will die because of under population.
+ \item Any living cell with two or three living neighbours lives on to the next generation.
+ \item Any living cell with more than three living neighbours dies because of over population.
+ \item Any dead cell with exactly three living neighbours becomes a living cell, because of reproduction.
+\end{itemize}
+
+New generations are created by applying these rules simultaneously to every cell and therefore births and deaths occur simultaneously. \\
+
+Below is an example of .
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=2.5in, height=2in]{haais}
+ \caption{A sobel filter applied to a shark fin image}
+ \label{fin1}
 \end{figure}
 
 \subsection{Growcut}
