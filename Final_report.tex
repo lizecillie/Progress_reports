@@ -602,15 +602,16 @@ mathematical function that determines the new state of the cell, by looking at
 the current state of the cell as well as that of its
 neighbourhood.\note{vague.  What exactly??}  This rule
 is then applied to all of the cells simultaneously.  In this way, the cell's
-state gets updated.  Note that the rules for each cell are the same and do not
+state gets updated.  Note that the rules for updating the state of each cell are the same and do not
 change over time.\note{Can you implement an automaton from this description?
-If not, update the description until you can answer "Yes"}
+If not, update the description until you can answer "Yes"} \\
 
 Two of the most common neighbourhood systems used are the Von
 Neumann neighbourhood and the Moore neighbourhood which are shown below. 
 Probably the most well-known example of a two dimensional automaton is Conway's
-Game of Life.\note{Why not use game of life as an example to show how it
-works?}  See \cite{gol} for further details.
+Game of Life developed by British mathematician John Horton Conway in 1970. 
+This "game" is a zero-player game, i.e. it developes according to an initial state
+and require now further input.
 
 \begin{figure}[H]
 \centering
