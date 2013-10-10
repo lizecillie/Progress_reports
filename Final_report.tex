@@ -590,34 +590,9 @@ categories recognised by the network, the decision-making mechanism marks the
 image accordingly and segmentation is done.
 \end{itemize}
 
-\subsection{Cellular automaton}
-\note{Why this all of a sudden?  you have to tie things together
-logically...move to the growcut section}
-A cellular automaton consists of a grid of cells, where each one of the cells
-can be in a finite number of states.  In the case of segmenting an image,
-    we typically use a two-state automaton, where the states indicate
-foreground and background.  This must be specified
-beforehand.  Around each cell, a set of cells, called the cell's neighbourhood,
-exists.  An initial state, at time $t = 0$, is also assigned
-to each cell.  A
-new generation of cells is then created according to a fixed rule or
-mathematical function that determines the new state of the cell, by looking at
-the current state of the cell as well as that of its
-neighbourhood.  Two of the most common neighbourhood systems used are the Von
-Neumann neighbourhood and the Moore neighbourhood which are shown below.
-\note{vague.  What exactly??}  This rule
-is then applied to all of the cells simultaneously.  In this way, the cell's
-state gets updated.  Note that the rules for updating the state of each cell are
-the same and do not
-change over time. \\
-
-\begin{figure}[H]
-\centering
-\mbox{\subfigure{\includegraphics[width=1.7in]{VonNeumann.png}} \quad
-\subfigure{\includegraphics[width=1.7in]{Moore.png}}} \caption{Von Neumann and
-Moore neighbourhood systems \cite{n}}
-\end{figure}
-
+\subsection{Cellular automaton}\note{Hoe kan ek hierdie deel met die Growcut deel integreer?? Want dit verg kennis van wat ek onder 
+Growcut verduidelik.}
+The idea of an cellular automaton is explained with the use of an example.
 Probably the most well-known example of a two dimensional automaton is Conway's
 Game of Life, developed by British mathematician John Horton Conway in 1970. 
 This "game" is a zero-player game, i.e. it developes according to an initial
@@ -664,7 +639,22 @@ to each cell.
 A new generation of cells is then created according to a fixed rule or
 mathematical function that determines the new state of the cell, by looking at
 the current state of the cell as well
-as that of its neighbourhood.  It is known that the
+as that of its neighbourhood.  Two of the most common neighbourhood systems used are the Von
+Neumann neighbourhood and the Moore neighbourhood which are shown below.
+This rule
+is then applied to all of the cells simultaneously.  In this way, the cell's
+state gets updated.  Note that the rules for updating the state of each cell are
+the same and do not
+change over time. \\
+
+\begin{figure}[H]
+\centering
+\mbox{\subfigure{\includegraphics[width=1.7in]{VonNeumann.png}} \quad
+\subfigure{\includegraphics[width=1.7in]{Moore.png}}} \caption{Von Neumann and
+Moore neighbourhood systems \cite{n}}
+\end{figure}
+
+It is known that the
 same rules apply to each cell and do not change over time.
 
 The algorithm is interactive, since the user can observe the segmentation and
