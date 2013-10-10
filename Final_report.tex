@@ -343,11 +343,8 @@ foreground and background pixels, shown in blue and red respectively.}
  \label{segmentation}
 \end{figure}
 
-However, more success was achieved by rather reflecting the fin in the
-horizontal direction to ensure that all the shark fins have the same
-orientation.\note{It's not a matter of more success--it would be wrong to do
-it any other way!}  The specification of
-the foreground and background pixels is then done using the function
+The specification of
+the foreground and background pixels is done using the function
 \texttt{grid\_points\_inside\_poly()} from the \texttt{morphology} module in
 \texttt{scikit-image}.  This function selects all points inside a given
 polygon.  These points are then set as the foreground and background pixels
