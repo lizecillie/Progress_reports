@@ -293,7 +293,7 @@ where
 \[
  \mathbf{m}_{\mathbf{x}} = \frac{1}{K} \sum_{k=1}^{K}\mathbf{x}_{k}
 \]
-is the mean of the data, computed along the columns of the image as an array. 
+is the mean of the data, computed along the columns of the shark fin image as an array. 
 In our case, the data refers to the pixel values in the shark fin image.  \\
 
 From $C$, we determine the eigenvalues and eigenvectors, which will indicate the
@@ -331,7 +331,7 @@ The task is to separate the foreground, the shark fin, from the background,
 the sea.  For this purpose, we use the region growing segmentation algorithm,
 Growcut (see \ref{growcut}).  Growcut requires the user to specify a few
 foreground and background pixels from which the growing can be
-initiated.\note{No description of growcut as an automaton?}
+initiated.\note{No description of growcut as an automaton?  Hoe kan ons die deel waar ek wel Growcut verduidelik hier in werk??}
 Initially this was done by first determining the orientation of the fin (see
 \ref{orient}) and then specifying a few pixels according to that, see 
 \ref{segmentation}.  \\
