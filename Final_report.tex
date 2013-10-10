@@ -277,10 +277,10 @@ section.  How??}
 To ease further analysis, we determine the
 orientation of the shark fin in the image, as the direction in
 which the shark is
-swimming, as viewed from the front, i.e. if the shark is swimming to the left,
-the algorithm returns right and vice versa. This will then help to identify a
-few foreground- and background
-pixels needed in the segmentation process\note{expand and explain}
+swimming, as viewed from the front, i.e., if the shark is swimming to the left,
+the algorithm returns right and vice versa.  We then flip the images so that
+all the shark fins have the same direction.  This will help when a few foreground
+pixels and background pixels need to be specified when performing segmentation.
 The method of Principal Components Analysis (PCA) is used here.  When applying
 PCA, we are interested in finding the direction of maximum variation in the
 data.  Suppose we have $K$, $n$-dimensional, data points, $\mathbf{x}_k,$ for
