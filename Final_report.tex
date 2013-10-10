@@ -284,7 +284,7 @@ pixels and background pixels need to be specified when performing segmentation.
 The method of Principal Components Analysis (PCA) is used here.  When applying
 PCA, we are interested in finding the direction of maximum variation in the
 data.  Suppose we have $K$, $n$-dimensional, data points, $\mathbf{x}_k,$ for
-$k=1,2, \ldots ,K$. We compute a covariance matrix, $C$,
+$k=1,2, \ldots ,K$.  In our case the data points are .  We compute a covariance matrix, $C$,
 \[
  C_{\mathbf{x}} = \frac{1}{K} \sum_{k=1}^{K} \mathbf{x}_{k}\mathbf{x}_{k}^{T} -
 \mathbf{m}_{\mathbf{x}}\mathbf{m}_{\mathbf{x}}^{T} 
@@ -294,9 +294,6 @@ where
  \mathbf{m}_{\mathbf{x}} = \frac{1}{K} \sum_{k=1}^{K}\mathbf{x}_{k}
 \]
 is the mean of the data.  \\
-
-\note{there is no indication what data we are talking about here--you have to
-make sure the reader understands your story!}
 
 From $C$ we determine the eigenvalues and eigenvectors, which will indicate the
 variance and principal directions respectively.
@@ -322,9 +319,7 @@ image, which is an RGB image, to a grayscale image.  To ease the
 process\note{To ease what process?}, we
 apply a sobel filter to the image, justifying the reason for the colour
 conversion\note{I don't understand}.  After identifying the prominent edges in
-the image, we apply a threshold resulting in a image where every pixel value
-greater than the geometric mean of the edge image times four is set to
-zero.\note{Why is 4 times chosen?  I would also like to know???}
+the image, we apply a threshold, using Otsu's method.
 We can now do PCA on
 the image to determine the principal axes of the coordinates.  If the gradient
 of the line defining the principal direction lies between 0 and
