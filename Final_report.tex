@@ -486,9 +486,8 @@ method will follow the above procedure to compare every shark fin to every
 other shark fin in the databases, each time returning a minimum cost.  
 Thus for a databases containing $N$ shark fin images, a $N \times N$ cost
 matrix will be returned, where the entry in $(i, j)$ corresponds to the cost
-of the path when shark fin $i$ is compared to shark fin $j$. Hoe presies gaan
-ons se dit is wel n match???? \note{Ons soek die minimum langs die
-kolom van die koste-matriks}\\
+of the path when shark fin $i$ is compared to shark fin $j$.  We then identify the shark
+corresponding to the minimum of these entries in a specific column. \\
 
 
 Below is an example where two arrays are compared using DTW. Note the lines
