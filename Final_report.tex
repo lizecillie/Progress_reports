@@ -325,6 +325,7 @@ identified as
 this???}the orientation is identified as "left". 
 
 \subsection{Segmentation}
+\label{segmentation}
 The task is to separate the foreground, the shark fin, from the background,
 the sea.  For this purpose, we use the region growing segmentation algorithm,
 Growcut (see \ref{growcut}).  Growcut requires the user to specify a few
@@ -863,13 +864,15 @@ importance of either term.
 
 
 \subsection{Future work}
-Future work include developing an user interface, making the identification of shark fins more user friendly and user interactive.
-This will include various "windows" if the user might want to use only certain parts of the pipeline.  The user interface will allow the 
-user, who must be connected to some database of shark fins, to load an image into the program. \\
+Future work can include developing an user interface, making the identification of shark fins more user friendly and user interactive.
+An user, who must be connected to some databases of shark fins, will be able to use this interface, containing the different parts of the pipeline, to identify shark fins.  Each part will consist of an interactive "window".  The different parts of the pipeline can be used separately, in conjunction with each other or as a whole. 
 
-The algorithms are not running at optimum speed.  This then poses the challenge of speeding up the algorithms. Aspects such as Cython, can be considered.\\
+For example, the segmentation window will allow the user to manually select foreground and background pixels as described in \ref{segmentation}.
+When performing the algorithm, the user can guide the process by selecting more pixels for segmentation. \\
 
-The pipeline must also be tested using a wider variety of segmentation algorithms like . This will then help in choosing the most successful segmentation,
+Another aspect that needs investigation is the fact that the algorithms are not running at optimum speed.  This then poses the challenge of speeding it up.  Cython can be considered as a possibility to rectify this. \\
+
+The pipeline must also be tested using a wider variety of segmentation algorithms, for example graphcuts. This will then help in choosing the most successful segmentation,
 meassured by the amount of correct matches it produces. \\ 
 
 After the classification of shark fins is done, it would be valuable if one could "cluster" different sharks according to fin similarities.
