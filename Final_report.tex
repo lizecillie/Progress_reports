@@ -82,9 +82,14 @@ Prof. B.M. Herbst\\Dr. S.J Van der Walt
 \end{titlepage}
 
 \begin{abstract}
-This research project focusses on the investigation of various segmentation algorithms for the identification of Great White sharks.
-This is accomplished by analysing shark fin images using a computer.  The Growcut algorithm is used as the main form of segmentation.
-A pipeline is developed containing various algorithms in aid of the identification process.  The pipeline can be used to compare new shark fin images with existing images in a database, establishing whether the shark is already on the database or not.  From this, a more accurate population estimate can be determined, thereby assisting in the conservation of Great White sharks.
+This project investigates the use of various segmentation algorithms as
+part of a larger pipeline for the identification of Great White sharks.
+For this purpose, the Growcut algorithm is studied in detail.
+A pipeline is developed containing various algorithms in aid of the
+identification process.  The pipeline can be used to compare new shark fin
+images with existing images in a database, establishing whether the shark is
+already on the database or not.  This information can be used to determine a more accurate population estimate in a 
+specific region, thereby assisting in the conservation of the Great White shark.
 \end{abstract}
 
 \newpage
@@ -95,46 +100,48 @@ A pipeline is developed containing various algorithms in aid of the identificati
 \subsection{}
 Just as humans are identified by their fingerprints, sharks have a unique
 dorsal fin structure.  Identifying shark sightings is very
-valuable for biological and ecological research.  In order to do that and also to compare various shark sightings,
+valuable for biological and ecological research.  Such information can be used to predict migration patterns, possible habitats and also warn people about sharks in a certain region.  In order to identify the sharks and also to compare various shark sightings,
 images of
-shark fins, as will be shown later, will be analysed by a computer. 
+shark fins are shown later, will be analysed by a computer. 
 This analysis consists of identifying the edges in the image and segmenting the
-foreground, the shark fin being most prominent,  from the background, the sea. 
+foreground, the shark, from the background, the sea. 
 Although the images provided are of a good quality and have been cropped
 to only include the fin, the
 foreground and background properties can still vary significantly, making this a
-non-trivial problem.  This project aims to investigate efficient segmentation
-algorithms for shark fin identification.  The approach consists of
+non-trivial problem.  The approach consists of
 evaluating (by means of a computer) different methods for classifying foreground
 and background, as well as segmenting the foreground successfully.  \\
 
-The project is motivated by a PhD
-student in Marine Biology that approached Dr. van der Walt for
-help regarding a problem she encountered in her research.
-The problem presented is: How can images of shark fins be used in identifying sharks so that their
+The project was conceived by a PhD
+student in Marine Biology, Ms. S. Andreotti, who approached Dr. van der Walt for
+help regarding a problem she encountered in her research, namely how can images of shark fins be used in identifying sharks so that their
 ecological and behavioural patterns can be studied more easily?
 For this purpose, a database of shark fin images has been compiled.
 To
-make any reliable conclusions, there has to be some form of identification in the
-database. 
+draw reliable conclusions, images in the database must be in a form such that it can be compared to new images.
 The goal is to group images of a certain individual together.  We
-already know that it is possible to categorize each image, because of the
-uniqueness of the dorsal fin.  One would just have to find a way to match new
-input data with existing images in the database.  One can only imagine the
-difficulty in doing this manually. 
-Since the student's 
-focus is on the distribution and movements of sharks and not on developing new
-software, we can make a substantial contribution by researching this topic. \\
+already know that it is possible to categorize each image, because a
+human is able to group images based on the unique shape of the the dorsal fin. 
+To do so, one would just have to find a way to match new
+input data with existing images in the database.  To perform such a
+process manually is laborious.
+Since the student's focus is on the distribution and movements of sharks and not on developing new
+software, an algorithm that automates the task is a significant contribution. \\
 
-The Great White Shark population and migration patterns can thus be studied in a way that is not harmful to the sharks, since the sharks need not to be tagged manually, thereby contributing in the conservation of sharks and the environment.  
+Using such technology, the Great White Shark population and migration
+patterns can be studied in a way that is not harmful to
+the sharks, since the sharks need not to be tagged manually, thereby
+contributing in their conservation of sharks and the environment.  
 
 \newpage
 Below are a few examples of the data used in this research project.  
 The database consists of various shark fin images, taken on different dates and
-from different locations.
-Also note that not every image corresponds to a unique shark, i.e. the database
+at different locations.
+Also note that some sharks are represented more than once, i.e. the database
 might contain two or more images of the same shark.
 
+\note{Kan jy eerder 'n subfigure gebruik hier?  Dan hoef jy ook nie bo 'n
+  manual newpage in te sit nie. n subfigure???}
 \begin{figure}[H]
 \centering
 \mbox{\subfigure[]{\includegraphics[width=2in]{haai1.jpg}} \quad
@@ -158,33 +165,31 @@ might contain two or more images of the same shark.
 
 
 \subsection{Background}
-Image segmentation is commonly applied in image processing.  It
-aims to partition a digital image into multiple segments for some or other
-reason.
-The image can then instead be interpreted using a small number of
+Image segmentation is commonly applied in image processing; it
+aims to partition a digital image into multiple segments.
+The image can then be interpreted using a smaller number of
 well defined components as opposed to a large array of unrelated pixels.  
 In other words each pixel is assigned a label and all the pixels with the same
 label share a certain
-property.  Thus making the image easier to analyse. Image segmentation is
+property, making the image easier to analyse. Image segmentation is
 typically used to locate an object or boundaries in an image. \\
 
 Segmentation algorithms can be classified as either supervised, meaning that
 it requires user interaction, or unsupervised, meaning that it is totally
 automatic.  Segmentation is a complex problem since computers must segment
 an
-image knowing only limited information about colour and space, for example.
-Furthemore, user interpretation is subjective since images can be ambigious and the goal of the segmentation indicates the robustness of the algorithm. 
-Supervised algorithms therefore need user input to make decisions.  On the other hand,
+image having only limited information about colour and space, for
+example.
+Furthermore, user interpretation is subjective since images can be ambigious and the goal of the segmentation indicates the robustness of the algorithm. 
+Supervised algorithms need user input to make decisions.  On the other hand,
 unsupervised algorithms need predetermined information and assumptions to work
 automatically.
-It then follows that the unsupervised algorithms
-do not perform as well as the supervised algorithms.  However, we strive to
-develop more accurate, unsupervised algorithms. \\
+However, we still strive to
+develop more accurate, unsupervised algorithms, in order to develop faster methods that can interpret large sets of data easily. \\
 
-Well known examples where image processing is used is
-in medical imaging to locate tumours, for example, face and
-fingerprint recognition and video surveillance.  See \ref{examples}.\note{What
-is the purpose of this paragraph?  To give examples.}
+Well known examples where image segmentation is used is
+in medical imaging to locate tumours, face and
+fingerprint recognition and also in video surveillance.  See \ref{examples}.
 
 \begin{figure}[H]
 \centering
@@ -195,19 +200,16 @@ is the purpose of this paragraph?  To give examples.}
 \end{figure}
 
 
-Another challenge with image segmentation is the evaluation of the resulting
-segmentations.  Often we don't have well defined criteria to evaluate the
-segmentation. 
-To make progress in this field it would be helpful to have a way for comparing
+Evaluating the segmentation outcome proves challenging.  
+It would be helpful to have a way for comparing
 different
 segmentation methods so that we know if progress is being made. 
 The Berkeley Segmentation Dataset and Benchmark contains 12 000 hand-labelled
-segmentations of 1 000 Corel dataset images from 30 human subjects. 
+segmentations of 1 000 Corel dataset images by 30 human subjects. 
 This can then be used to compare what humans think a good segmentation
-should look like. \\
+should look like to computer analysis. \\
 
-Here is an example of a colour image in the Berkeley Segmentation Dataset.  Note
-that the image in the middle shows the machine segmentation and the
+Here is an example of a colour image in the Berkeley Segmentation Dataset.  The image in the middle shows the machine segmentation and the
 image on the right the human segmentation.
 
 \begin{figure}[H]
@@ -217,29 +219,27 @@ image on the right the human segmentation.
 \subfigure[]{\includegraphics[width=2in]{data2.jpg}}}
 \end{figure}
 
-For the purpose of this research project, such dataset will not be used for
+For the purpose of this research project, such datasets will not be used for
 comparison of results.  \note{Want to know how we are going to determine whether
 the segmentation was successful?}
 
 \subsection{Software -- Python}
 For the purposes of this research project, the Python Programming Language was
 used.  Reasons for this are because of its simplicity, the powerful set of tools
-available in Python, the fact that it is easy to learn and also easy for other 
-people to understand.  Python is
-also free to use and runs on multiple platforms.  For the numerical and
-scientific computations, Numpy and SciPy was used.
-To improve the running time of the algorithms, Cython was used.  It is a
-language that compiles to a Python extension module a super set of the
+available and it is easy to learn and understand.  Python is
+also free to use and runs on multiple platforms.  For numerical and
+scientific computations, Numpy and SciPy were used.
+To improve the running time of implemented algorithms, Cython was used.  It is a
+language that compiles to a Python extension module and a super set of the
 Python language that allows calling C-functions and declaring C-types on
 variables and class attributes.  This
-results in generating very efficient C-code from Cython code.
-Scikit-image was used for the investigation of various image processing
+results in the generation of very efficient C-code from Cython code.
+Scikit-image was used to investigate various image processing
 techniques. \\
 
 To ease collaboration, GitHub was used.  Github is a web-based hosting service
-for open source software development projects.  This allowed us to easily
-share 
-code and documents and also quickly receive feedback.
+for software development projects.  This allowed us to easily
+share code and documents and also quickly gather feedback.
 
 
 \begin{figure}[H]
@@ -249,7 +249,10 @@ code and documents and also quickly receive feedback.
 
 \newpage
 \section{Overview of pipeline}
-The aim is to put various algorithms together such that \note{Hoe kan ek hierdie mooi verwoord??}.  The first algorithm is an orientation detection
+The aim is to put various algorithms together such that \note{Hoe kan ek
+  hierdie mooi verwoord??}\note{The procedure of identifying sharks can be
+  divided into several components, together forming an image processing pipeline.} each implemented as part of
+  a bigger procesisng pipeline.  The first algorithm is an orientation detection
 algorithm that wil determine whether the shark fin is orientated to the left or the right in the image.
 Then a segmentation algorithm will segment the shark fin from the image such that the path that defines the shark fin 
 can easily be detected by the fin detection algorithm.  Thereafter a dynamic time warping algorithm is used
@@ -597,7 +600,7 @@ Below is an example of different structures created by different rules, all foll
 \begin{figure}[H]
 \centering
 \mbox{\subfigure{\includegraphics[width=2in]{conway2.jpg}} \quad
-\subfigure{\includegraphics[width=2in]{conway1.png}}} 
+\subfigure{\includegraphics[width=2in]{conway1.png}}}
 \caption{Some interesting patterns formed by different cellular automaton.}
 \end{figure}
 
