@@ -290,10 +290,14 @@ The aim is to put various algorithms together such that \note{Hoe kan ek
   hierdie mooi verwoord??}\note{The procedure of identifying sharks can be
   divided into several components, together forming an image processing pipeline.} each implemented as part of
   a bigger procesisng pipeline.}  The first algorithm is an orientation detection
-algorithm that wil determine whether the shark fin is orientated to the left or the right in the image.
-Then a segmentation algorithm will segment the shark fin from the image such that the path that defines the shark fin 
-can easily be detected by the fin detection algorithm.  Thereafter a dynamic time warping algorithm is used
-to compare the the paths that describe the fins and to see how shark fins in the databasis compare.
+algorithm \note{that wil->used to}that wil determine whether the shark fin is orientated to the left or the right in the image.
+Then a segmentation algorithm will segment the shark fin from the image
+such\note{such -> so} that the path that defines the shark fin 
+can easily be detected by the fin detection algorithm.\note{Skaaf bietjie aan
+  hierdie sin. ... so that the fin detection algorithm can focus on the fin
+  itself without having to be concerned with background noise due to the ocean?}}  Thereafter a dynamic time warping algorithm is used
+to compare the the paths that describe the \note{coordinates of the
+  different}fins and to \note{compare it to other fins in the database}see how shark fins in the databasis compare.
 The various algorithms will now be discussed in detail.  Below is a diagram showing the structure of the pipeline.
 
 \begin{figure}[H]
