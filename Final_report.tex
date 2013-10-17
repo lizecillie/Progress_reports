@@ -382,7 +382,8 @@ finding the path defining the fin directly from the edge image.
 \subsection{Fin detection}
 The objective is to identify the serrated part of dorsal shark fin. In order to
 do this, we need to extract this part of the fin, so that it is in a form to be 
-compared with other fins easily.  We use the
+compared with other fins easily.  
+We use the
 Sobel operator,
 well-known in edge detection, to identify edges in the image and ease further analysis.
 The sobel operator is a discrete differential operator that approximates the
@@ -428,7 +429,8 @@ We can see the edge of the fin in the $G$ image on the right clearly identified.
 \end{figure}
 
 The next step is to extract only the unique part of the fin needed for
-identification.  This is done by first inverting the edges and then squaring
+identification.  It is known that the lower you go down the fin, 
+.  This is done by first inverting the edges and then squaring
 them to increase their weight and thereby making them more prominent.  We make use of a function 
 \texttt{route\_through\_array()} from the module \texttt{graph} in scikit-image.
  This function enables us to find a lowest cost path through the image.
