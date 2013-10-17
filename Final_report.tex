@@ -480,8 +480,19 @@ aim is to find a lowest cost path from the top left corner of the grid to the bo
 corner of the grid.  Thereby making sure that each element in the array is compared to every other element in the array.
 The minimum cost is then a measure of the similarity between the
 sequences.
-In other words, the lower the cost, the less the sequences differ and the greater the match.
-\\
+In other words, the lower the cost, the less the sequences differ and the greater the match.  \\
+
+Below is an example where two arrays are compared using DTW. Note the lines
+connecting the points being compared.  
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=3in]{dtw.jpg}
+ \caption{Fins compared as arrays.}
+ \label{dtw}
+\end{figure}
+
+Here we show an example of calculating the distance matrix.
 
 \begin{figure}[H]
  \centering
@@ -501,14 +512,7 @@ of the path when shark fin $i$ is compared to shark fin $j$.  We then identify t
 corresponding to the minimum of these entries in a specific column. \\
 
 
-Below is an example where two arrays are compared using DTW. Note the lines
-connecting the points being compared.  
-\begin{figure}[H]
- \centering
- \includegraphics[width=3in]{dtw.jpg}
- \caption{Fins compared as arrays.}
- \label{dtw}
-\end{figure}
+
 
 \newpage
 \subsection{DARWIN -- Alternative software}
