@@ -440,7 +440,15 @@ fin.
  \label{fin}
 \end{figure}
 
+Images such as the one below poses a great challenge when finding the path defining the dorsal fin.
+Since the reflection of the fin on the water is so prominent, the path which is detected by this algorithm also
+picks up the reflection.  We are therefore unsure as to where the path starts and ends.  This can be corrected by either making sure the reflected part will be segmented out as background or by shifting the path over the fin and detecting drastic changes in pixel values.
 
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=3in]{reflectfin.jpg}
+ \caption{Note the prominent reflection of the dorsal fin in the water.}
+\end{figure}
 
 \subsection{Fin matching}
 Dynamic time warping (DTW) is an algorithm used for
