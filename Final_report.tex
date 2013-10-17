@@ -339,8 +339,8 @@ The specification of
 the foreground and background pixels is done using the function
 \texttt{grid\_points\_inside\_poly()} from the \texttt{morphology} module in
 \texttt{scikit-image}.  This function selects all points inside a given
-polygon.  These points are then set as the foreground and background pixels
-respectively.\note{Sentence does not make sense.  Why??}  See
+polygon.  These selected  points are then set as the initial foreground and background pixels
+respectively.  See
 \ref{segmentation1}.
 Since the images in the database, and images in general, are not
 all the same size, we specify the corners of the polygon according to the size
@@ -376,10 +376,10 @@ Below is an example of the final output of the segmentation process. \\
 
 \subsection{Fin detection}
 The objective is to identify the serrated part of dorsal shark fin. In order to
-do this, we need to extract the latter part of the fin such that it can be
-compared with other fins\note{broken sentence.  What do you mean??}.  We use the
+do this, we need to extract this part of the fin, so that it is in a form to be 
+compared with other fins easily.  We use the
 Sobel operator,
-well-known in edge detection, to identify the edge and ease further analysis.
+well-known in edge detection, to identify edges in the image and ease further analysis.
 The sobel operator is a discrete differential operator that approximates the
 gradient of the image intensity function.  It uses two different $3 \times 3$
 masks, $M_x$ and $M_y$, which are convolved with the original image to
