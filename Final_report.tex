@@ -437,7 +437,8 @@ Since we are working on the segmented image, we allow any start and end point
 for the path.\note{How do we do that?}  The path is computed by ??????.  All
 pixel coordinates running on the edges of the image is then removed from the
 path.  It is known that the lower you go down the fin, 
-the . \\
+the less reliable the the path is tracked.  This is, however, not a problem, since 
+the fin will still be able to be identified, if we use only the top $\frac{2}{3}$ of the fin for comparison. \\
 
 Here we show an example of the path, in blue, that was detected on the shark
 fin.
