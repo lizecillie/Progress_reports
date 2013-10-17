@@ -372,6 +372,8 @@ Below is an example of the final output of the segmentation process. \\
  \label{segmentation1}
 \end{figure}
 
+At the moment the segmentation algorithm is running at a very low speed.
+
 
 \subsection{Fin detection}
 The objective is to identify the serrated part of dorsal shark fin. In order to
@@ -477,6 +479,13 @@ sequences.
 In other words, the lower the cost, the less the sequences differ and the greater the match.
 \\
 
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=3in]{dtw1.png}
+ \caption{.}
+ \label{dtw1}
+\end{figure}
+
 For this part of the pipeline, the output from the fin detection method,
 \note{diagram! Van wat???}i.e.
 the coordinates of the path defining the shark fin, is used as input.  The DTW
@@ -489,7 +498,8 @@ corresponding to the minimum of these entries in a specific column. \\
 
 
 Below is an example where two arrays are compared using DTW. Note the lines
-connecting the points being compared.  \begin{figure}[H]
+connecting the points being compared.  
+\begin{figure}[H]
  \centering
  \includegraphics[width=3in]{dtw.jpg}
  \caption{Fins compared as arrays.}
