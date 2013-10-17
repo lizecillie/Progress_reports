@@ -846,7 +846,7 @@ Graphcuts is a technique to select the best quality segmentation.  In doing so,
 we calculate a global optimum solution by minimizing a certain 
 cost function.  One of the reasons for the success of graphcuts is because of
 the way the cost is defined.  It is a combination of what each pixel
-"wants" and what is "best" for its neighbourhood.  We define an ergy function,
+"wants" and what is "best" for its neighbourhood.  We define an energy function,
 $E$, to determine the cost of a specific segmentation.
 \[
  E = \sum_{p \in \Phi}E_d(p) + \lambda\sum_{p,g \in \Phi}E_n(p, q)
@@ -898,7 +898,7 @@ When performing the algorithm, the user can guide the process by selecting more 
 Another aspect that needs investigation is the fact that the algorithms are not running at optimum speed.  This then poses the challenge of speeding it up.  Cython can be considered as a possibility to rectify this. \\
 
 The pipeline must also be tested using a wider variety of segmentation algorithms, for example graphcuts. This will then help in choosing the most successful segmentation,
-meassured by the amount of correct matches it produces. \\ 
+measured by the amount of correct matches it produces. \\ 
 
 After the classification of shark fins is done, it would be valuable if one could "cluster" different sharks according to fin similarities.
 One could then try to recognize various families of sharks.  The database could then be updated to include various information about the sharks.  \\
