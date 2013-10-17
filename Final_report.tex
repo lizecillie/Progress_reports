@@ -128,7 +128,7 @@ input data with existing images in the database.  To perform such a
   process manually is laborious. 
 Since the student's 
 focus is on the distribution and movements of sharks and not on developing new
-software, an algorith that automates the task is a significant contribution. \\
+software, an algorithm that automates the task is a significant contribution. \\
 
 Using such technology, the Great White shark population and migration
 patterns can be studied in a way that is not harmful to
@@ -144,7 +144,7 @@ Also note that some sharks are
 might contain two or more images of the same shark.
 
 \note{Kan jy eerder 'n subfigure gebruik hier?  Dan hoef jy ook nie bo 'n
-  manual newpage in te sit nie.  Ek gebruik dan subfigures???}
+  manual new page in te sit nie.  Ek gebruik dan subfigures???}
 \begin{figure}[H]
 \centering
 \mbox{\subfigure[]{\includegraphics[width=2in]{haai1.jpg}} \quad
@@ -183,7 +183,7 @@ automatic.  Segmentation is a complex problem since computers must segment
 an
 image having only limited information about colour and space, for
 example.
-Furthermore, user interpretation is subjective since images can be ambigious and the goal of the segmentation indicates the robustness of the algorithm. 
+Furthermore, user interpretation is subjective since images can be ambiguous and the goal of the segmentation indicates the robustness of the algorithm. 
 Supervised algorithms need user input to make decisions.  On the other hand,
 unsupervised algorithms need predetermined information and assumptions to work
 automatically. \\
@@ -251,10 +251,10 @@ share code and documents and also quickly gather feedback.
 The procedure of identifying sharks can be
   divided into several components, together forming an image processing pipeline, each implemented as part of
   a bigger classifier.  The first algorithm is an orientation detection
-algorithm that wil determine whether the shark fin is orientated to the left or the right in the image.
+algorithm that will determine whether the shark fin is orientated to the left or the right in the image.
 Then a segmentation algorithm will segment the shark fin from the image such that the path that defines the shark fin 
 can easily be detected by the fin detection algorithm.  Thereafter a dynamic time warping algorithm is used
-to compare the the paths that describe the fins and to see how shark fins in the databasis compare.
+to compare the the paths that describe the fins and to see how shark fins in the database compare.
 The various algorithms will now be discussed in detail.  Below is a diagram showing the structure of the pipeline.
 
 \begin{figure}[H]
