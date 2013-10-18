@@ -338,7 +338,7 @@ foreground and background pixels, shown in blue and red respectively.}
 
 The specification of
 the foreground and background pixels is done using the function
-\texttt{grid\_points\_inside\_poly()} from the \texttt{morphology} module in
+\texttt{grid\_points\_inside\_poly()}\cite{scikit} from the \texttt{morphology} module in
 \texttt{scikit-image}.  This function selects all points inside a given
 polygon.  These selected  points are then set as the initial foreground and background pixels
 respectively.  See
@@ -432,7 +432,7 @@ We can see the edge of the fin in the $G$ image on the right clearly identified.
 The next step is to extract only the unique part of the fin needed for
 identification.   This is done by first inverting the edges and then squaring
 them to increase their weight and thereby making them more prominent.  We make use of a function 
-\texttt{route\_through\_array()} from the module \texttt{graph} in scikit-image.
+\texttt{route\_through\_array()}\cite{scikit} from the \texttt{graph} module in scikit-image.
  This function enables us to find a lowest cost path through the image.
 Since we are working on the segmented image, we allow any start and end point
 for the path.\note{How do we do that?}  The path is computed by ??????.  All
