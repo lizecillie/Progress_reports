@@ -274,8 +274,7 @@ To provide a consistent basis for further analysis, the
 orientation of the shark fin in the image is determined as the direction in
 which the shark is
 swimming.  We then flip the images so that
-all the shark fins have the same direction.  This will help when a few foreground
-pixels and background pixels need to be specified when performing
+all the shark fins have the same direction.  This will help when specifying the vertices of the relevant polygons when performing
 segmentation.
 The method of Principal Components Analysis (PCA) is used here.  When applying
 PCA, we are interested in finding the direction of maximum variation in the
@@ -844,10 +843,8 @@ each pixel is assigned a specific label.
 \subsection{Watershed}
 \label{watershed}
 Another segmentation algorithm is the classic watershed algorithm, as
-implemented in \cite{scikit}.  The algorithm starts with user-defined markers,
-called seed points, which can be viewed as little holes in the image, whereafter
-pixel values are treated as a topography/landscape.\note{If the image is viewed
-  as a landscape, the seed points are viewed as the locations of water sources.}The algorithm then floods
+implemented in \cite{scikit}.  If the image is viewed
+  as a landscape, the seed points or user defined markers are viewed as the locations of water sources.  The algorithm then floods
 basins from the user-defined markers until basins which attribute to different
 markers meet at watershed lines.  In this case marker positions are chosen as
 the local maxima of the image.  Thereafter the segmentation is done on the
@@ -864,7 +861,7 @@ image is shown below.
 \noindent The first image shows the gradient image of the original shark fin
 image.  The second image shows the pixels that are identified as a local maxima.
  The third image shows how the basins flooded until watershed lines are reached.
- Putting the correct segments together, which will require a lot of hard work\note{??},
+ Putting the correct segments together, which will require a lot of hard work,
 an effective segmentation can be done.
 
 \newpage
