@@ -595,6 +595,28 @@ categories recognised by the network, the decision-making mechanism marks the
 image accordingly and segmentation is done.
 \end{itemize}
 
+Waar moet ek hierdie sit??????
+The semantic segmentation
+algorithm is based on pixel wise object segmentation.  This is done by 
+assigning category labels to a set of super pixels obtained by clustering the
+joint colour space and coordinate space using the mean shift algorithm.
+The method of interactive semantic segmentation as in \cite{RF} can be described
+as follows.  Each image is presented as a set of super pixels, where 
+a super pixel is a set of pixels.  The first image in the data set must be
+segmented manually by labelling each super pixel. An appearance model is 
+now created.  The next image is now segmented automatically using the appearance
+model.  During the segmentation the user may correct mistakes by 
+relabelling and thus updating the appearance model.  Every time the user
+approves the segmentation, the system learns from the new labelling information.
+As image segmentation continues, user time spent on correcting labels reduces
+and thus the rate of image labelling increases. \\
+
+This method can be helpful in the sense that it works with a database of images
+of the same kind.  Since the shark fin images are all of the same type, 
+it would be very beneficial to manually segment the first image only and then
+automatic segmentation will follow.  By updating the appearance model, 
+one can also be certain that better segmentation results will follow.  \\ 
+
 \subsection{Cellular automaton}
 The idea of an cellular automaton is explained with the use of an example.
 Probably the most well-known example of a two dimensional automaton is Conway's
@@ -758,28 +780,7 @@ algorithm on the same image.
 \end{figure}
 
 \noindent It can be seen that the modified version gives better results around
-the edges, which is essential in the case of the shark fin images. \\ 
-
-\noindent From \cite{RF} we conclude the following.  The semantic segmentation
-algorithm is based on pixel wise object segmentation.  This is done by 
-assigning category labels to a set of super pixels obtained by clustering the
-joint colour space and coordinate space using the mean shift algorithm.
-The method of interactive semantic segmentation as in \cite{RF} can be described
-as follows.  Each image is presented as a set of super pixels, where 
-a super pixel is a set of pixels.  The first image in the data set must be
-segmented manually by labelling each super pixel. An appearance model is 
-now created.  The next image is now segmented automatically using the appearance
-model.  During the segmentation the user may correct mistakes by 
-relabelling and thus updating the appearance model.  Every time the user
-approves the segmentation, the system learns from the new labelling information.
-As image segmentation continues, user time spent on correcting labels reduces
-and thus the rate of image labelling increases. \\
-
-This method can be helpful in the sense that it works with a database of images
-of the same kind.  Since the shark fin images are all of the same type, 
-it would be very beneficial to manually segment the first image only and then
-automatic segmentation will follow.  By updating the appearance model, 
-one can also be certain that better segmentation results will follow.  \\  
+the edges, which is essential in the case of the shark fin images. \\  
 
 
 \subsection{Random Walker}
