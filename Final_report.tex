@@ -254,30 +254,31 @@ In the next section the development of a pipeline for shark fin identification i
 \section{Overview of pipeline}
 The procedure of identifying sharks can be
   divided into several components, together forming an image processing pipeline, each implemented as part of
-  a bigger pipeline.  The first algorithm is an orientation detection
+  a bigger pipeline.  Below is a diagram showing the structure of the pipeline.  The first algorithm is an orientation detection
 algorithm that will determine whether the shark fin is orientated to the left or the right in the image.
 Then a segmentation algorithm will segment the shark fin from the image such that the path that defines the shark fin 
 can easily be detected by the fin detection algorithm.  Thereafter a dynamic time warping algorithm is used
 to compare the the paths that describe the fins and to see how shark fins in the database compare.
-The various algorithms will now be discussed in detail.  Below is a diagram showing the structure of the pipeline.
 
 \begin{figure}[H]
  \centering
  \includegraphics[width=5in]{pipeline.png}
 \end{figure}
 
+The various algorithms will now be discussed in detail.  
+
 \subsection{Orientation}
 \label{orient}
 To provide a consistent basis for further analysis, the
 orientation of the shark fin in the image is determined as the direction in
 which the shark is
-swimming.  We then flip the images so that
-all the shark fins have the same direction.  This will help when specifying the vertices of the relevant polygons when performing
+swimming.  The images are flipped so that
+all the shark fins have the same direction.  This will assist in specifying the vertices of the relevant polygons when performing
 segmentation.
 The method of Principal Components Analysis (PCA) is used to determine the orientation of the shark fin.  When applying
 PCA, we are interested in finding the direction of maximum variation in the
 data, the pixel values in the shark fin images.  Suppose we have $K$, $n$-dimensional, data points, $\mathbf{x}_k,$ for
-$k=1,2, \ldots ,K$.  We compute a covariance matrix, $C$, from our shark fin image as 
+$k=1,2, \ldots ,K$.  A covariance matrix, $C$, is computed from our shark fin image as 
 \[
  C_{\mathbf{x}} = \frac{1}{K} \sum_{k=1}^{K} \mathbf{x}_{k}\mathbf{x}_{k}^{T} -
 \mathbf{m}_{\mathbf{x}}\mathbf{m}_{\mathbf{x}}^{T} 
@@ -289,7 +290,7 @@ where
 is the mean of the data, computed along the columns of the shark fin image as an array. \\
 
 
-From $C$, we determine the eigenvalues and eigenvectors, which will indicate the
+From $C$, the eigenvalues and eigenvectors ared determined, which will indicate the
 variance and principal directions respectively.
 The direction of the eigenvector corresponding to the largest eigenvalue will
 then indicate the orientation of the shark fin. \\
