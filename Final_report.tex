@@ -652,8 +652,8 @@ pre-determined properties, to form larger segments.}
  \item \textbf{Graph partitioning}\cite{rw} This method is based on modelling
 the image as a weighted, undirected graph, where the nodes represent the pixels
 and the weights represent the similarity between neighbouring pixels. Then the
-graph is partitioned into clusters according to a specific criterion.  Each
-partition is then considered an object segment in the image.
+graph is partitioned into clusters according to a specific\note{specified?} criterion.  Each
+partition is then considered an object segment\note{object segment?} in the image.
  \item \textbf{Trainable}\cite{trainable} Also known as Neural network segmentation,
 this process involves processing the small areas of an image by means of an
 artificial neural network or a set of neural networks.  Thereafter, using the
@@ -671,11 +671,12 @@ state
 and require now further input.  The "player" interacts by creating an initial
 state whereafter evolution of cells take place.  \\
 
-The space in which the game takes place can be described as an infinite
-two-dimensional grid of square cells.  Each cell can be in either one of two
-states, dead or alive.  In Conway's Game of Life, each cell interacts with the
-cells in its eight-neighbourhood or Moore neighbourhood.  The following rules are 
-used to update the sate of each cell.  Note that these rules will differ for each automaton. 
+The  space in  which the  game  takes place  can  be described  as an  infinite
+two-dimensional \note{square grid of cells}grid of square cells.  Each cell can
+be in \note{scratch either}either one of two states, dead  or alive.  In Conway's Game of Life, each
+cell   interacts  with   the  cells   in  its   eight-neighbourhood  or   Moore
+neighbourhood.  The following  rules are used to update the state of each cell.
+Note that these rules will differ for each automaton.
 
 \begin{itemize}
  \item  Any living cell with less than two living neighbours, will die because of under population.
@@ -686,7 +687,9 @@ used to update the sate of each cell.  Note that these rules will differ for eac
 
 New generations are created by applying these rules simultaneously to every cell and therefore births and deaths occur simultaneously. \\
 
-Below is an example of different structures created by different rules, all following the procedure described above.
+Below is an example of \note{scratch different}different structures created by
+different rules, all following the procedure described above.\note{Different
+  rules, or different initial conditions?}
 
 \begin{figure}[H]
 \centering
@@ -714,7 +717,8 @@ This rule
 is then applied to all of the cells simultaneously.  In this way, the cell's
 state gets updated.  Note that the rules for updating the state of each cell are
 the same and do not
-change over time. \\
+change over time.\note{Some of this is now discussed above, so merge the common
+  parts of these descriptions, or remove duplication here.}\\
 
 \begin{figure}[H]
 \centering
@@ -742,7 +746,8 @@ considered a triplet $(l_{p}, \theta_{p}, \overrightarrow{C}_{p})$, where
 $l_{p}$ is the label of the cell($K$ labels in total), $\theta_{p}$ is the
 'strength' of the cell and $\overrightarrow{C}_{p}$ is
 the cell feature vector.  Without loss of generality it can be assumed that
-$\theta_{p} \in [0,1]$. 
+$\theta_{p} \in [0,1]$. \note{This is all from the paper, but we do not need
+  such a formal description.  Rather explain in your own words.}
 
 The initial state of the pixels is set to $l_{p} = 0, \theta_{p} = 0,
 \overrightarrow{C}_{p} = RGB_{p}$, where $RGB_{p}$ is a three dimensional vector
@@ -754,7 +759,8 @@ initial state of each pixel.  While the labels are being updated, the user can
 correct and guide the process if desired.  \\
 
 \newpage
-\noindent The pseudo code for the automata evolution rule is shown below. 
+\noindent The pseudo code for the automata evolution rule is shown
+below.\note{This is from the paper--cite it.} 
 \begin{algorithm}[H]
 \begin{algorithmic}[1]
  \State // For each cell...
@@ -788,21 +794,25 @@ the exponent of the term $\frac{x}{max\| \overrightarrow{C} \|_{2}}$ to
 $\frac{3}{2}$, thus $\left ({\frac{x}{max\| \overrightarrow{C} \|_{2}}}\right
 ) ^\frac{3}{2}$,
 an immediate result was seen.  The algorithm acted much more accurately around
-the edges.  Next, the 'defend strength' of each pixel was modified also by
+the edges.\note{The algorithm did not ``act more naturally''... the borders
+  were just higher, so it was less likely to cross them--explain this intuition
+  to the reader.}Next, the 'defend strength' of each pixel was modified also by
 playing with exponents
-of certain parts of the code.  A
-sobel filter was used in detecting the edges.  A sobel filter calculates the
+of certain parts of the code.\note{super vague}  A
+sobel filter was used in detecting the edges.\note{Detecting the edges? What
+  edges? You don't mention that we call the algorithm on the edge image.}  A sobel filter calculates the
 gradient of the intensity of each pixel, giving
 the direction of the largest possible increase from light to dark and also the
 rate of change in that specific direction.   This results in showing how
 abruptly or smoothly the images changes at that point and then how likely it
-is that that part represents an edge.  The figure below shows a sobel filter
+is that that part represents an edge.\note{Overlaps with earlier description of
+  Sobel?}The figure below shows a sobel filter
 acting on a shark fin image.  The edges of the shark fin can clearly be seen.
 The main purpose of these changes was to improve accuracy when detecting the
-edges.  \\
+edges.\note{What changes? How do you define accuracy?}  \\
 
 
-\noindent Here is a comparison between the effect of the original algorithm on
+\noindent Here is a comparison between the \note{result of rather than effect of?}effect of the original algorithm on
 one of the shark fin images and the effect of the modified version of the
 algorithm on the same image.
 \begin{figure}[H]
@@ -832,13 +842,14 @@ redundant conditions in the code.  By eliminating those conditions the running
 time can be reduced.  It is concluded that neither of the before
 mentioned features can be omitted, although cell strength alone has a more
 significant role in finding the new cell label.  No new 'attacking' 
-strategies have yet been implemented. \\
+strategies have yet been implemented.\note{No idea what this paragraph means.} \\
 
 The use of a rank filter is also being investigated.  A rank filter looks for
 the cell with maximum intensity in a certain region, specified by the user, 
 and assigns that intensity to the cell it is being compared to.  This will
 better the way in finding the cells in a certain region with intensities that
-is much different from the intensity of the cell being considered. \\  
+is much different from the intensity of the cell being considered.\note{Also
+  not this one} \\  
 
 \noindent From \cite{RF} we conclude the following.  The semantic segmentation
 algorithm is based on pixel wise object segmentation.  This is done by 
@@ -847,13 +858,14 @@ joint colour space and coordinate space using the mean shift algorithm.
 The method of interactive semantic segmentation as in \cite{RF} can be described
 as follows.  Each image is presented as a set of super pixels, where 
 a super pixel is a set of pixels.  The first image in the data set must be
-segmented manually by labelling each super pixel.  An appearance model is 
+segmented manually by labelling each super pixel. An appearance model is 
 now created.  The next image is now segmented automatically using the appearance
 model.  During the segmentation the user may correct mistakes by 
 relabelling and thus updating the appearance model.  Every time the user
 approves the segmentation, the system learns from the new labelling information.
 As image segmentation continues, user time spent on correcting labels reduces
-and thus the rate of image labelling increases.  \\
+and thus the rate of image labelling increases.\note{This belongs in the
+  section that describes segmentation algorithms.}  \\
 
 This method can be helpful in the sense that it works with a database of images
 of the same kind.  Since the shark fin images are all of the same type, 
@@ -874,12 +886,13 @@ gave there.}  In other words, if the user
 labels $n$ pixels, each with a different label, then the probability that a
 random walker
 leaving the pixel will first arrive at a certain seed, must be
-computed.  The latter is done by modelling the image as a weighted graph, where
+computed.\note{This sentence says nothing new?}  The latter is done by modelling the image as a weighted graph, where
 the weight of an edge reflects the similarity(intensity values) between pixels,
 and then solving a system of linear equations.  The pixel is then assigned the
 label
 of the seed for which it is most likely to reach.  The process is repeated until
-each pixel is assigned a specific label. 
+each pixel is assigned a specific label. \note{Just read this section again and
+  make sure it sounds logical.}
 
 
 \subsection{Watershed}
@@ -887,7 +900,8 @@ each pixel is assigned a specific label.
 Another segmentation algorithm is the classic watershed algorithm, as
 implemented in \cite{scikit}.  The algorithm starts with user-defined markers,
 called seed points, which can be viewed as little holes in the image, whereafter
-pixel values are treated as a topography/landscape.  The algorithm then floods
+pixel values are treated as a topography/landscape.\note{If the image is viewed
+  as a landscape, the seed points are viewed as the locations of water sources.}The algorithm then floods
 basins from the user-defined markers until basins which attribute to different
 markers meet at watershed lines.  In this case marker positions are chosen as
 the local maxima of the image.  Thereafter the segmentation is done on the
@@ -904,7 +918,7 @@ image is shown below.
 \noindent The first image shows the gradient image of the original shark fin
 image.  The second image shows the pixels that are identified as a local maxima.
  The third image shows how the basins flooded until watershed lines are reached.
- Putting the correct segments together, which will require a lot of hard work,
+ Putting the correct segments together, which will require a lot of hard work\note{??},
 an effective segmentation can be done.
 
 \newpage
@@ -921,9 +935,10 @@ an effective segmentation can be done.
 \newpage
 \section{Conclusions}
 \subsection{Research, Wat moet hierdie opskrif wees????}
+\note{Hoekom het jy hier 'n subsection nodig?}
 Initially this research project entailed studying different segmentation algorithms with the idea to be able to identify sharks for various environmental and biological reasons.
 A request from a PhD student for assistance in her research project on identifying sharks led to the development of a pipeline. The Growcut algorithm was used as the main segmentation algorithm. A workable pipeline was developed. \\
-
+\note{Herskryf in huidige tyd.}
 
 
 
@@ -932,19 +947,36 @@ A request from a PhD student for assistance in her research project on identifyi
 
 
 \subsection{Future work}
-Future work can include developing an user interface, making the identification of shark fins more user friendly and user interactive.
-An user, who must be connected to some database of shark fins, will be able to use this interface, containing the different parts of the pipeline, to identify shark fins.  Each part will consist of an interactive "window".  The different parts of the pipeline can be used separately, in conjunction with each other or as a whole.  New shark fin images can then be uploaded, from which various ecological and behavioural information can be extracted.
+Future work \note{can include -> entails}can include developing a user
+interface, making the identification of shark fins more user friendly and
+\note{scratch user}user interactive.
+An user, who must be connected to some database of shark fins, will be able to
+use this interface, containing the \note{acting as a frontend to the
+  pipeline...}different parts of the pipeline, to identify shark fins.  Each
+part will consist of an interactive "window".\note{Scratch prev. sentence}  The
+different parts\note{results from the different sections of the pipeline can be
+  inspected individually?}of the pipeline can be used separately, in
+conjunction with each other or as a whole.  New shark fin images can then be
+uploaded, from which various ecological and behavioural information can be
+extracted.\note{Perhaps rather say that statistical queries and reports can be
+  made from the database?}
 
 For example, the segmentation window will allow the user to manually select foreground and background pixels as described in \ref{segmentation}.
 When performing the algorithm, the user can guide the process by selecting more pixels for segmentation. \\
 
-Another aspect that needs investigation is the fact that the algorithms are not running at optimum speed.  This then poses the challenge of speeding it up.  Cython can be considered as a possibility to rectify this. \\
+Another aspect that needs investigation is the fact that the algorithms are not
+running at optimum speed.  This then poses the challenge of speeding it
+up\note{I think this sentence is obvious--scratch}.  Cython can be considered
+as a possibility to rectify this\note{can be considered as a potential remedy}. \\
 
 The pipeline must also be tested using a wider variety of segmentation algorithms, for example graphcuts. This will then help in choosing the most successful segmentation,
-measured by the amount of correct matches it produces. \\ 
+measured by the amount of correct matches it produces.\note{I still don't think
+  we should tie the success of the classifier to the segmentation algorithm.
+  This is currently only relevant for cutting out the path.}\\ 
 
 After the classification of shark fins is done, it would be valuable if one could "cluster" different sharks according to fin similarities.
-One could then try to recognize various families of sharks.  The database could then be updated to include various information about the sharks.  \\
+One could then try to recognize various families of sharks.  The database could
+then be updated to include various information about the sharks.\note{too vague}  \\
 
 \newpage
 \bibliography{final}
