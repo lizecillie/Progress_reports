@@ -760,18 +760,6 @@ algorithm on the same image.
 \noindent It can be seen that the modified version gives better results around
 the edges, which is essential in the case of the shark fin images. \\ 
 
-Hoe kan ek hierdie deel inwerk??????
-
-First consider reducing the running time.  One way is to look at which cell
-features, i.e. difference in intensity combined with cell strength and cell
-strength alone, play a more important role in updating the cell label, i.e.
-foreground or background.   This will then help in finding 
-redundant conditions in the code.  By eliminating those conditions the running
-time can be reduced.  It is concluded that neither of the before
-mentioned features can be omitted, although cell strength alone has a more
-significant role in finding the new cell label.  No new 'attacking' 
-strategies have yet been implemented.\note{No idea what this paragraph means.} \\
-
 \noindent From \cite{RF} we conclude the following.  The semantic segmentation
 algorithm is based on pixel wise object segmentation.  This is done by 
 assigning category labels to a set of super pixels obtained by clustering the
