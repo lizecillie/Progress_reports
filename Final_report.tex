@@ -276,12 +276,8 @@ which the shark is
 swimming.  We then flip the images so that
 all the shark fins have the same direction.  This will help when a few foreground
 pixels and background pixels need to be specified when performing
-segmentation.\note{not clear enough}
-The method of Principal Components Analysis (PCA) is used here\note{to do what?
-This happens a few times thoroughout the text--you mention a technique, but not
-immediate how it is applicable.  That makes the reader scratch his/her head,
-which leads to unhappiness.  Please your reader--give them the information they
-need upfront.}.  When applying
+segmentation.
+The method of Principal Components Analysis (PCA) is used here.  When applying
 PCA, we are interested in finding the direction of maximum variation in the
 data, the pixel values in the shark fin images.  Suppose we have $K$, $n$-dimensional, data points, $\mathbf{x}_k,$ for
 $k=1,2, \ldots ,K$.  We compute a covariance matrix, $C$, from our shark fin image as 
@@ -327,10 +323,8 @@ The task is to separate the foreground, the shark fin, from the background,
 the sea.  For this purpose, we use the region growing segmentation algorithm,
 Growcut (see \ref{growcut}).  Growcut requires the user to specify a few
 foreground and background pixels from which the growing can be
-initiated.\note{No description of growcut as an automaton?  Hoe kan ons die
-  deel waar ek wel Growcut verduidelik hier in werk?? Sê ``The Growcut
-  algorithm is discussed in detail in Section blabla''<-- en gebruik LaTeX se
-  outomatiese verwysings sodat jy nie self nommers hoef in te tik nie}
+initiated. The Growcut
+  algorithm is discussed in detail in \ref{growcut}.
 Initially this was done by first determining the orientation of the fin (see
 \ref{orient}) and then specifying a few pixels according to that\note{according
   to what?}, see 
@@ -353,9 +347,7 @@ respectively.  See
 \ref{segmentation1}.
 Since the images in the database, and images in general, are not
 all the same size, we specify the corners of the polygon according to the size
-of the image.  This then makes the algorithm more robust.\note{This does not
-  make the algorithm more robust.  It just makes it work consistently across
-  images of different sizes.  But tell the reader how you specify those coordinates.}  \\
+of the image.  This then makes it work consistently across images of different sizes.  \\
 
 \begin{figure}[H]
  \centering
@@ -370,10 +362,7 @@ Now that we have specified a few foreground and background pixels, we also
 need to specify the size of the neighbourhood around cells when the algorithm
 is 'growing' as well as the number of iterations the algorithm should follow.
 These parameters inevitably influence the success of the
-segmentation.\note{The reader cannot follow this explanation without knowing
-how growcut works.  Hoe kan ons dit hier bywerk??? Als okay as jy vroeër 'n
-verwysing ingesit het.}
-\\
+segmentation. \\
 
 Below is an example of the final output of the segmentation process. \\
 \note{show at different stages, perhaps? Agree!}
