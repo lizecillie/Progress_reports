@@ -618,6 +618,7 @@ automatic segmentation will follow.  By updating the appearance model,
 one can also be certain that better segmentation results will follow.  \\ 
 
 \subsection{Cellular automaton}
+\label{ca}
 The idea of an cellular automaton is explained with the use of an example.
 Probably the most well-known example of a two dimensional automaton is Conway's
 Game of Life\cite{gol}, developed by British mathematician John Horton Conway in 1970. 
@@ -657,21 +658,12 @@ different rules and different initial conditions, all following the procedure de
 The Growcut algorithm is an interactive, multi-label segmentation algorithm
 for N-dimensional images.  The algorithm is based on cellular automata, i.e.,
 the user labels a few pixels and the rest of the image is then segmented
-automatically by a cellular automaton.  A cellular automaton consists of a
-grid of cells, where each one of the cells can be in a finite number of
-states, say on and off.   Around each cell, a set of cells, called the cell's
-neighbourhood is defined.  An initial state, at time $t = 0$, is also assigned
-to each cell.
+automatically by a cellular automaton as described in \ref{ca}. 
 A new generation of cells is then created according to a fixed rule or
 mathematical function that determines the new state of the cell, by looking at
 the current state of the cell as well
 as that of its neighbourhood.  Two of the most common neighbourhood systems used are the Von
-Neumann neighbourhood and the Moore neighbourhood which are shown below.
-This rule
-is then applied to all of the cells simultaneously.  In this way, the cell's
-state gets updated.  Note that the rules for updating the state of each cell are
-the same and do not
-change over time. \\
+Neumann neighbourhood and the Moore neighbourhood which are shown below. \\
 
 \begin{figure}[H]
 \centering
