@@ -601,9 +601,9 @@ algorithms.
 the image, but also a set of seeds, which marks the objects to be segmented. 
 Thereafter neighbouring, unallocated\note{unallocated?} pixels are compared to the specific seed
 point.  That is how the region grows iteratively.  The pixels are compared using
-\note{measures such as} the difference between intensity value and the region's mean.  Pixels are then
-allocated to a specific region \note{for which that...}if that difference is a minimum.  The process
-terminates if all pixels \note{once all pixels are assigned to}belong to a a specific region.  \note{This is not
+measures such as the difference between intensity value and the region's mean.  Pixels are then
+allocated to a specific region for which that difference is a minimum.  The process
+terminates once all pixels are assigned to a specific region.  \note{This is not
 accurate, I
 don't think.  Region merging is all about merging *regions*.  Don't
 understand?? S: Region merging means taking an initial over-segmentation,
@@ -613,7 +613,7 @@ pre-determined properties, to form larger segments.}
  \item \textbf{Graph partitioning}\cite{rw} This method is based on modelling
 the image as a weighted, undirected graph, where the nodes represent the pixels
 and the weights represent the similarity between neighbouring pixels. Then the
-graph is partitioned into clusters according to a specific\note{specified?} criterion.  Each
+graph is partitioned into clusters according to a specified criterion.  Each
 partition is then considered an object segment\note{object segment?} in the image.
  \item \textbf{Trainable}\cite{trainable} Also known as Neural network segmentation,
 this process involves processing the small areas of an image by means of an
@@ -804,13 +804,6 @@ mentioned features can be omitted, although cell strength alone has a more
 significant role in finding the new cell label.  No new 'attacking' 
 strategies have yet been implemented.\note{No idea what this paragraph means.} \\
 
-The use of a rank filter is also being investigated.  A rank filter looks for
-the cell with maximum intensity in a certain region, specified by the user, 
-and assigns that intensity to the cell it is being compared to.  This will
-better the way in finding the cells in a certain region with intensities that
-is much different from the intensity of the cell being considered.\note{Also
-  not this one} \\  
-
 \noindent From \cite{RF} we conclude the following.  The semantic segmentation
 algorithm is based on pixel wise object segmentation.  This is done by 
 assigning category labels to a set of super pixels obtained by clustering the
@@ -845,8 +838,7 @@ the weight of an edge reflects the similarity(intensity values) between pixels,
 and then solving a system of linear equations.  The pixel is then assigned the
 label
 of the seed for which it is most likely to reach.  The process is repeated until
-each pixel is assigned a specific label. \note{Just read this section again and
-  make sure it sounds logical.}
+each pixel is assigned a specific label.
 
 
 \subsection{Watershed}
