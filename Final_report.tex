@@ -86,9 +86,9 @@ This project investigates the use of various segmentation algorithms as
   part of a larger pipeline for the identification of Great White sharks.
 For this purpose, the Growcut algorithm \cite{alg} is studied in detail.
 A pipeline is developed containing various algorithms in aid of the
-identification process.  The pipeline can be used to compare new shark fin
+identification process.\note{Not in aid of--that form part of}  The pipeline can be used to compare new shark fin
 images with existing images in a database, establishing whether the shark is
-already on the database or not.  This information can be used to determine a more accurate population estimate in a specific region
+already on the database or not\note{whether the shark has been seen before}.  This information can be used to determine a more accurate population estimate in a specific region
 and also to keep track of the shark population,
 thereby assisting in the conservation of the Great White shark.
 \end{abstract}
@@ -100,16 +100,21 @@ thereby assisting in the conservation of the Great White shark.
 \section{Problem statement and motivation}
 \subsection{}
 Just as humans are identified by their fingerprints, sharks have a unique
-dorsal fin structure.  Identifying shark sightings is very
-valuable for biological and ecological research.  Such information can be used to predict migration patterns, possible habitats and also in warning people about sharks in a certain area.  In order to identify the sharks and to compare various shark sightings,
+dorsal fin structure.  Identifying shark sightings is very\note{Scratch ``very''}
+valuable for biological and ecological research.\note{use attention line --- to
+  connect to next sentence}Such information can be used to predict migration
+patterns, possible habitats and also in warning people about \note{about the
+  presence of}sharks in a certain area.  In order to identify the sharks and to compare various shark sightings,
 images of
 shark fins are analysed by a computer. 
 This analysis consists of identifying the edges in the image and segmenting the
-foreground, the shark, from the background, the sea. 
+foreground, the shark, from the background, the sea.\note{This previous
+  sentence seems to be incomplete.} 
 Although the images provided are of a good quality and have been cropped
 to only include the fin, the
-foreground and background properties can still vary significantly, making this a
-non-trivial problem.  The approach consists of
+foreground and background properties can still vary significantly, making
+this\note{this -> segmentatioon} a
+non-trivial problem.  The approach\note{Waarna verwys jy met ``this approach''?} consists of
 evaluating (by means of a computer) different methods for classifying foreground
 and background, as well as segmenting the foreground successfully.  \\
 
@@ -118,34 +123,38 @@ student in Marine Biology, Ms. S. Andreotti, who approached Dr. S.J. van der Wal
 help regarding a problem she encountered in her research, namely
 how images of shark fins  can be used in identifying sharks, so that their
 ecological and behavioural patterns can be studied more easily.
-For this purpose, a database of shark fin images has been compiled.
+For this purpose, a database of shark fin images has\note{had already} been compiled.
 To
-draw reliable conclusions, images in the database must be in a form such that it can be compared to the new images.
+draw reliable conclusions\note{reliable conclusions of what?}, images in the
+database must be in a form such that it can be compared to the\note{scratch the} new images.
 The goal is to group images of a certain individual together.  We
 already know that it is possible to categorize each image, because a
   human is able to group images based on the unique shape of the
 dorsal fin.  To do so, one would have to find a way to match new
-input data with existing images in the database.  To perform such a
+input data with existing images in the database.\note{tie sentences together
+  with ``but''}  To perform such a
   process manually is laborious. 
 Since the student's 
 focus is on the distribution and movements of sharks and not on developing new
 software, an algorithm that automates the task is a significant contribution. \\
 
-Using such technology, the Great White shark population and migration
+Using such \note{such non-invasive methods?} technology, the Great White shark population and migration
 patterns can be studied in a way that is not harmful to
-the sharks, since the sharks need not to be tagged manually. Thereby
+the sharks, since the sharks need not to be tagged manually. \note{Next
+  sentence is loose standing -- i.e., should not start with Thereby, perhaps
+  tied to previous sentence.}Thereby
 contributing in their conservation of sharks and the environment.  
 
 \newpage
-Below are a few examples of the data \footnote{I am indebted to Ms. S. Andreotti for providing us with the necessary data.} used in this research project.  
+Below are a few examples of the data \footnote{I am indebted to
+  Ms. S. Andreotti for providing us with \note{a sample from her carefully
+    curated set of photos?} used in this research project.  
 The database consists of various shark fin images, taken on different dates and
 at different locations.
 Also note that some sharks are
   represented more than once, i.e. the database
 might contain two or more images of the same shark.
 
-\note{Kan jy eerder 'n subfigure gebruik hier?  Dan hoef jy ook nie bo 'n
-  manual new page in te sit nie.  Ek gebruik dan subfigures???}
 \begin{figure}[H]
 \centering
 \mbox{\subfigure[]{\includegraphics[width=2in]{haai1.jpg}} \quad
@@ -170,10 +179,11 @@ might contain two or more images of the same shark.
 
 \subsection{Background}
 Image segmentation is commonly applied in image processing; it
-aims to partition a digital image into multiple segments.
+aims to partition a digital image into multiple segments\note{, where each
+  segment consists of pixels related by some criterium?}.
 The image can then be interpreted using a smaller number of
 well-defined components as opposed to a large array of unrelated pixels \cite{segmentation}.  
-In other words each pixel is assigned a label and all the pixels with the same
+\note{then this part can be trimmed}In other words each pixel is assigned a label and all the pixels with the same
 label share a certain
 property, making the image easier to analyse. Image segmentation is
 typically used to locate an object or boundaries in an image. \\
@@ -184,13 +194,16 @@ automatic.  Segmentation is a complex problem since computers must segment
 an
 image having only limited information about colour and space, for
 example.
-Furthermore, user interpretation is subjective since images can be ambiguous and the goal of the segmentation indicates the robustness of the algorithm. 
+Furthermore, user interpretation is subjective since images can be
+ambiguous\note{what does the statement ``images can be ambiguous'' mean?} and
+the goal of the segmentation indicates the robustness of the algorithm\note{Not
+  sure what you mean by the goal indicates the robustness?}. 
 Supervised algorithms need user input to make decisions.  On the other hand,
 unsupervised algorithms need predetermined information and assumptions to work
 automatically. \\
 
-Well known examples where image segmentation is used is
-in medical imaging to locate tumours, face and
+Well known examples where image segmentation is used is\note{are}
+in medical imaging to locate tumours\note{locating tumours from medical images}, face and
 fingerprint recognition and also in video surveillance.  See \ref{examples} for illustrations.
 
 \begin{figure}[H]
@@ -221,16 +234,18 @@ image on the right the human segmentation.
 
 For the purpose of this research project, such datasets will not be used for
 comparison of results.  A success rate, indicating the percentage of correct matches,
-will rather be calculated.
+will rather be calculated.\note{Success rate of shark matches?  That does not
+  tell us much about the segmentation.}
 
 \subsection{Software -- Python}
-For the purpose of this research project, the Python Programming Language was
-used.  Reasons for this are because of its simplicity, the powerful set of tools
+\notes{Present tense, whenever possible...}
+For the purpose of this research project, the Python programming language was
+used\notes{because of its...}.  Reasons for this are because of its simplicity, the powerful set of tools
 available, and that it is easy to learn and understand.  Python is
 also free to use and runs on multiple platforms.  For numerical and
 scientific computations, Numpy and SciPy were used.
 To improve the running time of implemented algorithms, Cython was used.  It is a
-language that compiles to a Python extension module and a super set of the
+language that compiles to a Python extension module and a superset of the
 Python language that allows calling C-functions and declaring C-types on
 variables and class attributes.  This
 results in the generation of efficient C-code from Cython code.
@@ -252,7 +267,8 @@ share code and documents and also quickly gather feedback.
 \section{Overview of pipeline}
 The procedure of identifying sharks can be
   divided into several components, together forming an image processing pipeline, each implemented as part of
-  a bigger classifier.  The first algorithm is an orientation detection
+  a bigger classifier\note{each implemented as part of a bigger classifier?
+    each pipeline? what does that mean?}.  The first algorithm is an orientation detection
 algorithm that will determine whether the shark fin is orientated to the left or the right in the image.
 Then a segmentation algorithm will segment the shark fin from the image such that the path that defines the shark fin 
 can easily be detected by the fin detection algorithm.  Thereafter a dynamic time warping algorithm is used
@@ -269,16 +285,23 @@ section.  How??  What do you mean by this??}
 
 \subsection{Orientation}
 \label{orient}
-To ease further analysis, the
+\note{Rephrase this.  To provide a consistent basis for further analysis, ...?
+  Describe what this ``easing'' actually means.}To ease further analysis, the
 orientation of the shark fin in the image is determined as the direction in
 which the shark is
 swimming, as viewed from the side, i.e., if the shark is swimming to the left,
-the algorithm returns right and vice versa.  We then flip the images so that
+the algorithm returns right and vice versa.\note{We're supposed to return the
+  direction the shark is swimming.}  We then flip the images so that
 all the shark fins have the same direction.  This will help when a few foreground
-pixels and background pixels need to be specified when performing segmentation.
-The method of Principal Components Analysis (PCA) is used here.  When applying
+pixels and background pixels need to be specified when performing
+segmentation.\note{not clear enough}
+The method of Principal Components Analysis (PCA) is used here\note{to do what?
+This happens a few times thoroughout the text--you mention a technique, but not
+immediate how it is applicable.  That makes the reader scratch his/her head,
+which leads to unhappiness.  Please your reader--give them the information they
+need upfront.}.  When applying
 PCA, we are interested in finding the direction of maximum variation in the
-data.  Suppose we have $K$, $n$-dimensional, data points, $\mathbf{x}_k,$ for
+data\note{What data?  Data so far refers to images of sharks}.  Suppose we have $K$, $n$-dimensional, data points, $\mathbf{x}_k,$ for
 $k=1,2, \ldots ,K$.  We compute a covariance matrix, $C$, from our shark fin image as 
 \[
  C_{\mathbf{x}} = \frac{1}{K} \sum_{k=1}^{K} \mathbf{x}_{k}\mathbf{x}_{k}^{T} -
@@ -289,7 +312,9 @@ where
  \mathbf{m}_{\mathbf{x}} = \frac{1}{K} \sum_{k=1}^{K}\mathbf{x}_{k}
 \]
 is the mean of the data, computed along the columns of the shark fin image as an array. 
-In our case, the data refers to the pixel values in the shark fin image.  \\
+In our case, the data refers to the pixel values in the shark fin
+image.\note{See, here you tell me, but it is now too late!  I've already pulled
+  out my hair!}\\
 
 From $C$, we determine the eigenvalues and eigenvectors, which will indicate the
 variance and principal directions respectively.
@@ -307,11 +332,12 @@ orientation of the shark fin.
 \end{figure}
 
 The above method is implemented by first converting the shark fin
-image, which is an RGB image, to a grayscale image.  We then apply a Sobel filter
+image, which is an RGB image, to a grayscale image.\note{Not necessary to state
+  prev. sentence.}We then apply a Sobel filter
 to identify prominent edges in the image.  After identifying the prominent edges
 , we apply a threshold, using Otsu's method, to convert the image into a binary image.
 We can now do PCA on
-the image to determine the principal axes of the coordinates.  If the gradient
+the image to determine the principal axes of the coordinates\note{of edge pixels?}.  If the gradient
 of the line defining the principal direction lies between 0 and
 $\frac{\pi}{2}$ radians, the orientation of the shark fin is
 identified as
@@ -323,9 +349,13 @@ The task is to separate the foreground, the shark fin, from the background,
 the sea.  For this purpose, we use the region growing segmentation algorithm,
 Growcut (see \ref{growcut}).  Growcut requires the user to specify a few
 foreground and background pixels from which the growing can be
-initiated.\note{No description of growcut as an automaton?  Hoe kan ons die deel waar ek wel Growcut verduidelik hier in werk??}
+initiated.\note{No description of growcut as an automaton?  Hoe kan ons die
+  deel waar ek wel Growcut verduidelik hier in werk?? Sê ``The Growcut
+  algorithm is discussed in detail in Section blabla''<-- en gebruik LaTeX se
+  outomatiese verwysings sodat jy nie self nommers hoef in te tik nie}
 Initially this was done by first determining the orientation of the fin (see
-\ref{orient}) and then specifying a few pixels according to that, see 
+\ref{orient}) and then specifying a few pixels according to that\note{according
+  to what?}, see 
 \ref{segmentation}.  \\
 
 \begin{figure}[H]
@@ -345,7 +375,9 @@ respectively.  See
 \ref{segmentation1}.
 Since the images in the database, and images in general, are not
 all the same size, we specify the corners of the polygon according to the size
-of the image.  This then makes the algorithm more robust.  \\
+of the image.  This then makes the algorithm more robust.\note{This does not
+  make the algorithm more robust.  It just makes it work consistently across
+  images of different sizes.  But tell the reader how you specify those coordinates.}  \\
 
 \begin{figure}[H]
  \centering
@@ -361,7 +393,8 @@ need to specify the size of the neighbourhood around cells when the algorithm
 is 'growing' as well as the number of iterations the algorithm should follow.
 These parameters inevitably influence the success of the
 segmentation.\note{The reader cannot follow this explanation without knowing
-how growcut works.  Hoe kan ons dit hier bywerk???}
+how growcut works.  Hoe kan ons dit hier bywerk??? Als okay as jy vroeër 'n
+verwysing ingesit het.}
 \\
 
 Below is an example of the final output of the segmentation process. \\
@@ -374,19 +407,24 @@ Below is an example of the final output of the segmentation process. \\
  \label{segmentation1}
 \end{figure}
 
-At the moment the segmentation algorithm is running at a very low speed.
+At the moment the segmentation algorithm is \note{taking a long time to execute.}running at a very low speed.
 This then slows down the whole process of identification.  We can either cache 
-the results so that future requests for data can be served faster, 
+the results so that future requests for data can be served faster\note{This
+  sounds like web architecture!  Just say that repeated calculations of the
+  same segmentation can be avoided by caching}, 
 or we can leave out the segmentation process.  The latter will then result in
-finding the path defining the fin directly from the edge image.
+finding the path defining the fin directly from the edge image.\note{Yes, but
+  then also state that we'll have to find a different way of identifying the
+  actual segment that belongs to the fin itself.}
 
 \subsection{Fin detection}
-The objective is to identify the serrated part of dorsal shark fin. In order to
-do this, we need to extract this part of the fin, so that it is in a form to be 
-compared with other fins easily.  
+The objective is to identify the serrated part of dorsal shark fin. In order
+to, do this, we need to extract this part of the fin, so that it is in a form to be 
+compared with other fins easily.\note{Rephrase this sentence.}
 We use the
 Sobel operator,
-well-known in edge detection, to identify edges in the image and ease further analysis.
+well-known in edge detection, to identify edges in the image and \note{No
+  ``easing'' without explaining how!}ease further analysis.
 The sobel operator is a discrete differential operator that approximates the
 gradient of the image intensity function.  It uses two different $3 \times 3$
 masks, $M_x$ and $M_y$, which are convolved with the original image to
@@ -395,7 +433,7 @@ derivatives, both in the horizontal $x$-
 and the vertical $y$-directions.  \\
 
 Define $A$ as the input image and $G_x$ and $G_y$ as the gradient images in the
-$x$-and $y$-direction respectively,
+$x$-and\note{x-and?} $y$-direction respectively,
 after convolving with $A$.  $M_x$ and $M_y$ is given by
 
 \[
@@ -419,8 +457,10 @@ the gradient magnitude image, calculated  as
 .\]
 
 The sobel operator applied to one of the shark fin images is shown in
-\ref{sobel}.  Note that this operator only works on a grayscale image.
-We can see the edge of the fin in the $G$ image on the right clearly identified.
+\ref{sobel}.  Note that this operator only works on a grayscale
+image.\note{Probably no need to state this explicitly.}
+We can see the edge of the fin in the $G$ image on the right clearly
+identified.\note{There's a difference between identify and emphasize or highlight.}
 
 \begin{figure}[H]
  \centering
@@ -431,15 +471,24 @@ We can see the edge of the fin in the $G$ image on the right clearly identified.
 
 The next step is to extract only the unique part of the fin needed for
 identification.   This is done by first inverting the edges and then squaring
-them to increase their weight and thereby making them more prominent.  We make use of a function 
+them to increase their weight and thereby making them more prominent.\note{You
+  need to explain why.  So, break up this sentence in two: explain why you
+  invert, why you square separately.}  We make use of a function 
 \texttt{route\_through\_array()}\cite{scikit} from the \texttt{graph} module in scikit-image.
- This function enables us to find a lowest cost path through the image.
+ This function enables us to find a lowest cost path through the
+ image.\note{What does ``lowest cost'' mean in this context?}
 Since we are working on the segmented image, we allow any start and end point
-for the path.\note{How do we do that?}  The path is computed by ??????.  All
+for the path.\note{How do we do that? S: We set the first and last rows of the
+  cost matrix = 0}  The path is computed by ??????.  All
 pixel coordinates running on the edges of the image is then removed from the
 path.  It is known that the lower you go down the fin, 
-the less reliable the the path is tracked.  This is, however, not a problem, since 
-the fin will still be able to be identified, if we use only the top $\frac{2}{3}$ of the fin for comparison. \\
+the less reliable\note{reliably} the the path is tracked.\note{Actually--it's
+  just that the fin itself becomes less well defined, and then there is the
+  bottom flappy part of the fin which can move between subsequent images.
+  Ideally, we should make the bottom part count less than the top.}  This is, however, not a problem, since 
+the fin will still be able to be identified, if we use only the top
+$\frac{2}{3}$ of the fin for comparison.\note{Okay, here you explained it to
+  some extent.} \\
 
 Here we show an example of the path, in blue, that was detected on the shark
 fin.
@@ -450,9 +499,13 @@ fin.
  \label{fin}
 \end{figure}
 
-Images such as the one below poses a great challenge when finding the path defining the dorsal fin.
+Images such as the one below poses\note{pose} a great\note{scratch great} challenge when finding the path defining the dorsal fin.
 Since the reflection of the fin on the water is so prominent, the path which is detected by this algorithm also
-picks up the reflection.  We are therefore unsure as to where the path starts and ends.  This can be corrected by either making sure the reflected part will be segmented out as background or by shifting the path over the fin and detecting drastic changes in pixel values.
+picks up the reflection.  We are therefore unsure \note{scratch as to}as to
+where the path starts and ends.  This can be corrected \note{either by}by
+either making sure the reflected part will be segmented out as background or by
+shifting the path over the fin and detecting drastic changes in pixel
+values.\note{This is way too dense to be understood--unpack.}
 
 \begin{figure}[H]
  \centering
@@ -461,27 +514,31 @@ picks up the reflection.  We are therefore unsure as to where the path starts an
 \end{figure}
 
 \subsection{Fin matching}
-Dynamic time warping (DTW)\footnote{I am indebted to Mr. M. de Klerk for providing us with a DTW implementation.} is an algorithm used for
-measuring the similarity between two sequences which may vary in time or
-speed.  It differs from normal comparison in the
+Dynamic time warping (DTW)\note{You can scratch the footnote now, since we are
+  now using the implementation I wrote.}\footnote{I am indebted to Mr. M. de Klerk for providing us with a DTW implementation.} is an algorithm used for
+measuring the similarity between two \note{similar} sequences which may vary in time or
+speed.  It differs from normal comparison\note{what is a ``normal comparison''?} in the
 sense that it accommodates sequences of different lengths, warping the
 sequences for the best fit to be compared.
 Any data that can be represented linearly can be analysed using DTW.  \\
 
 When comparing two sequences, a typical approach is to calculate the distance
-between corresponding points.  The Euclidean metric can be used
-to calculate this distance, but
-it assumes that the $i$-th \note{wys dat dit 'n inskrywing $A_ij$ vorm. Verstaan nie???} point in
-the first sequence will align with the $j$th point in the second sequence.
-But
-since the sequences need not be
-the same length, we will make use of a non-linear alignment\note{Hoe moet ek dit verduidelik???}.
+between corresponding points.  The Euclidean metric can be used to calculate
+this distance, but it assumes that the $i$-th point in the first sequence will
+align with the $j$th point in the second sequence\note{This is wrong: Euclidean
+  comparison assumes points have identical alignment--sorry, I might have
+  misunderstood, so I think I changed this last time around.  Either way, you
+  must explain that you have to do a point-wise comparison with Euclidean
+  distance, whereas that won't work for varying length, time warped sequences}.  But since the sequences
+need not be the same length, we will make use of a non-linear
+alignment\note{Hoe moet ek dit verduidelik???}.
 
 A distance matrix is calculated, containing the difference between
-each pair of elements in the array as entries.  We now view this matrix as a
+each pair of elements in the array as entries.\note{You need to explain this at
+  hand of $A_ij = dist(\bf{x}_i, \bf{y}_j)$} We now view this matrix as a
 grid, where the
 aim is to find a lowest cost path from the top left corner of the grid to the bottom right
-corner of the grid.  Thereby making sure that each element in the array is compared to every other element in the array.
+corner of the grid.\note{Don't start sentences with thereby--rather join them together.}  Thereby making sure that each element in the array is compared to every other element in the array.
 The minimum cost is then a measure of the similarity between the
 sequences.
 In other words, the lower the cost, the less the sequences differ and the greater the match.  \\
@@ -505,15 +562,16 @@ Here we show an example of calculating the distance matrix.
  \label{dtw1}
 \end{figure}
 
-For this part of the pipeline, the output from the fin detection method,
-\note{diagram! Van wat???}i.e.
+For this part of the pipeline, the output from the fin detection method, i.e.
 the coordinates of the path defining the shark fin, is used as input.  The DTW
 method will follow the above procedure to compare every shark fin to every
 other shark fin in the database, each time returning a minimum cost.  
 Thus for a database containing $N$ shark fin images, a $N \times N$ cost
 matrix will be returned, where the entry in $(i, j)$ corresponds to the cost
 of the path when shark fin $i$ is compared to shark fin $j$.  We then identify the shark
-corresponding to the minimum of these entries in a specific column. \\
+corresponding to the minimum of these entries in a specific
+column.\note{Good--this should go in above where I mentioned that you need to
+  describe how the cost matrix is formed.} \\
 
 
 
@@ -521,8 +579,8 @@ corresponding to the minimum of these entries in a specific column. \\
 \newpage
 \subsection{DARWIN -- Alternative software}
 The DARWIN\cite{Darwin} software package is well known when it comes to
-aquiring important data about dolphins.  It was initially implemented
-by undergraduate student of
+aquiring important data\note{ooh, important data :) what could that be?} about dolphins.  It was initially implemented
+by \note{an}undergraduate student of
 Eckerd College.
 Lately it was used to estimate the Great White shark population in the
 Gansbaai area by means of shark fin identification and matching.  They claim to
@@ -530,7 +588,8 @@ have found approximately
 1008 different shark species in this region.  This
 claim was tested by Ms. S. Andreotti, using a database of 50 shark fin images and she found that in only
 54\% of the cases, the correct matching took place, making this software
-unreliable.
+unreliable.\note{making the software unreliable for this specific purpose
+  without further adjustment?  Pity we don't have a reference yet.}
 
 \begin{figure}[H]
  \centering
@@ -538,9 +597,10 @@ unreliable.
  \caption{DARWIN user interface. \cite{Darwin}}
 \end{figure}
 
-In this research project, we test our software on the same set of 50 shark fin images to make more reliable conclusions.
+In this research project, we test our software on the same set of 50 shark fin
+images to make more reliable conclusions.\note{to make more reliable conclusions?}
 Since our software is specifically aimed at the identification of sharks, a first attempt at identification will at least 
-give a lower bound for the success rate.
+give a lower bound for the success rate.\note{What does this sentence mean?}
 
 \newpage
 \section{Segmentation Algorithms}
@@ -562,12 +622,15 @@ optimal segmentation is the one that minimizes, when considering all possible
 segmentations, the coding length of the data. In other words, the number of bits
 required to encode that image, based on the given segmentation.
  \item \textbf{Histogram-based}\cite{threshold}  This is a very efficient method in the
-sense that it only passes through all the pixels once.  A histogram of 
+sense that it only passes through all the pixels once\note{so does a simple
+  threshold, of course.  In fact, I would just remove this, unless you
+  want to explain all the intricacies}.  A histogram of 
 the image is computed whereafter the peaks and valleys in the histogram
 are used to locate clusters in the image.  Here clusters refer to pixels
-sharing a certain property.  The colour or intensity of the pixels can be used
+sharing a certain property.\note{What property?}  The colour or intensity of the pixels can be used
 to
-locate clusters.
+locate clusters.\note{If this is what you're talking about, work it into the
+  previous sentence.}
  \item \textbf{Edge detection}\cite{edge} Edge detection is well researched in image
 processing.  Region boundaries and edges are closely related,
 since there are usually a sharp adjustment at region boundaries.  Edge detection
@@ -575,14 +638,16 @@ techniques can therefore be used as a bases for different segmentation
 algorithms.
  \item \textbf{Region growing}\cite{threshold} This method takes as input not only
 the image, but also a set of seeds, which marks the objects to be segmented. 
-Thereafter neighbouring, unallocated pixels are compared to the specific seed
+Thereafter neighbouring, unallocated\note{unallocated?} pixels are compared to the specific seed
 point.  That is how the region grows iteratively.  The pixels are compared using
-the difference between intensity value and the region's mean.  Pixels are then
-allocated to a specific region if that difference is a minimum.  The process
-terminates if all pixels belong to a a specific region.  \note{This is not
+\note{measures such as} the difference between intensity value and the region's mean.  Pixels are then
+allocated to a specific region \note{for which that...}if that difference is a minimum.  The process
+terminates if all pixels \note{once all pixels are assigned to}belong to a a specific region.  \note{This is not
 accurate, I
 don't think.  Region merging is all about merging *regions*.  Don't
-understand??}
+understand?? S: Region merging means taking an initial over-segmentation,
+obtained using e.g. SLIC, and then merging those regions based on a set of
+pre-determined properties, to form larger segments.}
  \item \textbf{Watershed transformation} See description in \ref{watershed}.    
  \item \textbf{Graph partitioning}\cite{rw} This method is based on modelling
 the image as a weighted, undirected graph, where the nodes represent the pixels
