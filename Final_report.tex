@@ -83,7 +83,7 @@ Prof. B.M. Herbst\\Dr. S.J Van der Walt
 
 \begin{abstract}
 This project investigates the use of various segmentation algorithms as
-  part of a larger pipeline for the identification of Great White sharks.
+  part of a larger pipeline for fin identification of Great White sharks.
 For this purpose, the Growcut algorithm \cite{alg} is studied in detail.
 A pipeline is developed containing various algorithms that form part of the
 identification process.  The pipeline can be used to compare new shark fin
@@ -98,7 +98,6 @@ thereby assisting in the conservation of the Great White shark.
 
 \newpage
 \section{Problem statement and motivation}
-\subsection{}
 Just as humans are identified by their fingerprints, sharks have a unique
 dorsal fin structure.  Identifying shark sightings is
 valuable for biological and ecological research----such information can be used to predict migration
@@ -111,7 +110,7 @@ foreground, the shark, from the background, the sea.
 Although the images provided are of a good quality and have been cropped
 to only include the fin, the
 foreground and background properties can still vary significantly, making
-segmentatioon a
+segmentation a
 non-trivial problem. Our approach consists of
 evaluating (by means of a computer) different methods for classifying foreground
 and background, as well as segmenting the foreground successfully.  \\
@@ -125,15 +124,15 @@ For this purpose, a database of shark fin images had already been compiled.
 To
 draw reliable conclusions about the behaviour of sharks, images in the
 database must be in a form such that it can be compared to new images.
-The goal is to group images of a certain individual together.  We
+The goal is to group images of an individual shark together.  We
 already know that it is possible to categorize each image, because a
-  human is able to group images based on the unique shape of the
+  person is able to group images based on the unique shape of the
 dorsal fin.  To do so, one would have to find a way to match new
 input data with existing images in the database, but to perform such a
   process manually is laborious. 
 Since the student's 
 focus is on the distribution and movements of sharks and not on developing new
-software, an algorithm that automates the task is a significant contribution. \\
+software, an algorithm that automates the task makes a significant contribution. \\
 
 Using such non-invasive methods, the Great White shark population and migration
 patterns can be studied in a way that is not harmful to
@@ -141,7 +140,7 @@ the sharks, since the sharks need not to be tagged manually, thereby
 contributing in their conservation of sharks and the environment.  
 
 \newpage
-Below are a few examples of the data \footnote{I am indebted to
+Below are a few examples from the database \footnote{I am indebted to
   Ms. S. Andreotti for providing us with a sample from her carefully
     curated set of photos used in this research project.}  
 The database consists of various shark fin images, taken on different dates and
@@ -196,7 +195,7 @@ automatically. \\
 
 Well known examples where image segmentation is used are
 for locating tumours from medical images, face and
-fingerprint recognition and also in video surveillance.  See \ref{examples} for illustrations.
+fingerprint recognition and also in video surveillance.  See Figure \ref{examples} for illustrations.
 
 \begin{figure}[H]
 \centering
@@ -206,15 +205,15 @@ fingerprint recognition and also in video surveillance.  See \ref{examples} for 
 \label{examples}
 \end{figure}
 
-Evaluating the segmentation outcome proves challenging.  It would be helpful to have a way for comparing
+Evaluating the segmentation outcome proves challenging.  It would be helpful to have a way of comparing
 different
 segmentation methods so that we know if progress is being made. 
 The Berkeley Segmentation Dataset and Benchmark \cite{dataset} contains 12 000 hand-labelled
 segmentations of 1 000 Corel dataset images by 30 human subjects. 
-This can then be used to compare what humans think a good segmentation
+This can be used to compare what humans think a good segmentation
 should look like to computer analysis. \\
 
-Here is an example of a colour image in the Berkeley Segmentation Dataset.  The image in the middle shows the machine segmentation and the
+Below is an example of a colour image in the Berkeley Segmentation Dataset.  The image in the middle shows the machine segmentation and the
 image on the right the human segmentation.
 
 \begin{figure}[H]
