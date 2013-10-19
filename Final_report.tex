@@ -725,12 +725,9 @@ main features that needed attention was the damping function $g$.  By changing
 the exponent of the term $\frac{x}{max\| \overrightarrow{C} \|_{2}}$ to
 $\frac{3}{2}$, thus $\left ({\frac{x}{max\| \overrightarrow{C} \|_{2}}}\right
 ) ^\frac{3}{2}$,
-an immediate result was seen.  The algorithm acted much more accurately around
-the edges.\note{The algorithm did not ``act more naturally''... the borders
-  were just higher, so it was less likely to cross them--explain this intuition
-  to the reader.}Next, the 'defend strength' of each pixel was modified also by
-playing with exponents
-of certain parts of the code.\note{super vague}  A
+an immediate result was seen.  Since the borders
+  were higher, it was less likely to cross them.  
+  A
 sobel filter was used in detecting the edges.\note{Detecting the edges? What
   edges? You don't mention that we call the algorithm on the edge image.}  A sobel filter calculates the
 gradient of the intensity of each pixel, giving
