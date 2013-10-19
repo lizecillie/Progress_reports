@@ -276,7 +276,7 @@ which the shark is
 swimming.  We then flip the images so that
 all the shark fins have the same direction.  This will help when specifying the vertices of the relevant polygons when performing
 segmentation.
-The method of Principal Components Analysis (PCA) is used here.  When applying
+The method of Principal Components Analysis (PCA) is used to determine the orientation of the shark fin.  When applying
 PCA, we are interested in finding the direction of maximum variation in the
 data, the pixel values in the shark fin images.  Suppose we have $K$, $n$-dimensional, data points, $\mathbf{x}_k,$ for
 $k=1,2, \ldots ,K$.  We compute a covariance matrix, $C$, from our shark fin image as 
