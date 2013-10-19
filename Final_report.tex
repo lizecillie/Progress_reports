@@ -305,10 +305,10 @@ orientation of the shark fin.
  \label{orientation}
 \end{figure}
 
-We apply a Sobel filter
+A Sobel filteris applied 
 to identify prominent edges in the image.  After identifying the prominent edges
-, we apply a threshold, using Otsu's method, to convert the image into a binary image.
-We can now do PCA on
+, a threshold is applied , using Otsu's method, to convert the image into a binary image.
+PCA can now be done on
 the image to determine the principal axes of edge pixels.  If the gradient
 of the line defining the principal direction lies between 0 and
 $\frac{\pi}{2}$ radians, the orientation of the shark fin is
@@ -318,8 +318,8 @@ identified as
 \subsection{Segmentation}
 \label{segmentation}
 The task is to separate the foreground, the shark fin, from the background,
-the sea.  For this purpose, we use the region growing segmentation algorithm,
-Growcut (see \ref{growcut}).  Growcut requires the user to specify a few
+the sea.  For this purpose, the region growing segmentation algorithm,
+Growcut (see \ref{growcut}) is used.  Growcut requires the user to specify a few
 foreground and background pixels from which the growing can be
 initiated. The Growcut
   algorithm is discussed in detail in \ref{growcut}.
@@ -340,10 +340,10 @@ the foreground and background pixels is done using the function
 \texttt{grid\_points\_inside\_poly()}\cite{scikit} from the \texttt{morphology} module in
 \texttt{scikit-image}.  This function selects all points inside a given
 polygon.  These selected  points are then set as the initial foreground and background pixels
-respectively.  See
-\ref{segmentation1}.
+respectively (see
+Figure \ref{segmentation1}).
 Since the images in the database, and images in general, are not
-all the same size, we specify the corners of the polygon according to the size
+all the same size, the corners of the polygon are specified according to the size
 of the image.  This then makes it work consistently across images of different sizes.  \\
 
 \begin{figure}[H]
