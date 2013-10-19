@@ -437,10 +437,10 @@ them to increase their weight and thereby making them more prominent.\note{You
   invert, why you square separately.}  We make use of a function 
 \texttt{route\_through\_array()}\cite{scikit} from the \texttt{graph} module in scikit-image.
  This function enables us to find a lowest cost path through the
- image.\note{What does ``lowest cost'' mean in this context?}
+ image.
 Since we are working on the segmented image, we allow any start and end point
-for the path.\note{How do we do that? S: We set the first and last rows of the
-  cost matrix = 0}  The path is computed by ??????.  All
+for the path by setting the first and last rows of the
+  cost matrix = 0.  All
 pixel coordinates running on the edges of the image is then removed from the
 path.  It is known that the lower you go down the fin, 
 the less reliably the the path is tracked.\note{Actually--it's
