@@ -571,33 +571,24 @@ required to encode that image, based on the given segmentation.
  \item \textbf{Histogram-based}\cite{threshold}  A histogram of 
 the image is computed whereafter the peaks and valleys in the histogram
 are used to locate clusters in the image.  Here clusters refer to pixels
-sharing a certain image property.  The colour or intensity of the pixels can be used
+sharing a certain image property, where the colour or intensity of the pixels can be used
 to
-locate clusters.\note{If this is what you're talking about, work it into the
-  previous sentence.}
+locate clusters.
  \item \textbf{Edge detection}\cite{edge} Edge detection is well researched in image
 processing.  Region boundaries and edges are closely related,
 since there are usually a sharp adjustment at region boundaries.  Edge detection
 techniques can therefore be used as a bases for different segmentation
 algorithms.
- \item \textbf{Region growing}\cite{threshold} This method takes as input not only
-the image, but also a set of seeds, which marks the objects to be segmented. 
-Thereafter neighbouring, unallocated\note{unallocated?} pixels are compared to the specific seed
-point.  That is how the region grows iteratively.  The pixels are compared using
-measures such as the difference between intensity value and the region's mean.  Pixels are then
-allocated to a specific region for which that difference is a minimum.  The process
-terminates once all pixels are assigned to a specific region.  \note{This is not
-accurate, I
-don't think.  Region merging is all about merging *regions*.  Don't
-understand?? S: Region merging means taking an initial over-segmentation,
+ \item \textbf{Region growing}\cite{threshold} Region merging means taking an initial over-segmentation,
 obtained using e.g. SLIC, and then merging those regions based on a set of
-pre-determined properties, to form larger segments.}
+pre-determined properties, to form larger segments.  The process
+terminates once all pixels are assigned to a specific region.  
  \item \textbf{Watershed transformation} See description in \ref{watershed}.    
  \item \textbf{Graph partitioning}\cite{rw} This method is based on modelling
 the image as a weighted, undirected graph, where the nodes represent the pixels
 and the weights represent the similarity between neighbouring pixels. Then the
 graph is partitioned into clusters according to a specified criterion.  Each
-partition is then considered an object segment\note{object segment?} in the image.
+partition is then considered an segment in the image.
  \item \textbf{Trainable}\cite{trainable} Also known as Neural network segmentation,
 this process involves processing the small areas of an image by means of an
 artificial neural network or a set of neural networks.  Thereafter, using the
