@@ -490,7 +490,11 @@ grid, where the
 aim is to find a lowest cost path from the top left corner of the grid to the bottom right
 corner of the grid, thereby making sure that each element in the array is compared to every other element in the array.
 The minimum cost is then a measure of the similarity between the
-sequences.
+sequences.  Thus for a database containing $N$ shark fin images, a $N \times N$ cost
+matrix will be returned, where the entry in $(i, j)$ corresponds to the cost
+of the path when shark fin $i$ is compared to shark fin $j$.  We then identify the shark
+corresponding to the minimum of these entries in a specific
+column.
 In other words, the lower the cost, the less the sequences differ and the greater the match.  \\
 
 Below is an example where two arrays are compared using DTW. Note the lines
@@ -515,13 +519,7 @@ Here we show an example of calculating the distance matrix.
 For this part of the pipeline, the output from the fin detection method, i.e.
 the coordinates of the path defining the shark fin, is used as input.  The DTW
 method will follow the above procedure to compare every shark fin to every
-other shark fin in the database, each time returning a minimum cost.  
-Thus for a database containing $N$ shark fin images, a $N \times N$ cost
-matrix will be returned, where the entry in $(i, j)$ corresponds to the cost
-of the path when shark fin $i$ is compared to shark fin $j$.  We then identify the shark
-corresponding to the minimum of these entries in a specific
-column.\note{Good--this should go in above where I mentioned that you need to
-  describe how the cost matrix is formed.} \\
+other shark fin in the database, each time returning a minimum cost.  \\
 
 
 
