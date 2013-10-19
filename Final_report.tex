@@ -268,18 +268,13 @@ The various algorithms will now be discussed in detail.  Below is a diagram show
  \includegraphics[width=5in]{pipeline.png}
 \end{figure}
 
-\note {Merge algorithm descriptions further down with this
-section.  How??  What do you mean by this??}
-
 \subsection{Orientation}
 \label{orient}
 \note{Rephrase this.  To provide a consistent basis for further analysis, ...?
   Describe what this ``easing'' actually means.}To ease further analysis, the
 orientation of the shark fin in the image is determined as the direction in
 which the shark is
-swimming, as viewed from the side, i.e., if the shark is swimming to the left,
-the algorithm returns right and vice versa.\note{We're supposed to return the
-  direction the shark is swimming.}  We then flip the images so that
+swimming.  We then flip the images so that
 all the shark fins have the same direction.  This will help when a few foreground
 pixels and background pixels need to be specified when performing
 segmentation.\note{not clear enough}
