@@ -370,10 +370,10 @@ Below is an example of the final output of the segmentation process. \\
  \label{segmentation1}
 \end{figure}
 
-At the moment the segmentation algorithm is taking a long time to execute.
-This then slows down the whole process of identification.  Repeated calculations of the
+At the moment the segmentation algorithm is time consuming to execute.
+This slows down the whole process of identification.  Repeated calculations of the
   same segmentation can be avoided by caching, 
-or we can leave out the segmentation process.  The latter will then result in
+or the segmentation process can be left out.  The latter will then result in
 finding the path defining the fin directly from the edge image, keeping 
 in mind that we will then have to find a different way of identifying the
   actual segment that belongs to the fin itself.
@@ -416,7 +416,7 @@ the gradient magnitude image, calculated  as
  G = \sqrt{G_x^2+G_y^2}
 .\]
 
-The sobel operator applied to one of the shark fin images is shown in
+The sobel operator applied to one of the shark fin images is shown in Figure 
 \ref{sobel}.
 We can see the edge of the fin in the $G$ image on the right clearly
 identified.
@@ -444,8 +444,8 @@ path.  It is known that the fin itself becomes less well defined when moving tow
   Ideally, we should make the bottom part count less than the top by only using the top
 $\frac{2}{3}$ of the fin for comparison.\\
 
-Here we show an example of the path, in blue, that was detected on the shark
-fin.
+In Figure \ref{fin} an example of the path, in blue, that was detected on the shark
+fin is shown.
 \begin{figure}[H]
  \centering
  \includegraphics[width=3in]{path.jpg}
@@ -453,7 +453,7 @@ fin.
  \label{fin}
 \end{figure}
 
-Images such as the one below pose a challenge when finding the path defining the dorsal fin.
+Images such as the one in Figure \ref{shadow} below pose a challenge when finding the path defining the dorsal fin.
 Since the reflection of the fin on the water is so prominent, the path which is detected by this algorithm also
 picks up the reflection.  We are therefore unsure
 where the path starts and ends.  This can be corrected either by
@@ -464,7 +464,8 @@ values.  These changes will then indicate the starting point and end point of th
 \begin{figure}[H]
  \centering
  \includegraphics[width=3in]{reflectfin.jpg}
- \caption{Note the prominent reflection of the dorsal fin in the water.}
+ \caption{The prominent reflection of the dorsal fin in the water.}
+ \label{shadow}
 \end{figure}
 
 \subsection{Fin matching}
@@ -477,7 +478,7 @@ Any data that can be represented linearly can be analysed using DTW.  \\
 
 When comparing two sequences, a typical approach is to calculate the distance
 between corresponding points. A point-wise comparison with the Euclidean
-metric can be done, whereas that won't work for varying length, time warped sequences.  But since the sequences
+metric can be done, whereas that will not work for varying length, time warped sequences.  But since the sequences
 need not be the same length, we will make use of a non-linear
 alignment.
 
@@ -505,7 +506,7 @@ connecting the points being compared.
  \label{dtw}
 \end{figure}
 
-Here we show an example of calculating the distance matrix.
+Figure \ref{dtw1} shows an example of calculating the distance matrix.
 
 \begin{figure}[H]
  \centering
@@ -518,8 +519,6 @@ For this part of the pipeline, the output from the fin detection method, i.e.
 the coordinates of the path defining the shark fin, is used as input.  The DTW
 method will follow the above procedure to compare every shark fin to every
 other shark fin in the database, each time returning a minimum cost.  \\
-
-
 
 
 \newpage
@@ -545,7 +544,9 @@ unreliable for this specific purpose without further adjustment.
 In this research project, we test our software on the same set of 50 shark fin
 images to compare results more effectively.
 Since our software is specifically aimed at the identification of sharks, a first attempt at identification will at least 
-give a lower bound for the success of our software.
+give a lower bound for the success of our software. \\
+
+In the next section segmentation algorithms are discussed.  
 
 \newpage
 \section{Segmentation Algorithms}
@@ -614,7 +615,7 @@ This method can be helpful in the sense that it works with a database of images
 of the same kind.  Since the shark fin images are all of the same type, 
 it would be very beneficial to manually segment the first image only and then
 automatic segmentation will follow.  By updating the appearance model, 
-one can also be certain that better segmentation results will follow.  \\ 
+better segmentation results will be obtained.  \\ 
 
 \subsection{Cellular automaton}
 \label{ca}
@@ -752,7 +753,7 @@ The main purpose of these changes was to improve accuracy when detecting the
 edges.\note{What changes? How do you define accuracy?}  \\
 
 
-\noindent Here is a comparison between the result of the original algorithm on
+Figures \ref{fin1} and \ref{fin2} show a comparison between the result of the original algorithm on
 one of the shark fin images and the effect of the modified version of the
 algorithm on the same image.
 \begin{figure}[H]
@@ -766,7 +767,7 @@ algorithm on the same image.
  \centering
  \includegraphics[width=4in, height=1.8in]{haaim}
  \caption{The effect of the modified algorithm}
- \label{fin}
+ \label{fin2}
 \end{figure}
 
 \noindent It can be seen that the modified version gives better results around
@@ -796,7 +797,7 @@ basins from the user-defined markers until basins which attribute to different
 markers meet at watershed lines.  In this case marker positions are chosen as
 the local maxima of the image.  Thereafter the segmentation is done on the
 gradient image.  The result of the watershed algorithm applied to a shark fin
-image is shown below.
+image is shown in Figure \ref{fig1}.
 
 \begin{figure}[H]
 \centering
