@@ -432,9 +432,7 @@ identified.
 
 The next step is to extract only the unique part of the fin needed for
 identification.   This is done by first inverting the edges and then squaring
-them to increase their weight and thereby making them more prominent.\note{You
-  need to explain why.  So, break up this sentence in two: explain why you
-  invert, why you square separately.}  We make use of a function 
+them to increase their weight and thereby making them more prominent.  We make use of a function 
 \texttt{route\_through\_array()}\cite{scikit} from the \texttt{graph} module in scikit-image.
  This function enables us to find a lowest cost path through the
  image.
@@ -442,12 +440,10 @@ Since we are working on the segmented image, we allow any start and end point
 for the path by setting the first and last rows of the
   cost matrix = 0.  All
 pixel coordinates running on the edges of the image is then removed from the
-path.  It is known that the lower you go down the fin, 
-the less reliably the the path is tracked.\note{Actually--it's
-  just that the fin itself becomes less well defined, and then there is the
+path.  It is known that the fin itself becomes less well defined when moving towards its bottom part
+, and then there is the
   bottom flappy part of the fin which can move between subsequent images.
-  Ideally, we should make the bottom part count less than the top.}  This is, however, not a problem, since 
-the fin will still be able to be identified, if we use only the top
+  Ideally, we should make the bottom part count less than the top by only using the top
 $\frac{2}{3}$ of the fin for comparison.\\
 
 Here we show an example of the path, in blue, that was detected on the shark
