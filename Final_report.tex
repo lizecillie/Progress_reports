@@ -386,8 +386,7 @@ to, do this, we need to extract this part of the fin, so that it is in a form to
 compared with other fins easily.\note{Rephrase this sentence.}
 We use the
 Sobel operator,
-well-known in edge detection, to identify edges in the image and \note{No
-  ``easing'' without explaining how!}ease further analysis.
+well-known in edge detection, to identify edges in the image.
 The sobel operator is a discrete differential operator that approximates the
 gradient of the image intensity function.  It uses two different $3 \times 3$
 masks, $M_x$ and $M_y$, which are convolved with the original image to
@@ -396,7 +395,7 @@ derivatives, both in the horizontal $x$-
 and the vertical $y$-directions.  \\
 
 Define $A$ as the input image and $G_x$ and $G_y$ as the gradient images in the
-$x$-and\note{x-and?} $y$-direction respectively,
+$x$-and $y$-direction respectively,
 after convolving with $A$.  $M_x$ and $M_y$ is given by
 
 \[
