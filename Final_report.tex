@@ -459,9 +459,9 @@ Images such as the one below pose a challenge when finding the path defining the
 Since the reflection of the fin on the water is so prominent, the path which is detected by this algorithm also
 picks up the reflection.  We are therefore unsure
 where the path starts and ends.  This can be corrected either by
-either making sure the reflected part will be segmented out as background or by
-shifting the path over the fin and detecting drastic changes in pixel
-values.
+making sure the reflected part will be segmented out as background during the segmentation process or by
+moving the detected path over the shark fin image and detecting drastic changes in pixel
+values.  These changes will then indicate the starting point and end point of the path.
 
 \begin{figure}[H]
  \centering
