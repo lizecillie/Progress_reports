@@ -480,9 +480,7 @@ Any data that can be represented linearly can be analysed using DTW.  \\
 When comparing two sequences, a typical approach is to calculate the distance
 between corresponding points.  The Euclidean metric can be used to calculate
 this distance, but it assumes that the $i$-th point in the first sequence will
-align with the $j$th point in the second sequence\note{This is wrong: Euclidean
-  comparison assumes points have identical alignment--sorry, I might have
-  misunderstood, so I think I changed this last time around.  Either way, you
+align with the $j$th point in the second sequence Either way, you
   must explain that you have to do a point-wise comparison with Euclidean
   distance, whereas that won't work for varying length, time warped sequences}.  But since the sequences
 need not be the same length, we will make use of a non-linear
@@ -535,7 +533,7 @@ column.\note{Good--this should go in above where I mentioned that you need to
 \subsection{DARWIN -- Alternative software}
 The DARWIN\cite{Darwin} software package is well known when it comes to
 aquiring important data\note{ooh, important data :) what could that be?} about dolphins.  It was initially implemented
-by \note{an}undergraduate student of
+by an undergraduate student of
 Eckerd College.
 Lately it was used to estimate the Great White shark population in the
 Gansbaai area by means of shark fin identification and matching.  They claim to
