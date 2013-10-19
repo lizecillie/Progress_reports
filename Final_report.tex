@@ -478,11 +478,8 @@ sequences for the best fit to be compared.
 Any data that can be represented linearly can be analysed using DTW.  \\
 
 When comparing two sequences, a typical approach is to calculate the distance
-between corresponding points.  The Euclidean metric can be used to calculate
-this distance, but it assumes that the $i$-th point in the first sequence will
-align with the $j$th point in the second sequence Either way, you
-  must explain that you have to do a point-wise comparison with Euclidean
-  distance, whereas that won't work for varying length, time warped sequences}.  But since the sequences
+between corresponding points. A point-wise comparison with the Euclidean
+metric can be done, whereas that won't work for varying length, time warped sequences.  But since the sequences
 need not be the same length, we will make use of a non-linear
 alignment.
 
