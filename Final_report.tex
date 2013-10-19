@@ -289,7 +289,7 @@ immediate how it is applicable.  That makes the reader scratch his/her head,
 which leads to unhappiness.  Please your reader--give them the information they
 need upfront.}.  When applying
 PCA, we are interested in finding the direction of maximum variation in the
-data\note{What data?  Data so far refers to images of sharks}.  Suppose we have $K$, $n$-dimensional, data points, $\mathbf{x}_k,$ for
+data, the pixel values in the shark fin images.  Suppose we have $K$, $n$-dimensional, data points, $\mathbf{x}_k,$ for
 $k=1,2, \ldots ,K$.  We compute a covariance matrix, $C$, from our shark fin image as 
 \[
  C_{\mathbf{x}} = \frac{1}{K} \sum_{k=1}^{K} \mathbf{x}_{k}\mathbf{x}_{k}^{T} -
@@ -299,9 +299,8 @@ where
 \[
  \mathbf{m}_{\mathbf{x}} = \frac{1}{K} \sum_{k=1}^{K}\mathbf{x}_{k}
 \]
-is the mean of the data, computed along the columns of the shark fin image as an array. 
-In our case, the data refers to the pixel values in the shark fin
-image. \\
+is the mean of the data, computed along the columns of the shark fin image as an array. \\
+
 
 From $C$, we determine the eigenvalues and eigenvectors, which will indicate the
 variance and principal directions respectively.
