@@ -923,31 +923,22 @@ A request from a PhD student for assistance in her research project on identifyi
 
 \subsection{Future work}
 Future work entails developing a user
-interface, making the identification of shark fins more user friendly and
-\note{scratch user}user interactive.
+interface, making the identification of shark fins more user friendly and interactive.
 An user, who must be connected to some database of shark fins, will be able to
-use this interface, containing the \note{acting as a frontend to the
-  pipeline...}different parts of the pipeline, to identify shark fins.  Each
-part will consist of an interactive "window".\note{Scratch prev. sentence}  The
-different parts\note{results from the different sections of the pipeline can be
-  inspected individually?}of the pipeline can be used separately, in
+use this interface, acting as a frontend to the
+  pipeline, to identify shark fins.  The
+results from the different sections of the pipeline can be
+  inspected individually, in
 conjunction with each other or as a whole.  New shark fin images can then be
-uploaded, from which various ecological and behavioural information can be
-extracted.\note{Perhaps rather say that statistical queries and reports can be
-  made from the database?}
+uploaded, from which statistical queries and reports can be
+made from the database.
 
 For example, the segmentation window will allow the user to manually select foreground and background pixels as described in \ref{segmentation}.
 When performing the algorithm, the user can guide the process by selecting more pixels for segmentation. \\
 
 Another aspect that needs investigation is the fact that the algorithms are not
-running at optimum speed.  This then poses the challenge of speeding it
-up\note{I think this sentence is obvious--scratch}.  Cython can be considered
-as a possibility to rectify this\note{can be considered as a potential remedy}. \\
-
-The pipeline must also be tested using a wider variety of segmentation algorithms, for example graphcuts. This will then help in choosing the most successful segmentation,
-measured by the amount of correct matches it produces.\note{I still don't think
-  we should tie the success of the classifier to the segmentation algorithm.
-  This is currently only relevant for cutting out the path.}\\ 
+running at optimum speed.  Cython can be considered
+as a potential remedy. \\
 
 After the classification of shark fins is done, it would be valuable if one could "cluster" different sharks according to fin similarities.
 One could then try to recognize various families of sharks.  The database could
