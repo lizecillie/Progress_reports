@@ -483,9 +483,9 @@ metric can be done, whereas that won't work for varying length, time warped sequ
 need not be the same length, we will make use of a non-linear
 alignment.
 
-A distance matrix is calculated, containing the difference between
-each pair of elements in the array as entries.\note{You need to explain this at
-  hand of $A_ij = dist(\bf{x}_i, \bf{y}_j)$} We now view this matrix as a
+A distance matrix, $A_ij$, is calculated, containing the distance between
+each pair of elements,  $dist(\bf{x}_i, \bf{y}_j)$, in the array as entries.
+We now view this matrix as a
 grid, where the
 aim is to find a lowest cost path from the top left corner of the grid to the bottom right
 corner of the grid, thereby making sure that each element in the array is compared to every other element in the array.
