@@ -228,9 +228,8 @@ image on the right the human segmentation.
 \end{figure}
 
 \subsection{Software -- Python}
-\notes{Present tense, whenever possible...}
-For the purpose of this research project, the Python programming language was
-used\notes{because of its...}.  Reasons for this are because of its simplicity, the powerful set of tools
+For the purpose of this research project, the Python programming language is
+used because of its simplicity, the powerful set of tools
 available, and that it is easy to learn and understand.  Python is
 also free to use and runs on multiple platforms.  For numerical and
 scientific computations, Numpy and SciPy were used.
@@ -257,8 +256,7 @@ share code and documents and also quickly gather feedback.
 \section{Overview of pipeline}
 The procedure of identifying sharks can be
   divided into several components, together forming an image processing pipeline, each implemented as part of
-  a bigger classifier\note{each implemented as part of a bigger classifier?
-    each pipeline? what does that mean?}.  The first algorithm is an orientation detection
+  a bigger pipeline.  The first algorithm is an orientation detection
 algorithm that will determine whether the shark fin is orientated to the left or the right in the image.
 Then a segmentation algorithm will segment the shark fin from the image such that the path that defines the shark fin 
 can easily be detected by the fin detection algorithm.  Thereafter a dynamic time warping algorithm is used
@@ -303,8 +301,7 @@ where
 \]
 is the mean of the data, computed along the columns of the shark fin image as an array. 
 In our case, the data refers to the pixel values in the shark fin
-image.\note{See, here you tell me, but it is now too late!  I've already pulled
-  out my hair!}\\
+image. \\
 
 From $C$, we determine the eigenvalues and eigenvectors, which will indicate the
 variance and principal directions respectively.
@@ -321,13 +318,11 @@ orientation of the shark fin.
  \label{orientation}
 \end{figure}
 
-The above method is implemented by first converting the shark fin
-image, which is an RGB image, to a grayscale image.\note{Not necessary to state
-  prev. sentence.}We then apply a Sobel filter
+We apply a Sobel filter
 to identify prominent edges in the image.  After identifying the prominent edges
 , we apply a threshold, using Otsu's method, to convert the image into a binary image.
 We can now do PCA on
-the image to determine the principal axes of the coordinates\note{of edge pixels?}.  If the gradient
+the image to determine the principal axes of edge pixels.  If the gradient
 of the line defining the principal direction lies between 0 and
 $\frac{\pi}{2}$ radians, the orientation of the shark fin is
 identified as
@@ -447,10 +442,9 @@ the gradient magnitude image, calculated  as
 .\]
 
 The sobel operator applied to one of the shark fin images is shown in
-\ref{sobel}.  Note that this operator only works on a grayscale
-image.\note{Probably no need to state this explicitly.}
+\ref{sobel}.
 We can see the edge of the fin in the $G$ image on the right clearly
-identified.\note{There's a difference between identify and emphasize or highlight.}
+identified.
 
 \begin{figure}[H]
  \centering
@@ -472,13 +466,12 @@ for the path.\note{How do we do that? S: We set the first and last rows of the
   cost matrix = 0}  The path is computed by ??????.  All
 pixel coordinates running on the edges of the image is then removed from the
 path.  It is known that the lower you go down the fin, 
-the less reliable\note{reliably} the the path is tracked.\note{Actually--it's
+the less reliably the the path is tracked.\note{Actually--it's
   just that the fin itself becomes less well defined, and then there is the
   bottom flappy part of the fin which can move between subsequent images.
   Ideally, we should make the bottom part count less than the top.}  This is, however, not a problem, since 
 the fin will still be able to be identified, if we use only the top
-$\frac{2}{3}$ of the fin for comparison.\note{Okay, here you explained it to
-  some extent.} \\
+$\frac{2}{3}$ of the fin for comparison.\\
 
 Here we show an example of the path, in blue, that was detected on the shark
 fin.
@@ -489,10 +482,10 @@ fin.
  \label{fin}
 \end{figure}
 
-Images such as the one below poses\note{pose} a great\note{scratch great} challenge when finding the path defining the dorsal fin.
+Images such as the one below pose a challenge when finding the path defining the dorsal fin.
 Since the reflection of the fin on the water is so prominent, the path which is detected by this algorithm also
-picks up the reflection.  We are therefore unsure \note{scratch as to}as to
-where the path starts and ends.  This can be corrected \note{either by}by
+picks up the reflection.  We are therefore unsure
+where the path starts and ends.  This can be corrected either by
 either making sure the reflected part will be segmented out as background or by
 shifting the path over the fin and detecting drastic changes in pixel
 values.\note{This is way too dense to be understood--unpack.}
@@ -504,9 +497,8 @@ values.\note{This is way too dense to be understood--unpack.}
 \end{figure}
 
 \subsection{Fin matching}
-Dynamic time warping (DTW)\note{You can scratch the footnote now, since we are
-  now using the implementation I wrote.}\footnote{I am indebted to Mr. M. de Klerk for providing us with a DTW implementation.} is an algorithm used for
-measuring the similarity between two \note{similar} sequences which may vary in time or
+Dynamic time warping (DTW) is an algorithm used for
+measuring the similarity between two similar sequences which may vary in time or
 speed.  It differs from normal comparison\note{what is a ``normal comparison''?} in the
 sense that it accommodates sequences of different lengths, warping the
 sequences for the best fit to be compared.
@@ -528,7 +520,7 @@ each pair of elements in the array as entries.\note{You need to explain this at
   hand of $A_ij = dist(\bf{x}_i, \bf{y}_j)$} We now view this matrix as a
 grid, where the
 aim is to find a lowest cost path from the top left corner of the grid to the bottom right
-corner of the grid.\note{Don't start sentences with thereby--rather join them together.}  Thereby making sure that each element in the array is compared to every other element in the array.
+corner of the grid, thereby making sure that each element in the array is compared to every other element in the array.
 The minimum cost is then a measure of the similarity between the
 sequences.
 In other words, the lower the cost, the less the sequences differ and the greater the match.  \\
@@ -662,8 +654,8 @@ and require now further input.  The "player" interacts by creating an initial
 state whereafter evolution of cells take place.  \\
 
 The  space in  which the  game  takes place  can  be described  as an  infinite
-two-dimensional \note{square grid of cells}grid of square cells.  Each cell can
-be in \note{scratch either}either one of two states, dead  or alive.  In Conway's Game of Life, each
+two-dimensional square grid of cells.  Each cell can
+be in one of two states, dead  or alive.  In Conway's Game of Life, each
 cell   interacts  with   the  cells   in  its   eight-neighbourhood  or   Moore
 neighbourhood.  The following  rules are used to update the state of each cell.
 Note that these rules will differ for each automaton.
@@ -677,9 +669,8 @@ Note that these rules will differ for each automaton.
 
 New generations are created by applying these rules simultaneously to every cell and therefore births and deaths occur simultaneously. \\
 
-Below is an example of \note{scratch different}different structures created by
-different rules, all following the procedure described above.\note{Different
-  rules, or different initial conditions?}
+Below is an example of structures created by
+different rules and different initial conditions, all following the procedure described above. \\
 
 \begin{figure}[H]
 \centering
@@ -802,7 +793,7 @@ The main purpose of these changes was to improve accuracy when detecting the
 edges.\note{What changes? How do you define accuracy?}  \\
 
 
-\noindent Here is a comparison between the \note{result of rather than effect of?}effect of the original algorithm on
+\noindent Here is a comparison between the result of the original algorithm on
 one of the shark fin images and the effect of the modified version of the
 algorithm on the same image.
 \begin{figure}[H]
@@ -870,13 +861,7 @@ described in \cite{rw}, is as follows.  The user labels a few
 pixels as foreground or background for example.  This is then called the seeds. 
 A random walker is then released from each of the unlabelled pixels. 
 Thereafter, the probability that a certain pixel's random walker first arrives
-at a specific seed, is computed.\note{Look at the scikit-image gallery on
-random walker to see how they explained it.  Got this from the reference they
-gave there.}  In other words, if the user
-labels $n$ pixels, each with a different label, then the probability that a
-random walker
-leaving the pixel will first arrive at a certain seed, must be
-computed.\note{This sentence says nothing new?}  The latter is done by modelling the image as a weighted graph, where
+at a specific seed, is computed.  The latter is done by modelling the image as a weighted graph, where
 the weight of an edge reflects the similarity(intensity values) between pixels,
 and then solving a system of linear equations.  The pixel is then assigned the
 label
@@ -937,7 +922,7 @@ A request from a PhD student for assistance in her research project on identifyi
 
 
 \subsection{Future work}
-Future work \note{can include -> entails}can include developing a user
+Future work entails developing a user
 interface, making the identification of shark fins more user friendly and
 \note{scratch user}user interactive.
 An user, who must be connected to some database of shark fins, will be able to
