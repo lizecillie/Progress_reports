@@ -733,7 +733,10 @@ The Growcut algorithm takes the following parameters: an N-dimensional input ima
 an initial state, which stores (foreground/background, strength) for
 each pixel position or automaton.  The strength represents the
 certainty of the state (e.g., 1 is a hard seed value that remains
-constant throughout segmentation). \\
+constant throughout segmentation), the maximum number of automata iterations to allow   
+(the segmentation may complete earlier if the state no longer varies) and the
+size of the neighborhood window.  The algorithm will return a segmented image, 
+where a value of zero indicates background and a value of one indicates foreground. \\
 
 \noindent The algorithm has been modified in the following way.  One of the
 main features that needs attention is the damping function $g$.  By changing
