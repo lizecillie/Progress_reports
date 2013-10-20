@@ -728,7 +728,7 @@ The function is given by
 g(x) = 1 - \frac{x}{max\| \overrightarrow{C} \|_{2}}. 
 \]\\
 
-We now give an intuitive explanation of the above.
+We now supply an intuitive explanation of the above.
 The Growcut algorithm takes the following parameters: an N-dimensional input image,
 an initial state, which stores (foreground/background, strength) for
 each pixel position or automaton.  The strength represents the
@@ -738,7 +738,8 @@ constant throughout segmentation), the maximum number of automata iterations to 
 size of the neighborhood window.  The algorithm will return a segmented image, 
 where a value of zero indicates background and a value of one indicates foreground. \\
 
-Each automata iteration . \\
+It can be helpful to view the labelling process as ongoing growth and struggle of $K$ species
+. \\
 
 \noindent The algorithm is modified in the following way.  One of the
 main features that needs attention is the damping function $g$.  By changing
