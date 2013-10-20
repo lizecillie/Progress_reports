@@ -690,7 +690,7 @@ considered a triplet $(l_{p}, \theta_{p}, \overrightarrow{C}_{p})$, where
 $l_{p}$ is the label of the cell($K$ labels in total), $\theta_{p}$ is the
 'strength' of the cell and $\overrightarrow{C}_{p}$ is
 the cell feature vector.  Without loss of generality it can be assumed that
-$\theta_{p} \in [0,1]$. 
+$\theta_{p} \in [0,1]$.  \\
 
 The initial state of the pixels is set to $l_{p} = 0, \theta_{p} = 0,
 \overrightarrow{C}_{p} = RGB_{p}$, where $RGB_{p}$ is a three dimensional vector
@@ -730,7 +730,7 @@ g(x) = 1 - \frac{x}{max\| \overrightarrow{C} \|_{2}}.
 
 
 \noindent The algorithm has been modified in the following way.  One of the
-main features that needed attention was the damping function $g$.  By changing
+main features that needs attention is the damping function $g$.  By changing
 the exponent of the term $\frac{x}{max\| \overrightarrow{C} \|_{2}}$ to
 $\frac{3}{2}$, thus $\left ({\frac{x}{max\| \overrightarrow{C} \|_{2}}}\right
 ) ^\frac{3}{2}$,
