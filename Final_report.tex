@@ -563,7 +563,7 @@ can be used to partition an image into $K$ clusters, whereafter
 segmentation will follow.
  \item \textbf{Compression-based}\cite{compression} This method conjectures that the
 optimal segmentation is the one that minimizes, when considering all possible
-segmentations, the coding length of the data. In other words, the number of bits
+segmentations, the coding length of the data; in other words, the number of bits
 required to encode that image, based on the given segmentation.
  \item \textbf{Histogram-based}\cite{threshold}  A histogram of 
 the image is computed whereafter the peaks and valleys in the histogram
@@ -576,7 +576,8 @@ processing.  Region boundaries and edges are closely related,
 since there are usually a sharp adjustment at region boundaries.  Edge detection
 techniques can therefore be used as a bases for different segmentation
 algorithms.
- \item \textbf{Region growing}\cite{threshold} Region merging means taking an initial over-segmentation,
+ \item \textbf{Region growing}\cite{threshold} Region merging means taking an initial 
+ over-segmentation,
 obtained using e.g. SLIC, and then merging those regions based on a set of
 pre-determined properties, to form larger segments.  The process
 terminates once all pixels are assigned to a specific region.  
@@ -585,7 +586,7 @@ terminates once all pixels are assigned to a specific region.
 the image as a weighted, undirected graph, where the nodes represent the pixels
 and the weights represent the similarity between neighbouring pixels. Then the
 graph is partitioned into clusters according to a specified criterion.  Each
-partition is then considered an segment in the image.
+partition is then considered a segment in the image.
  \item \textbf{Trainable}\cite{trainable} Also known as Neural network segmentation,
 this process involves processing the small areas of an image by means of an
 artificial neural network or a set of neural networks.  Thereafter, using the
@@ -622,7 +623,7 @@ Probably the most well-known example of a two dimensional automaton is Conway's
 Game of Life\cite{gol}, developed by British mathematician John Horton Conway in 1970. 
 This "game" is a zero-player game, i.e. it developes according to an initial
 state
-and require now further input.  The "player" interacts by creating an initial
+and requires no further input.  The "player" interacts by creating an initial
 state whereafter evolution of cells take place.  \\
 
 The  space in  which the  game  takes place  can  be described  as an  infinite
