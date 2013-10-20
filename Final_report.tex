@@ -738,8 +738,8 @@ constant throughout segmentation), the maximum number of automata iterations to 
 size of the neighborhood window.  The algorithm will return a segmented image, 
 where a value of zero indicates background and a value of one indicates foreground. \\
 
-It can be helpful to view the labelling process as ongoing growth and struggle of $K$ species
-. \\
+It can be helpful to view the labelling process as ongoing growth and struggle of $K$ different species.
+The species start to grow from the seeded pixels, trying to occupy the whole image.  \\
 
 \noindent The algorithm is modified in the following way.  One of the
 main features that needs attention is the damping function $g$.  By changing
