@@ -174,7 +174,7 @@ might contain two or more images of the same shark.
 \subsection{Background}
 Image segmentation is commonly applied in image processing; it
 aims to partition a digital image into multiple segments, where each
-  segment consists of pixels related by some criterium.
+  segment consists of pixels related by some criteria.
 The image can then be interpreted using a smaller number of
 well-defined components as opposed to a large array of unrelated pixels \cite{segmentation}.  
 In other words each pixel is assigned a label and all the pixels with the same
@@ -238,7 +238,7 @@ techniques. \\
 
 To ease collaboration, GitHub was used.  Github is a web-based hosting service
 for software development projects.  This allowed us to easily
-share code and documents and also quickly optain feedback.
+share code and documents and also quickly obtain feedback.
 Figure \ref{packages} depicts the various software packages used in this research project.
 
 \begin{figure}[H]
@@ -385,7 +385,7 @@ compared with other fins easily.
 We use the
 Sobel operator,
 well-known in edge detection, to identify edges in the image.
-The sobel operator is a discrete differential operator that approximates the
+The Sobel operator is a discrete differential operator that approximates the
 gradient of the image intensity function.  It uses two different $3 \times 3$
 masks, $M_x$ and $M_y$, which are convolved with the original image to
 approximate the
@@ -416,7 +416,7 @@ the gradient magnitude image, calculated  as
  G = \sqrt{G_x^2+G_y^2}
 .\]
 
-The sobel operator applied to one of the shark fin images is shown in Figure 
+The Sobel operator applied to one of the shark fin images is shown in Figure 
 \ref{sobel}.
 We can see the edge of the fin in the $G$ image on the right clearly
 identified.
@@ -687,7 +687,7 @@ of the cell's neighbourhood at time $t$.  In this research project, the Moore
 Neighbourhood system is used.  The cell state referred to
 is also
 considered a triplet $(l_{p}, \theta_{p}, \overrightarrow{C}_{p})$.
-$l_{p}$ is the label of the cell, either foregound or backgrond in this case, $\theta_{p}$ is the
+$l_{p}$ is the label of the cell, either foreground or background in this case, $\theta_{p}$ is the
 'strength' of the cell, or in other words the certainty that the cell is either foreground or background and $\overrightarrow{C}_{p}$ is
 the cell feature vector, depicting the difference in intensity values between two cells.  Without loss of generality it can be assumed that
 $\theta_{p} \in [0,1]$.  \\
@@ -735,7 +735,7 @@ each pixel position or automaton.  The strength represents the
 certainty of the state (e.g., 1 is a hard seed value that remains
 constant throughout segmentation), the maximum number of automata iterations to allow   
 (the segmentation may complete earlier if the state no longer varies) and the
-size of the neighborhood window.  The algorithm will return a segmented image, 
+size of the neighbourhood window.  The algorithm will return a segmented image, 
 where a value of zero indicates background and a value of one indicates foreground. \\
 
 It can be helpful to view the labelling process as ongoing growth and struggle of $K$ different species.
@@ -849,7 +849,7 @@ Another aspect that needs investigation is the fact that the algorithms are not
 running at optimum speed.  Cython can be considered
 as a potential remedy. \\
 
-One can also investigate the various paramaters in the Growcut algorithm, like the window size, the damping function and attacking strategies. \\
+One can also investigate the various parameters in the Growcut algorithm, like the window size, the damping function and attacking strategies. \\
 
 After the classification of shark fins is done, it would be valuable if different sharks could be "clustered" according to fin similarities.
 Recognizing various families of sharks can then be attempted.  Updating the database to include information about sharks can be valuable to marine biologists.  \\
