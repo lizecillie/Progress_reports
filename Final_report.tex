@@ -759,13 +759,13 @@ the edges, which is essential in the case of the shark fin images. \\
 
 
 \subsection{Random Walker}
-The method, as
+This method, as
 described in \cite{rw}, is as follows.  The user labels a few
 pixels as foreground or background for example.  This is then called the seeds. 
 A random walker is then released from each of the unlabelled pixels. 
 Thereafter, the probability that a certain pixel's random walker first arrives
 at a specific seed, is computed.  The latter is done by modelling the image as a weighted graph, where
-the weight of an edge reflects the similarity(intensity values) between pixels,
+the weight of an edge reflects the similarity (intensity values) between pixels,
 and then solving a system of linear equations.  The pixel is then assigned the
 label
 of the seed for which it is most likely to reach.  The process is repeated until
@@ -781,19 +781,19 @@ basins from the user-defined markers until basins which attribute to different
 markers meet at watershed lines.  In this case marker positions are chosen as
 the local maxima of the image.  Thereafter the segmentation is done on the
 gradient image.  The result of the watershed algorithm applied to a shark fin
-image is shown in Figure \ref{fig1}.
+image is shown in Figure \ref{fig3}.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=5in,height=2in]{watershed.png} 
-\label{fig1}
-\caption{The watershed algorithm. \cite{scikit}}
+\label{fig3}
+\caption{The watershed algorithm\cite{scikit}.}
 \end{figure}
 
 \noindent The first image shows the gradient image of the original shark fin
 image.  The second image shows the pixels that are identified as a local maxima.
  The third image shows how the basins flooded until watershed lines are reached.
- By joining the correct segments, an effective segmentation can be performed--this however will require
+ By joining the correct segments, an effective segmentation can be performed -- this however will require
  a lot of hard work.
 
 \newpage
