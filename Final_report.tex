@@ -675,7 +675,7 @@ The algorithm is interactive, since the user can observe the segmentation and
 guide the algorithm in places where the segmentation is difficult to compute.
 \\
 
-\noindent We now explain the basic method.  A
+\noindent We now explain the basic method\cite{alg}.  A
 cellular automaton is an algorithm which is discrete in both space and time
 and operates on a lattice of pixels $p \in P \subset Z^{n}$.  A cellular
 automaton can be considered as a triplet, $A = (S, N, \delta)$, where $S$ is a
@@ -683,11 +683,11 @@ set containing different states, $N$ is the
 neighbourhood system of the cell and $\delta: S^{N} \rightarrow S $ is a
 transition rule.  This is the function which defines  the rule calculating the
 cell's state at time $t + 1$, given the states 
-of the cell's neighbourhood at time $t$.  Two well known neighbourhood systems
-are the von Neumann and Moore neighbourhood systems.  The cell state referred to
+of the cell's neighbourhood at time $t$.  In this research project, the Moore 
+Neighbourhood system is used.  The cell state referred to
 is also
 considered a triplet $(l_{p}, \theta_{p}, \overrightarrow{C}_{p})$, where
-$l_{p}$ is the label of the cell($K$ labels in total), $\theta_{p}$ is the
+$l_{p}$ is the label of the cell ($K$ labels in total), $\theta_{p}$ is the
 'strength' of the cell and $\overrightarrow{C}_{p}$ is
 the cell feature vector.  Without loss of generality it can be assumed that
 $\theta_{p} \in [0,1]$.  \\
@@ -728,6 +728,7 @@ The function is given by
 g(x) = 1 - \frac{x}{max\| \overrightarrow{C} \|_{2}}. 
 \]
 
+We now give an intuitive explanation of the above. \\
 
 \noindent The algorithm has been modified in the following way.  One of the
 main features that needs attention is the damping function $g$.  By changing
