@@ -740,9 +740,11 @@ where a value of zero indicates background and a value of one indicates foregrou
 
 It can be helpful to view the labelling process as ongoing growth and struggle of $K$ different species.
 The species start to "grow" from the seeded pixels, trying to occupy the whole image.  
-Each iteration involves every cell trying to "attack" its neighbour. 
+Each iteration involves every cell trying to "attack" its neighbour, cell $q$ "attacking" cell $p$ for instance. 
 The strength of the attack is determined by the attacker's cell strength, $\theta_{q}$, and
 the difference in intensity values of $p$ and $q$. \\
+
+The automaton rule is described as . \\
 
 These iterations continue until either the maximum number of iterations is or the automaton has converged,
 where cell state seize to change.  Note that convergence is guaranteed since cell strength is increasing and bounded. \\
