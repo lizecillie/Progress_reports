@@ -738,18 +738,8 @@ the exponent of the term $\frac{x}{max\| \overrightarrow{C} \|_{2}}$ to
 $\frac{3}{2}$, thus $\left ({\frac{x}{max\| \overrightarrow{C} \|_{2}}}\right
 ) ^\frac{3}{2}$,
 an immediate result was seen.  Since the borders
-  were higher, it was less likely to cross them.  
-  A
-sobel filter was used in detecting the edges.\note{Detecting the edges? What
-  edges? You don't mention that we call the algorithm on the edge image.}  A sobel filter calculates the
-gradient of the intensity of each pixel, giving
-the direction of the largest possible increase from light to dark and also the
-rate of change in that specific direction.   This results in showing how
-abruptly or smoothly the images changes at that point and then how likely it
-is that that part represents an edge.\note{Overlaps with earlier description of
-  Sobel?}The figure below shows a sobel filter
-acting on a shark fin image.  The edges of the shark fin can clearly be seen.
-
+  had a higher value, the algorithm was less likely to cross them. \\  
+ 
 Figures \ref{fin1} and \ref{fin2} show a comparison between the result of the original algorithm on
 one of the shark fin images and the effect of the modified version of the
 algorithm on the same image.
