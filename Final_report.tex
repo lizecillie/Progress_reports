@@ -689,7 +689,7 @@ is also
 considered a triplet $(l_{p}, \theta_{p}, \overrightarrow{C}_{p})$.
 $l_{p}$ is the label of the cell, either foregound or backgrond in this case, $\theta_{p}$ is the
 'strength' of the cell, or in other words the certainty that the cell is either foreground or background and $\overrightarrow{C}_{p}$ is
-the cell feature vector depicting the difference in intensity values between two cells.  Without loss of generality it can be assumed that
+the cell feature vector, depicting the difference in intensity values between two cells.  Without loss of generality it can be assumed that
 $\theta_{p} \in [0,1]$.  \\
 
 The initial state of the pixels is set to $l_{p} = 0, \theta_{p} = 0,
@@ -757,7 +757,7 @@ an immediate result was seen.  Since the edges of the shark fin now
  
 Figures \ref{fin1} and \ref{fin2} show a comparison between the result of the original algorithm on
 one of the shark fin images and the effect of the modified version of the
-algorithm on the same image.
+algorithm on the same image.  The green and red markers indicate the selected foreground and background pixels respectively.
 
 \begin{figure}[H]
  \centering
