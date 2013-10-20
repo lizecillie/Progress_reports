@@ -657,7 +657,7 @@ different rules and different initial conditions, all following the procedure de
 \label{growcut}
 The Growcut algorithm is an interactive, multi-label segmentation algorithm
 for N-dimensional images.  The algorithm is based on cellular automata, i.e.,
-the user labels a few pixels and the rest of the image is then segmented
+the user labels a few pixels, called the seed pixels, and the rest of the image is then segmented
 automatically by a cellular automaton as described in \ref{ca}. 
 A new generation of cells is then created according to a fixed rule or
 mathematical function that determines the new state of the cell, by looking at
@@ -676,7 +676,7 @@ The algorithm is interactive, since the user can observe the segmentation and
 guide the algorithm in places where the segmentation is difficult to compute.
 \\
 
-\noindent The basic method on which the algorithm relies is the following.  A
+\noindent The now explain the basic method.  A
 cellular automaton is an algorithm which is discrete in both space and time
 and operates on a lattice of pixels $p \in P \subset Z^{n}$.  A cellular
 automaton can be considered as a triplet, $A = (S, N, \delta)$, where $S$ is a
@@ -691,8 +691,7 @@ considered a triplet $(l_{p}, \theta_{p}, \overrightarrow{C}_{p})$, where
 $l_{p}$ is the label of the cell($K$ labels in total), $\theta_{p}$ is the
 'strength' of the cell and $\overrightarrow{C}_{p}$ is
 the cell feature vector.  Without loss of generality it can be assumed that
-$\theta_{p} \in [0,1]$. \note{This is all from the paper, but we do not need
-  such a formal description.  Rather explain in your own words.}
+$\theta_{p} \in [0,1]$. 
 
 The initial state of the pixels is set to $l_{p} = 0, \theta_{p} = 0,
 \overrightarrow{C}_{p} = RGB_{p}$, where $RGB_{p}$ is a three dimensional vector
