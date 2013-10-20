@@ -686,10 +686,10 @@ cell's state at time $t + 1$, given the states
 of the cell's neighbourhood at time $t$.  In this research project, the Moore 
 Neighbourhood system is used.  The cell state referred to
 is also
-considered a triplet $(l_{p}, \theta_{p}, \overrightarrow{C}_{p})$, where
-$l_{p}$ is the label of the cell ($K$ labels in total), $\theta_{p}$ is the
-'strength' of the cell and $\overrightarrow{C}_{p}$ is
-the cell feature vector.  Without loss of generality it can be assumed that
+considered a triplet $(l_{p}, \theta_{p}, \overrightarrow{C}_{p})$.
+$l_{p}$ is the label of the cell, either foregound or backgrond in this case, $\theta_{p}$ is the
+'strength' of the cell, or in other words the certainty that the cell is either foreground or background and $\overrightarrow{C}_{p}$ is
+the cell feature vector depicting the difference in intensity values between two cells.  Without loss of generality it can be assumed that
 $\theta_{p} \in [0,1]$.  \\
 
 The initial state of the pixels is set to $l_{p} = 0, \theta_{p} = 0,
@@ -741,8 +741,8 @@ where a value of zero indicates background and a value of one indicates foregrou
 It can be helpful to view the labelling process as ongoing growth and struggle of $K$ different species.
 The species start to "grow" from the seeded pixels, trying to occupy the whole image.  
 Each iteration involves every cell trying to "attack" its neighbour. 
-The strength of the ""attack" is determined by the attacker's cell strength, $\theta_{q}$, and
-. \\
+The strength of the attack is determined by the attacker's cell strength, $\theta_{q}$, and
+the difference in intensity values of $p$ and $q$. \\
 
 These iterations continue until either the maximum number of iterations is or the automaton has converged,
 where cell state seize to change.  Note that convergence is guaranteed since cell strength is increasing and bounded. \\
@@ -752,7 +752,7 @@ main features that needs attention is the damping function $g$.  By changing
 the exponent of the term $\frac{x}{max\| \overrightarrow{C} \|_{2}}$ to
 $\frac{3}{2}$, thus $\left ({\frac{x}{max\| \overrightarrow{C} \|_{2}}}\right
 ) ^\frac{3}{2}$,
-an immediate result was seen.  Since the borders
+an immediate result was seen.  Since the edges of the shark fin now 
   had a higher value, the algorithm was less likely to cross them. \\  
  
 Figures \ref{fin1} and \ref{fin2} show a comparison between the result of the original algorithm on
