@@ -738,7 +738,9 @@ constant throughout segmentation), the maximum number of automata iterations to 
 size of the neighborhood window.  The algorithm will return a segmented image, 
 where a value of zero indicates background and a value of one indicates foreground. \\
 
-\noindent The algorithm has been modified in the following way.  One of the
+Each automata iteration . \\
+
+\noindent The algorithm is modified in the following way.  One of the
 main features that needs attention is the damping function $g$.  By changing
 the exponent of the term $\frac{x}{max\| \overrightarrow{C} \|_{2}}$ to
 $\frac{3}{2}$, thus $\left ({\frac{x}{max\| \overrightarrow{C} \|_{2}}}\right
@@ -749,6 +751,7 @@ an immediate result was seen.  Since the borders
 Figures \ref{fin1} and \ref{fin2} show a comparison between the result of the original algorithm on
 one of the shark fin images and the effect of the modified version of the
 algorithm on the same image.
+
 \begin{figure}[H]
  \centering
  \includegraphics[width=4in, height=1.8in]{haaio}
