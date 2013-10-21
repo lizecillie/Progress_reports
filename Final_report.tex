@@ -466,7 +466,7 @@ values.  These changes will then indicate the starting point and end point of th
  \includegraphics[width=3in]{reflectfin.jpg}
  \caption{The prominent reflection of the dorsal fin in the water.}
  \label{shadow}
-\end{figure}
+\end{figure} 
 
 \subsection{Fin matching}
 Dynamic time warping (DTW) is an algorithm used for
@@ -493,7 +493,15 @@ For that reason, we rather apply interpolation on the shorter sequence,
  
 Another challenge we are faced with is the fact that fins corresponding to the 
 same shark might not be orientated with the same gradient in the images.  
-\\
+We show an example in Figure \ref{gradient}.  \\
+ 
+\begin{figure}[H]
+\centering
+\mbox{\subfigure[]{\includegraphics[width=2in]{haai2.jpg}} \quad
+\subfigure[]{\includegraphics[width=2in]{haai3.jpg}}}
+\caption{Fins corresponding to the the same shark.}
+\label{gradient}
+\end{figure}
  
 A distance matrix, $A_ij$, is then calculated, containing the distance between
 each pair of elements,  $dist(\bf{x}_i, \bf{y}_j)$, in the array as entries.
