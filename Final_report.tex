@@ -484,8 +484,10 @@ alignment. \\
 
 The DTW implementation\footnote{I am indebted to
   Dr. S.J. van der Walt for providing us with an implementation.} we use, only accomodates
-sequences that do not vary in length by more than $50\%$. In our case there are sequences
-that do not satisfy this constraint.  For this reason, we apply interpolation on the shorter sequence, 
+sequences that do not vary in length by more than $50\%$. In our case, there are sequences
+that do not satisfy this constraint.  The reason for this is because the images are not all the same size.
+Theoretically the images can be scaled, but that poses the risk of losing important features of the fin in the image.
+For this reason, we apply interpolation on the shorter sequence, 
  such that its length is at least $75\%$ of the length of the longer sequence. 
 A distance matrix, $A_ij$, is then calculated, containing the distance between
 each pair of elements,  $dist(\bf{x}_i, \bf{y}_j)$, in the array as entries.
