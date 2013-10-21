@@ -482,7 +482,7 @@ metric can be done, whereas that will not work for varying length, time warped s
 need not be the same length, we will make use of a non-linear
 alignment. \\
 
-Some peprocessing needs to be done and involves the following.
+Some preprocessing needs to be done and involves the following.
 The DTW implementation\footnote{I am indebted to
   Dr. S.J. van der Walt for providing us with an implementation.} we use, only accomodates
 sequences that do not vary in length by more than $50\%$. In our case, there are sequences
@@ -490,6 +490,9 @@ that do not satisfy this constraint.  The reason for this is because the images 
 Theoretically, the images can be scaled, but that poses the risk of losing important features of the fin in the image.
 For that reason, we rather apply interpolation on the shorter sequence, 
  such that its length is at least $75\%$ of the length of the longer sequence. 
+ 
+Another challenge we are faced with is the fact that the fins might not be .\\
+ 
 A distance matrix, $A_ij$, is then calculated, containing the distance between
 each pair of elements,  $dist(\bf{x}_i, \bf{y}_j)$, in the array as entries.
 We now view this matrix as a
@@ -498,8 +501,6 @@ aim is to find a lowest cost path from the top left corner of the grid to the bo
 corner of the grid, thereby making sure that each element in the array is compared to every other element in the array.
 The minimum cost is then a measure of the similarity between the
 sequences.  \\
-
-
 
 Thus for a database containing $N$ shark fin images, a $N \times N$ cost
 matrix will be returned, where the entry in $(i, j)$ corresponds to the cost
