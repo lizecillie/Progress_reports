@@ -482,6 +482,10 @@ metric can be done, whereas that will not work for varying length, time warped s
 need not be the same length, we will make use of a non-linear
 alignment. \\
 
+The DTW implementation\footnote{I am indebted to
+  Dr. S.J. van der Walt for providing us with this implementation.} we use, only accomodates
+sequences that do not vary in length by more than $50\%$. In our case there are sequences
+that do not satisfy this constraint.  For this reason, 
 A distance matrix, $A_ij$, is calculated, containing the distance between
 each pair of elements,  $dist(\bf{x}_i, \bf{y}_j)$, in the array as entries.
 We now view this matrix as a
