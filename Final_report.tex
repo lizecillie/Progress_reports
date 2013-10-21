@@ -504,7 +504,10 @@ We show an example in Figure \ref{gradient}.  \\
 \end{figure}
 
 This is a problem since those sequences are too far apart for the DTW algortihm
-to recognise them as belonging to the same shark.
+to recognise them as belonging to the same shark.  We apply a simple
+transformation to either one of the sequences such that their gradients are as close as
+possible.  
+We do this for every pair of sequences compared.  \\
  
 A distance matrix, $A_ij$, is then calculated, containing the distance between
 each pair of elements,  $dist(\bf{x}_i, \bf{y}_j)$, in the array as entries.
