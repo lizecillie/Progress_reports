@@ -434,7 +434,7 @@ Under ideal circumstances, only the serrated part of the fin is
 identified.  A shortest path algorithm is run on the Sobel edges, setting
 the cost matrix to zero in the first and last rows to allow automatic
 selection of good starting and end positions.  These "sliding coordinates"
-are trimmed out by post-processing.
+are trimmed out by post-processing discussed below.
 
 The algorithm starts by inverting the edges and then squaring
 them to increase their weight and thereby making them more prominent.  We make use of a function 
@@ -443,9 +443,11 @@ them to increase their weight and thereby making them more prominent.  We make u
  image.
 Since we are working on the segmented image, we allow any start and end point
 for the path by setting the first and last rows of the
-  cost matrix = 0.  All
-pixel coordinates running on the edges of the image is then removed from the
-path.  It is known that the fin itself becomes less well defined when moving towards its bottom part,
+  cost matrix = 0.
+ Post-processing invloves walking 
+along the path and returning the index where it no longer steps
+vertically downward, assuming that index indicates the start of the fin.
+    It is known that the fin itself becomes less well defined when moving towards its bottom part,
 and then there is the
   bottom flappy part of the fin which can move between subsequent images.
   Ideally, we should make the bottom part count less than the top by only using the top
