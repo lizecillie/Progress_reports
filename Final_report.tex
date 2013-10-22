@@ -429,9 +429,14 @@ identified.
  \label{sobel}
 \end{figure}
 
-The function 
-The next step is to extract only the unique part of the fin needed for
-identification.   This is done by first inverting the edges and then squaring
+The function \texttt{fin\_detect()}, written as part of the pipeline, identifies the shark fin in an image.
+Under ideal circumstances, only the serrated part of the fin is
+identified.  A shortest path algorithm is run on the Sobel edges, setting
+the cost matrix to zero in the first and last rows to allow automatic
+selection of good starting and end positions.  These "sliding coordinates"
+are trimmed out by post-processing.
+
+The algorithm starts by inverting the edges and then squaring
 them to increase their weight and thereby making them more prominent.  We make use of a function 
 \texttt{route\_through\_array()}\cite{scikit} from the \texttt{graph} module in scikit-image.
  This function enables us to find a lowest cost path through the
