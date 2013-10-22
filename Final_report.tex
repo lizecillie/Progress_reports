@@ -550,7 +550,7 @@ Thus for a database containing $N$ shark fin images, a $N \times N$ cost
 matrix will be returned, where the entry in $(i, j)$ corresponds to the cost
 of the path when shark fin $i$ is compared to shark fin $j$.  We then identify the shark
 corresponding to the minimum of these entries in a specific
-column.
+column.  Or an even better method is to identify the five lowest costs, indicating the five best matches.  
 In other words, the lower the cost, the less the sequences differ and the greater the match.  \\
 
 Below is an example where two arrays are compared using DTW. Note the lines
