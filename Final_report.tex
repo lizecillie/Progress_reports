@@ -493,7 +493,7 @@ alignment. \\
 
 Some preprocessing needs to be done and involves the following.
 The DTW implementation\footnote{I am indebted to
-  Dr. S.J. van der Walt for providing us with an implementation.} we use, only accomodates
+  Dr. S.J. van der Walt for providing us with a DTW implementation.} we use, only accomodates
 sequences that do not vary in length by more than $50\%$. In our case, there are sequences
 that do not satisfy this constraint.  The reason for this is because the images are not all the same size.
 Theoretically, the images can be scaled, but that poses the risk of losing important features of the fin in the image.
@@ -514,7 +514,7 @@ We show an example in Figure \ref{gradient}.  \\
 
 This is a problem since those sequences are too far apart for the DTW algortihm
 to recognise them as belonging to the same shark.  We apply a simple
-transformation to either one of the sequences such that they fit on top of each other
+transformation to project the shorter sequence on top of the longer sequence such that they fit on top of each other
 as best as possible, when viewed as a plotted path.  This is done by first projecting the starting
 point of the one sequence to the starting point of the other sequence and then shifting the joined starting
 point to the the coordinate $(0, 0)$.
