@@ -314,7 +314,11 @@ the image to determine the principal axes of edge pixels.  If the gradient
 of the line defining the principal direction lies between 0 and
 $\frac{\pi}{2}$ radians, the orientation of the shark fin is
 identified as
-"right", otherwise the orientation is identified as "left". 
+"right", otherwise the orientation is identified as "left".  \\
+
+Detecting the orientation as described above is a time consuming process.  For this reason, the results of this part of the
+pipeline are cached using the Joblib software package.
+
 
 \subsection{Segmentation}
 \label{segmentation}
