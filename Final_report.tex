@@ -312,8 +312,8 @@ orientation of the shark fin.
 \end{figure}
 
 A Sobel filter or edge detector is applied 
-to identify prominent edges in the image.  After identifying the prominent edges
-, a threshold is applied , using Otsu's method, to convert the image into a binary image.
+to identify prominent edges in a grayscale version of the image.  After identifying the prominent edges, 
+a threshold is applied , using Otsu's method, to convert the image into a binary image.
 PCA can now be done on
 the image to determine the principal axes of edge pixels.  If the gradient
 of the line defining the principal direction lies between 0 and
