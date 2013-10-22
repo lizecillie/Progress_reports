@@ -391,7 +391,8 @@ This slows down the whole process of identification.  Repeated calculations of t
 or the segmentation process can be left out.  The latter will then result in
 finding the path defining the fin directly from the edge image, keeping 
 in mind that we will then have to find a different way of identifying the
-  actual segment that belongs to the fin itself.
+  actual segment that belongs to the fin itself.  For the purpose of this research project,
+  no segmentation will be performed. 
 
 \subsection{Fin detection}
 The objective is to identify the serrated part of the dorsal shark fin. In order
@@ -443,7 +444,7 @@ identified.
  \label{sobel}
 \end{figure}
 
-The function \texttt{fin\_detect()}, written as part of the pipeline, identifies the shark fin in an image.
+The function \texttt{fin\_detect()}, written for this part of the pipeline, identifies the shark fin in an image.
 Under ideal circumstances, only the serrated part of the fin is
 identified.  A shortest path algorithm is run on the Sobel edges, setting
 the cost matrix to zero in the first and last rows to allow automatic
