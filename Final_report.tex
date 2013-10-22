@@ -253,7 +253,8 @@ In the next section the development of a pipeline for shark fin identification i
 \newpage
 \section{Overview of pipeline}
 The procedure of identifying sharks can be
-  divided into several components, together forming an image processing pipeline, each implemented as part of
+  divided into several components, together forming an image processing pipeline\footnote{I am indebted to
+  Ms. T. Marais for her generous contribution to the developement of the pipeline.}, each implemented as part of
   a bigger pipeline.  Below is a diagram showing the structure of the pipeline.  The first algorithm is an orientation detection
 algorithm that will determine whether the shark fin is orientated to the left or the right in the image.
 Then a segmentation algorithm will segment the shark fin from the image such that the path that defines the shark fin 
@@ -428,6 +429,7 @@ identified.
  \label{sobel}
 \end{figure}
 
+The function 
 The next step is to extract only the unique part of the fin needed for
 identification.   This is done by first inverting the edges and then squaring
 them to increase their weight and thereby making them more prominent.  We make use of a function 
