@@ -311,7 +311,7 @@ orientation of the shark fin.
  \label{orientation}
 \end{figure}
 
-A Sobel filter is applied 
+A Sobel filter or edge detector is applied 
 to identify prominent edges in the image.  After identifying the prominent edges
 , a threshold is applied , using Otsu's method, to convert the image into a binary image.
 PCA can now be done on
@@ -320,6 +320,11 @@ of the line defining the principal direction lies between 0 and
 $\frac{\pi}{2}$ radians, the orientation of the shark fin is
 identified as
 "right", otherwise the orientation is identified as "left".  \\
+
+The above method proved unsuccessful in many cases.  The reason is because the Sobel edge detector captures 
+the edge of the whole fin and not only the edge of the serrated part of the fin.  If the edges
+on the side where the round part of the fin is are more prominent, the direction will not be detected successfully. 
+An alternative method needs to be investigated. \\
 
 Detecting the orientation as described above is a time consuming process.  For this reason, the results of this part of the
 pipeline are cached using the Joblib software package.
