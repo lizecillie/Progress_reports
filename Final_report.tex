@@ -477,6 +477,9 @@ values.  These changes will then indicate the starting point and end point of th
  \label{shadow}
 \end{figure} 
 
+Detecting the fin as described above is a time consuming process.  For this reason, the results of this part of the
+pipeline are cached using the Joblib software package.
+
 \subsection{Fin matching}
 Dynamic time warping (DTW) is an algorithm used for
 measuring the similarity between two similar sequences which may vary in time or
