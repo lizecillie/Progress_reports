@@ -515,9 +515,9 @@ We show an example in Figure \ref{gradient}.  \\
 This is a problem since those sequences are too far apart for the DTW algortihm
 to recognise them as belonging to the same shark.  We apply a simple
 transformation to project the shorter sequence on top of the longer sequence such that they fit on top of each other
-as best as possible, when viewed as a plotted path.  This is done by shifting the the starting points
+as best as possible.  This is done by shifting the the starting points
 of both sequences to the coordinate $(0, 0)$.
-We then transform the endpoints to .
+We then transform the endpoint of the shorter sequence to the endpoint of the longer sequence.
 This is done for every pair of sequences compared.  \\
  
 A distance matrix, $A_ij$, is then calculated, containing the distance between
