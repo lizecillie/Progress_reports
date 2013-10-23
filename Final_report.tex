@@ -906,7 +906,8 @@ There are however fins like the ones below, which contain a lot of noise and the
 \subfigure[]{\includegraphics[width=1.6in]{findetect9.jpg}}}
 \end{figure}
 
-Below is the first five rows and five columns of the lower triangular cost matrix
+Below is the first five rows and five columns of the lower triangular cost matrix.
+
 \[
  C = \begin{bmatrix*}
  & 0 & 0 & 0 & 0 \\
@@ -971,7 +972,7 @@ running at optimum speed.  It can be further optimised.  Cython and Joblib can b
 as a potential remedy. \\
 
 Some pre-processing of the shark fin images might be useful.  Since the images are very noisy, 
-noise removal is an option.  Also, because we are only interested in the pattern describing the serrated part
+noise removal is an option.  This will contribute greatly to the detection of the fin.  Also, because we are only interested in the pattern describing the serrated part
 of the fin, colour spaces other than converting from RGB colour space to a monochrome image might prove to be valuable when detecting edges.  \\
 
 One can also investigate the various parameters in the Growcut algorithm, like the window size, the damping function and attacking strategies. \\
