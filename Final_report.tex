@@ -906,7 +906,7 @@ There are however fins like the ones below, which contain a lot of noise and the
 \subfigure[]{\includegraphics[width=1.6in]{findetect9.jpg}}}
 \end{figure}
 
-Below are the first five rows and five columns of the lower triangular cost matrix.  Recall that the costs are normalized. \\
+Below are the first five rows and first five columns of the lower triangular cost matrix.  Recall that the costs are normalized. 
 
 \[
  C = \begin{bmatrix*}
@@ -925,22 +925,27 @@ We can now show the image of the complete $50 \times 50$ cost matrix.  The lower
 \centering
 \includegraphics[width=2.5in]{compmatrix.jpg} 
 \label{fig4}
-\caption{}
 \end{figure}
 
+The results can also be visualized by the following plot.
+\begin{figure}[H]
+\centering
+\includegraphics[width=2.5in]{compmatrix.jpg} 
+\label{fig5}
+\end{figure}
 
 Here are a few examples of sharks from the database together with their closest match. \\
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=5in]{sharkmatch1.jpg} 
-\label{fig5}
+\label{fig6}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=5in]{sharkmatch2.jpg} 
-\label{fig5}
+\label{fig7}
 \end{figure}
 
 It can be seen that although the fin is detected quite successfully in most cases, wrong matches still appear to be in abundance. \\
