@@ -264,7 +264,7 @@ The procedure of identifying sharks can be
 algorithm that will determine whether the shark fin is orientated to the left or the right in the image.
 Then a segmentation algorithm will segment the shark fin from the image such that the path that defines the shark fin 
 can easily be detected by the fin detection algorithm.  Thereafter a dynamic time warping algorithm is used
-to compare the the paths that describe the fins and to see how shark fins in the database compare.
+to compare the paths describing the fins and to see how shark fins in the database compare.
 
 \begin{figure}[H]
  \centering
@@ -321,7 +321,7 @@ $\frac{\pi}{2}$ radians, the orientation of the shark fin is
 identified as
 "right", otherwise the orientation is identified as "left".  \\
 
-The above method proved unsuccessful in many cases.  The reason is because the Sobel edge detector captures 
+The above method proved unsuccessful in some cases.  The reason is because the Sobel edge detector captures 
 the edge of the whole fin and not only the edge of the serrated part of the fin.  If the edges
 on the side where the round part of the fin is are more prominent, the direction will not be detected successfully. 
 One could also make sure that when images are added to the database, that their orientation is all the same by manually
