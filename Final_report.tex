@@ -392,12 +392,11 @@ This slows down the whole process of identification.  Repeated calculations of t
 or the segmentation process can be left out.  The latter will then result in
 finding the path defining the fin directly from the edge image, keeping 
 in mind that we will then have to find a different way of identifying the
-  actual segment that belongs to the fin itself.  For the purpose of this research project,
-  no segmentation will be performed. 
+  actual segment that belongs to the fin itself. 
 
 \subsection{Fin detection}
 The objective is to identify the serrated part of the dorsal shark fin. In order
-to, do this, we need to extract this part of the fin, in such a way that it can be 
+to do this, we need to extract this part of the fin, in such a way that it can be 
 compared with other fins easily.
 We use the
 Sobel operator,
@@ -435,8 +434,7 @@ the gradient magnitude image, calculated  as
 
 The Sobel operator applied to one of the shark fin images is shown in Figure 
 \ref{sobel}.
-We can see the edge of the fin in the $G$ image on the right clearly
-identified.
+We can see the edge of the fin in the $G$ image on the right.
 
 \begin{figure}[H]
  \centering
@@ -464,10 +462,8 @@ for the path by setting the first and last rows of the
 along the path and returning the index where it no longer steps
 vertically downward, assuming that index indicates the start of the fin.
 
-    It is known that the fin itself becomes less well defined when moving towards the body of the shark,
-and then there is the
-  bottom flappy part of the fin which can move between subsequent images.
-  We therefore make the bottom part count less than the top by only using the top
+    It is known that the fin itself becomes less well defined when moving towards the body of the shark.  
+  We therefore do not make the bottom part of the fin count, by only using the top
 $\frac{2}{3}$ of the fin for comparison.\\
 
 In Figure \ref{fin} an example of the path, in blue, that was detected on the shark
@@ -484,7 +480,7 @@ Since the reflection of the fin on the water is so prominent, the path which is 
 picks up the reflection.  We are therefore unsure
 where the path starts and ends.  This can be corrected either by
 making sure the reflected part will be segmented out as background during the segmentation process or by
-moving the detected path over the shark fin image and detecting drastic changes in pixel
+moving the detected path slightly to the left over the fin, and detecting drastic changes in pixel
 values.  These changes will then indicate the starting point and end point of the path.
 
 \begin{figure}[H]
