@@ -880,7 +880,19 @@ image.  The second image shows the pixels that are identified as a local maxima.
 \section{Results}
 The pipeline is run on the 50 photo database to determine the best match for each shark in the database.  \\ 
 
-Below is an image of the $50 \times 50$ cost matrix.  The darker the pixel, the closer the match.  Since the cost matrix
+Below is the first five rows and five columns of the lower triangular cost matrix
+\[
+ \begin{pmatrix*}
+ & & & & \\
+ & & & & \\
+ & & & & \\
+ & & & & \\
+ \end{pmatrix*}
+\]
+
+
+
+Below is the image of the complete $50 \times 50$ cost matrix.  The darker the pixel, the closer the match.  Since the cost matrix
 is symmetric, only the lower triangular part is shown. \\
 
 \begin{figure}[H]
