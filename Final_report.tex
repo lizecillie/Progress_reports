@@ -490,9 +490,6 @@ values.  These changes will then indicate the starting point and end point of th
  \label{shadow}
 \end{figure} 
 
-Detecting the fin as described above is a time consuming process.  For this reason, the results of this part of the
-pipeline are cached using the Joblib software package.
-
 \subsection{Fin matching}
 Dynamic time warping (DTW) is an algorithm used for
 measuring the similarity between two similar sequences which may vary in time or
@@ -508,8 +505,7 @@ need not be the same length, we will make use of a non-linear
 alignment. \\
 
 Some preprocessing needs to be done and involves the following.
-The DTW implementation\footnote{I am indebted to
-  Dr. S.J. van der Walt for providing us with a DTW implementation.} we use, only accommodates
+The DTW implementation we use, only accommodates
 sequences that do not vary in length by more than $50\%$. In our case, there are sequences
 that do not satisfy this constraint.  The reason for this is because the images are not all the same size.
 Theoretically, the images can be scaled, but that poses the risk of losing important features of the fin in the image.
@@ -517,7 +513,7 @@ For that reason, we rather apply interpolation on the shorter sequence,
  such that its length is at least $75\%$ of the length of the longer sequence. 
  
 Another challenge we are faced with is the fact that fins corresponding to the 
-same shark might not be orientated with the same gradient in the images.  
+same shark might not be orientated at the same gradient in the images.  
 We show an example in Figure \ref{gradient}.  \\
  
 \begin{figure}[H]
@@ -543,7 +539,7 @@ grid, where the
 aim is to find a lowest cost path from the top left corner of the grid to the bottom right
 corner of the grid, thereby making sure that each element in the array is compared to every other element in the array.
 The minimum cost is then a measure of the similarity between the
-sequences.  Note that the minimum costs are normalized. \\
+sequences.  Note that the minimum costs are normalized by dividing by the path length. \\
 
 Thus for a database containing $N$ shark fin images, a $N \times N$ cost
 matrix will be returned, where the entry in $(i, j)$ corresponds to the cost
