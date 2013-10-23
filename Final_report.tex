@@ -354,13 +354,13 @@ foreground and background pixels, shown in blue and red respectively.}
 The specification of
 the foreground and background pixels is done using the function
 \texttt{grid\_points\_inside\_poly()}\cite{scikit} from the \texttt{morphology} module in
-\texttt{Scikit-image}.  This function selects all points inside a given
+\texttt{scikit-image}.  This function selects all points inside a given
 polygon.  These selected  points are then set as the initial foreground and background pixels
 respectively (see
 Figure \ref{segmentation1}).
 Since the images in the database, and images in general, are not
-all the same size, the corners of the polygon are specified according to the size
-of the image.  This then makes it work consistently across images of different sizes.  \\
+all the same size, the corners of the polygon are specified as percentages of the image dimensions.  
+This then makes it work consistently across images of different sizes.  \\
 
 \begin{figure}[H]
  \centering
@@ -373,8 +373,8 @@ given polygon as foreground and background pixels, shown as blue and red
 
 Now that we have specified a few foreground and background pixels, we also
 need to specify the size of the neighbourhood around cells when the algorithm
-is 'growing' as well as the number of iterations the algorithm should follow.
-These parameters inevitably influence the success of the
+is "growing" as well as the number of iterations the algorithm should follow.
+These parameters influence the success of the
 segmentation. \\
 
 Below is an example of the final output of the segmentation process. \\
