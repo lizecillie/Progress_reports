@@ -454,7 +454,7 @@ The algorithm starts by inverting the edges and then squaring
 them to increase their weight and thereby making them more prominent.  We make use of a function 
 \texttt{route\_through\_array()}\cite{scikit} from the \texttt{graph} module in scikit-image.
  This function enables us to find a lowest cost path through the
- image.
+ image.  The cost of the path is defined as the sum of the values of the array along the path.
 Since we are working on the segmented image, we allow any start and end point
 for the path by setting the first and last rows of the
   cost matrix = 0.
@@ -623,26 +623,12 @@ processing.  Region boundaries and edges are closely related,
 since there are usually a sharp adjustment at region boundaries.  Edge detection
 techniques can therefore be used as a bases for different segmentation
 algorithms.
- \item \textbf{Region growing}\cite{threshold} Region merging means taking an initial 
+ \item \textbf{Region merging}\cite{threshold} Region merging means taking an initial 
  over-segmentation,
 obtained using e.g. SLIC, and then merging those regions based on a set of
 pre-determined properties, to form larger segments.  The process
-terminates once all pixels are assigned to a specific region.  
- \item \textbf{Watershed transformation} See description in \ref{watershed}.    
- \item \textbf{Graph partitioning}\cite{rw} This method is based on modelling
-the image as a weighted, undirected graph, where the nodes represent the pixels
-and the weights represent the similarity between neighbouring pixels. Then the
-graph is partitioned into clusters according to a specified criterion.  Each
-partition is then considered a segment in the image.
- \item \textbf{Trainable}\cite{trainable} Also known as Neural network segmentation,
-this process involves processing the small areas of an image by means of an
-artificial neural network or a set of neural networks.  Thereafter, using the
-categories recognised by the network, the decision-making mechanism marks the
-image accordingly and segmentation is done.
-\end{itemize}
-
-Waar moet ek hierdie sit??????
-The semantic segmentation
+terminates once all pixels are assigned to a specific region.
+\item \textbf{Region growing} A semantic segmentation
 algorithm is based on pixel wise object segmentation.  This is done by 
 assigning category labels to a set of super pixels obtained by clustering the
 joint colour space and coordinate space using the mean shift algorithm.
@@ -655,7 +641,19 @@ model.  During the segmentation the user may correct mistakes by
 relabelling and thus updating the appearance model.  Every time the user
 approves the segmentation, the system learns from the new labelling information.
 As image segmentation continues, user time spent on correcting labels reduces
-and thus the rate of image labelling increases. \\
+and thus the rate of image labelling increases.
+ \item \textbf{Watershed transformation} See description in \ref{watershed}.    
+ \item \textbf{Graph partitioning}\cite{rw} This method is based on modelling
+the image as a weighted, undirected graph, where the nodes represent the pixels
+and the weights represent the similarity between neighbouring pixels. Then the
+graph is partitioned into clusters according to a specified criterion.  Each
+partition is then considered a segment in the image.
+ \item \textbf{Trainable}\cite{trainable} Also known as Neural network segmentation,
+this process involves processing the small areas of an image by means of an
+artificial neural network or a set of neural networks.  Thereafter, using the
+categories recognised by the network, the decision-making mechanism marks the
+image accordingly and segmentation is done.
+\end{itemize}
 
 This method can be helpful in the sense that it works with a database of images
 of the same kind.  Since the shark fin images are all of the same type, 
