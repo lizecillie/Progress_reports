@@ -746,7 +746,7 @@ marking specific pixels as foreground and others as background.  This sets the
 initial state of each pixel.  While the labels are being updated, the user can
 correct and guide the process if desired.  \\
 
-\noindent The pseudo code for the automata evolution rule is shown\cite{alg}.
+\noindent The pseudo code for the automata evolution rule as described in\cite{alg}.
 \begin{algorithm}[H]
 \begin{algorithmic}[1]
  \State // For each cell...
@@ -768,7 +768,7 @@ correct and guide the process if desired.  \\
 \end{algorithm}
 
 \noindent where $g$ is a monotonous decreasing function bounded to $[0, 1]$. 
-The function is given by
+The damping function is given by
 \[
 g(x) = 1 - \frac{x}{max\| \overrightarrow{C} \|_{2}}. 
 \]\\
@@ -799,8 +799,8 @@ main features that needs attention is the damping function $g$.  By changing
 the exponent of the term $\frac{x}{max\| \overrightarrow{C} \|_{2}}$ to
 $\frac{3}{2}$, thus $\left ({\frac{x}{max\| \overrightarrow{C} \|_{2}}}\right
 ) ^\frac{3}{2}$,
-an immediate result was seen.  Since the edges of the shark fin now 
-  had a higher value, the algorithm was less likely to cross them. \\  
+the segmentation improves.  Since the edges of the shark fin now 
+  had a higher value, the algorithm is less likely to cross them. \\  
  
 Figure \ref{fin1}\footnote{I am indebted to Dr. N. Faggian for providing us with this gui.} and Figure \ref{fin2} show a comparison between the result of the original algorithm on
 one of the shark fin images and the effect of the modified version of the
@@ -916,37 +916,6 @@ We now show the image of the complete $50 \times 50$ cost matrix.  The lower the
 \caption{Cost matrix displayed as an image.}
 \end{figure}
 
-The results can also be visualized by the following plot.
-\begin{figure}[H]
-\centering
-\includegraphics[width=2.5in, height=2.5in]{plot.jpg} 
-\label{fig5}
-\caption{Best matches between sharks.}
-\end{figure}
-
-Here are a few examples of sharks from the database together with their closest match, resulting from the pipeline. \\
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=4in]{sharkmatch1.jpg} 
-\label{fig6}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=4in]{sharkmatch2.jpg} 
-\label{fig7}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=4in]{sharkmatch3.jpg} 
-\label{fig7}
-\end{figure}
-
-
-It can be seen that although the fin is detected quite successfully in most cases, wrong matches still appear to be in abundance. \\
-
 \newpage
 \section{Conclusions}
 This research project entails studying different segmentation algorithms with the idea to be able to identify sharks for various environmental and biological reasons.
@@ -955,7 +924,7 @@ A request from a PhD student for assistance in her research project on identifyi
 \subsection{Future work}
 Future work entails developing a user
 interface, making the identification of shark fins more user friendly and interactive.
-An user, who must be connected to some database of shark fins, will be able to
+A user, who must be connected to some database of shark fins, will be able to
 use this interface, acting as a front end to the
   pipeline, to identify shark fins.  The
 results from the different sections of the pipeline can be
@@ -967,18 +936,14 @@ made from the database. \\
 For example, the segmentation window will allow the user to manually select foreground and background pixels as described in \ref{segmentation}.
 When performing the algorithm, the user can guide the process by selecting more pixels for segmentation. \\
 
-Another aspect that needs investigation is the fact that the algorithms are not
-running at optimum speed.  It can be further optimised.  Cython and Joblib can be considered
-as potential remedies. \\
-
 Some pre-processing of the shark fin images might be useful.  Since the images are very noisy, 
 noise removal is an option.  This will contribute greatly to the detection of the fin.  Also, because we are only interested in the pattern describing the serrated part
-of the fin, colour spaces other than converting from RGB colour space to a monochrome image might prove to be valuable when detecting edges.  \\
+of the fin, colour spaces other than RGB might prove to be valuable when detecting edges.  \\
 
 One can also investigate the various parameters in the Growcut algorithm, like the window size, the damping function and attacking strategies. \\
 
 After the classification of shark fins is done, it would be valuable if different sharks could be "clustered" according to fin similarities.
-Recognizing various families of sharks can then be attempted.  Updating the database to include information about sharks can be valuable to marine biologists.  \\
+Recognizing various families of sharks can then be attempted.  
 
 \newpage
 \bibliography{final}
