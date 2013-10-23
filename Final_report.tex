@@ -917,9 +917,9 @@ We now show the image of the complete $50 \times 50$ cost matrix.  The lower the
 \end{figure}
 
 \newpage
-\section{Conclusions}
+\section{Conclusion}
 This research project entails studying different segmentation algorithms with the aim of identify sharks for various environmental and biological purposes.
-The Growcut algorithm is discussed as the main segmentation algorithm.  A workable pipeline is developed.  The results . \\
+The Growcut algorithm is discussed as the main segmentation algorithm.  Orientation detection, segmentation, fin detection and fin matching form the building blocks of an image processing pipeline.   The pipeline is unable to accurately match all shark fins in the database. \\
 
 \subsection{Future work}
 Future work entails developing a user
@@ -936,11 +936,11 @@ made from the database. \\
 For example, the segmentation window will allow the user to manually select foreground and background pixels as described in \ref{segmentation}.
 When performing the algorithm, the user can guide the process by selecting more pixels for segmentation. \\
 
-Some pre-processing of the shark fin images might be useful.  Since the images are very noisy, 
+Some pre-processing of the shark fin images might be useful in improving the accuracy of the pipeline.  Since the images are very noisy, 
 noise removal is an option.  This will contribute greatly to the detection of the fin.  Also, because we are only interested in the pattern describing the serrated part
-of the fin, colour spaces other than RGB might prove to be valuable when detecting edges.  \\
-
-One can also investigate the various parameters in the Growcut algorithm, like the window size, the damping function and attacking strategies. \\
+of the fin, colour spaces other than RGB might prove to be valuable when detecting edges. 
+Investigating the various parameters in the Growcut algorithm, like the window size, the damping function and attacking strategies, could also lead to the improvement of the pipeline.
+ \\
 
 After the classification of shark fins is done, it would be valuable if different sharks could be "clustered" according to fin similarities.
 Recognizing various families of sharks can then be attempted.  
