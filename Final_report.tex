@@ -236,8 +236,8 @@ results in the generation of efficient C-code from Cython code.
 Scikit-image was used to investigate various image processing
 techniques. \\
 
-For optimisational purposes, the Joblib\cite{joblib} software package is used. 
-Joblib is a set of tools providing lightweight pipelining in Python. 
+For optimisation purposes, the Joblib\cite{joblib} software package is used. 
+Joblib is a set of tools providing lightweight pipe lining in Python. 
 Some of its features include transparent disk-caching of the output values and 
 simple parallel computing. \\
 
@@ -259,7 +259,7 @@ In the next section the development of a pipeline for shark fin identification i
 \section{Overview of pipeline}
 The procedure of identifying sharks can be
   divided into several components, together forming an image processing pipeline\footnote{I am indebted to
-  Ms. T. Marais for her generous contribution to the developement of the pipeline.}, each implemented as part of
+  Ms. T. Marais for her generous contribution to the development of the pipeline.}, each implemented as part of
   a bigger pipeline.  Below is a diagram showing the structure of the pipeline.  The first algorithm is an orientation detection
 algorithm that will determine whether the shark fin is orientated to the left or the right in the image.
 Then a segmentation algorithm will segment the shark fin from the image such that the path that defines the shark fin 
@@ -354,7 +354,7 @@ foreground and background pixels, shown in blue and red respectively.}
 The specification of
 the foreground and background pixels is done using the function
 \texttt{grid\_points\_inside\_poly()}\cite{scikit} from the \texttt{morphology} module in
-\texttt{scikit-image}.  This function selects all points inside a given
+\texttt{Scikit-image}.  This function selects all points inside a given
 polygon.  These selected  points are then set as the initial foreground and background pixels
 respectively (see
 Figure \ref{segmentation1}).
