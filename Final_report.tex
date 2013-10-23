@@ -84,7 +84,7 @@ Prof. B.M. Herbst\\Dr. S.J Van der Walt
 \begin{abstract}
 This project investigates the use of various segmentation algorithms as
   part of a larger pipeline for fin identification of Great White sharks.
-For this purpose, the Growcut algorithm \cite{alg} is studied in detail.
+For this purpose, the Growcut algorithm\cite{alg} is studied in detail.
 A pipeline is developed containing various algorithms that form part of the
 identification process.  The pipeline can be used to compare new shark fin
 images with existing images in a database, establishing whether the shark
@@ -210,7 +210,7 @@ different
 segmentation methods so that we know if progress is being made. 
 The Berkeley Segmentation Dataset and Benchmark \cite{dataset} contains 12 000 hand-labelled
 segmentations of 1 000 Corel dataset images by 30 human subjects. 
-This can be used to compare human versus computer analysis of accurate segmentation. 
+This can be used to compare human versus computer analysis of accurate segmentation. \\
 
 Below is an example of a colour image in the Berkeley Segmentation Dataset.  The image in the middle shows the machine segmentation and the
 image on the right the human segmentation.
@@ -323,7 +323,7 @@ identified as
 
 The above method proved unsuccessful in some cases.  The reason is because the Sobel edge detector captures 
 the edge of the whole fin and not only the edge of the serrated part of the fin.  If the edges
-on the side where the round part of the fin is are more prominent, the direction will not be detected successfully. 
+on the side, where the round part of the fin is, are more prominent, the direction will not be detected successfully. 
 One could also make sure that when images are added to the database, that their orientation is all the same by manually
 "flipping" the images.  Otherwise an alternative automatic method needs to be investigated. \\
 
@@ -460,7 +460,7 @@ for the path by setting the first and last rows of the
   cost matrix = 0.
  Post-processing invloves walking 
 along the path and returning the index where it no longer steps
-vertically downward, assuming that index indicates the start of the fin.
+vertically downward, assuming that index indicates the start of the fin. \\
 
     It is known that the fin itself becomes less well defined when moving towards the body of the shark.  
   We therefore do not make the bottom part of the fin count, by only using the top
@@ -511,7 +511,6 @@ that do not satisfy this constraint.  The reason for this is because the images 
 Theoretically, the images can be scaled, but that poses the risk of losing important features of the fin in the image.
 For that reason, we rather apply interpolation on the shorter sequence, 
  such that its length is at least $75\%$ of the length of the longer sequence. 
- 
 Another challenge we are faced with is the fact that fins corresponding to the 
 same shark might not be orientated at the same gradient in the images.  
 We show an example in Figure \ref{gradient}.  \\
@@ -663,7 +662,7 @@ better segmentation results will be obtained.  \\
 
 \subsection{Cellular automaton}
 \label{ca}
-The idea of an cellular automaton is explained with the use of an example.
+The idea of a cellular automaton is explained with the use of an example.
 Probably the most well-known example of a two dimensional automaton is Conway's
 Game of Life\cite{gol}, developed by British mathematician John Horton Conway in 1970. 
 This "game" is a zero-player game, i.e. it developes according to an initial
@@ -800,7 +799,7 @@ the exponent of the term $\frac{x}{max\| \overrightarrow{C} \|_{2}}$ to
 $\frac{3}{2}$, thus $\left ({\frac{x}{max\| \overrightarrow{C} \|_{2}}}\right
 ) ^\frac{3}{2}$,
 the segmentation improves.  Since the edges of the shark fin now 
-  had a higher value, the algorithm is less likely to cross them. \\  
+  have a higher value, the algorithm is less likely to cross them. \\  
  
 Figure \ref{fin1}\footnote{I am indebted to Dr. N. Faggian for providing us with this gui.} and Figure \ref{fin2} show a comparison between the result of the original algorithm on
 one of the shark fin images and the effect of the modified version of the
@@ -867,7 +866,8 @@ image.  The second image shows the pixels that are identified as a local maxima.
 The pipeline is run on the 50 photo database to determine the best match for each shark in the database.  \\ 
 
 First we show the path detected, in blue, on a few shark fin images.  Recall that only the top $\frac{2}{3}$ of the path is extracted, 
-since the fins become more unreliable as we move closer to the body of the shark.  The sharks shown below are a few from which the fin were detected very successfully.  \\
+since the fins become more unreliable as we move closer to the body of the shark.  The images of the shark fins, shown below,
+are a selection from which the fins were detected accurately. \\
 
 \begin{figure}[H]
 \centering
@@ -883,8 +883,8 @@ since the fins become more unreliable as we move closer to the body of the shark
 \subfigure[]{\includegraphics[width=1.6in]{findetect6.jpg}}}
 \end{figure}
 
-There are however, fins like the ones below, which contain a lot of noise and thereby influencing the detection of the fin.  Also sometimes causing the
-wrong side of the fin to be detected.
+There are however fins, that are similar to the ones below, which contain a lot of noise and thereby influencing the detection of the fin.
+This could result in the wrong side of the fin being detected. \\
 
 \begin{figure}[H]
 \centering
@@ -918,8 +918,8 @@ We now show the image of the complete $50 \times 50$ cost matrix.  The lower the
 
 \newpage
 \section{Conclusions}
-This research project entails studying different segmentation algorithms with the idea to be able to identify sharks for various environmental and biological reasons.
-A request from a PhD student for assistance in her research project on identifying sharks led to the development of a pipeline. The Growcut algorithm is used as the main segmentation algorithm, but for the purpose of this pipeline it was not used.  A workable pipeline is developed.  The results . \\
+This research project entails studying different segmentation algorithms with the aim of identify sharks for various environmental and biological purposes.
+The Growcut algorithm is discussed as the main segmentation algorithm.  A workable pipeline is developed.  The results . \\
 
 \subsection{Future work}
 Future work entails developing a user
