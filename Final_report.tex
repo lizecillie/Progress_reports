@@ -884,7 +884,8 @@ are a selection from which the fins were detected accurately. \\
 \end{figure}
 
 There are however fins, that are similar to the ones below, which contain a lot of noise and thereby influencing the detection of the fin.
-This could result in the wrong side of the fin being detected. \\
+This could result in the wrong side of the fin being detected.  To correct this, there is the option of detecting the paths that describe each side of the fin
+and then determining which path has the greatest variance.  Since we expect the serrated part of the fin to have greater variance, this method will hopefully indicate which path to use for fin matching. \\
 
 \begin{figure}[H]
 \centering
